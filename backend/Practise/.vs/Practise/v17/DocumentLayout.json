@@ -3,12 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\Abdullah\\Desktop\\Bus Reservation .net\\backend\\Practise\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{9F004392-B937-4854-A58B-4E14BE3FFBBA}|Practise.csproj|c:\\users\\abdullah\\desktop\\bus reservation .net\\backend\\practise\\dockerfile||{8B382828-6202-11D1-8870-0000F87579D2}",
-      "RelativeMoniker": "D:0:0:{9F004392-B937-4854-A58B-4E14BE3FFBBA}|Practise.csproj|solutionrelative:dockerfile||{8B382828-6202-11D1-8870-0000F87579D2}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{9F004392-B937-4854-A58B-4E14BE3FFBBA}|Practise.csproj|c:\\users\\abdullah\\desktop\\bus reservation .net\\backend\\practise\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{9F004392-B937-4854-A58B-4E14BE3FFBBA}|Practise.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9F004392-B937-4854-A58B-4E14BE3FFBBA}|Practise.csproj|c:\\users\\abdullah\\desktop\\bus reservation .net\\backend\\practise\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{9F004392-B937-4854-A58B-4E14BE3FFBBA}|Practise.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9F004392-B937-4854-A58B-4E14BE3FFBBA}|Practise.csproj|c:\\users\\abdullah\\desktop\\bus reservation .net\\backend\\practise\\dockerfile||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{9F004392-B937-4854-A58B-4E14BE3FFBBA}|Practise.csproj|solutionrelative:dockerfile||{8B382828-6202-11D1-8870-0000F87579D2}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{9F004392-B937-4854-A58B-4E14BE3FFBBA}|Practise.csproj|c:\\users\\abdullah\\desktop\\bus reservation .net\\backend\\practise\\controllers\\addschedulecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -107,10 +111,6 @@
       "RelativeMoniker": "D:0:0:{9F004392-B937-4854-A58B-4E14BE3FFBBA}|Practise.csproj|solutionrelative:dto\\search.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9F004392-B937-4854-A58B-4E14BE3FFBBA}|Practise.csproj|c:\\users\\abdullah\\desktop\\bus reservation .net\\backend\\practise\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{9F004392-B937-4854-A58B-4E14BE3FFBBA}|Practise.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{9F004392-B937-4854-A58B-4E14BE3FFBBA}|Practise.csproj|c:\\users\\abdullah\\desktop\\bus reservation .net\\backend\\practise\\controllers\\getschedulescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{9F004392-B937-4854-A58B-4E14BE3FFBBA}|Practise.csproj|solutionrelative:controllers\\getschedulescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -126,7 +126,7 @@
       "DocumentGroups": [
         {
           "DockedHeight": 328,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Bookmark",
@@ -134,7 +134,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "Dockerfile",
               "DocumentMoniker": "C:\\Users\\Abdullah\\Desktop\\Bus Reservation .net\\backend\\Practise\\Dockerfile",
               "RelativeDocumentMoniker": "Dockerfile",
@@ -147,7 +147,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "Bus\u0026RouteController.cs",
               "DocumentMoniker": "C:\\Users\\Abdullah\\Desktop\\Bus Reservation .net\\backend\\Practise\\Controllers\\Bus\u0026RouteController.cs",
               "RelativeDocumentMoniker": "Controllers\\Bus\u0026RouteController.cs",
@@ -159,7 +159,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "addRouteDTO.cs",
               "DocumentMoniker": "C:\\Users\\Abdullah\\Desktop\\Bus Reservation .net\\backend\\Practise\\DTO\\addRouteDTO.cs",
               "RelativeDocumentMoniker": "DTO\\addRouteDTO.cs",
@@ -171,7 +171,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "addScheduleDTO.cs",
               "DocumentMoniker": "C:\\Users\\Abdullah\\Desktop\\Bus Reservation .net\\backend\\Practise\\DTO\\addScheduleDTO.cs",
               "RelativeDocumentMoniker": "DTO\\addScheduleDTO.cs",
@@ -183,7 +183,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "ReservationController.cs",
               "DocumentMoniker": "C:\\Users\\Abdullah\\Desktop\\Bus Reservation .net\\backend\\Practise\\Controllers\\ReservationController.cs",
               "RelativeDocumentMoniker": "Controllers\\ReservationController.cs",
@@ -195,20 +195,33 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\Abdullah\\Desktop\\Bus Reservation .net\\backend\\Practise\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
               "ToolTip": "C:\\Users\\Abdullah\\Desktop\\Bus Reservation .net\\backend\\Practise\\Program.cs",
               "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAACQAAAAAAAAAAAAkwDcAAAA+AAAAAAAAAA==",
+              "ViewState": "AgIAAC0AAAAAAAAAAAAkwDUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-07-04T06:51:26.259Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\Abdullah\\Desktop\\Bus Reservation .net\\backend\\Practise\\appsettings.json",
+              "RelativeDocumentMoniker": "appsettings.json",
+              "ToolTip": "C:\\Users\\Abdullah\\Desktop\\Bus Reservation .net\\backend\\Practise\\appsettings.json",
+              "RelativeToolTip": "appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-07-11T02:58:09.784Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "addScheduleController.cs",
               "DocumentMoniker": "C:\\Users\\Abdullah\\Desktop\\Bus Reservation .net\\backend\\Practise\\Controllers\\addScheduleController.cs",
               "RelativeDocumentMoniker": "Controllers\\addScheduleController.cs",
@@ -220,7 +233,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "addBusController.cs",
               "DocumentMoniker": "C:\\Users\\Abdullah\\Desktop\\Bus Reservation .net\\backend\\Practise\\Controllers\\addBusController.cs",
               "RelativeDocumentMoniker": "Controllers\\addBusController.cs",
@@ -232,7 +245,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 9,
               "Title": "AppDbContext.cs",
               "DocumentMoniker": "C:\\Users\\Abdullah\\Desktop\\Bus Reservation .net\\backend\\Practise\\Data\\AppDbContext.cs",
               "RelativeDocumentMoniker": "Data\\AppDbContext.cs",
@@ -244,7 +257,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 12,
               "Title": "Routes.cs",
               "DocumentMoniker": "C:\\Users\\Abdullah\\Desktop\\Bus Reservation .net\\backend\\Practise\\Models\\Routes.cs",
               "RelativeDocumentMoniker": "Models\\Routes.cs",
@@ -256,7 +269,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 10,
               "Title": "Schedules.cs",
               "DocumentMoniker": "C:\\Users\\Abdullah\\Desktop\\Bus Reservation .net\\backend\\Practise\\Models\\Schedules.cs",
               "RelativeDocumentMoniker": "Models\\Schedules.cs",
@@ -268,7 +281,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 11,
               "Title": "addRouteController.cs",
               "DocumentMoniker": "C:\\Users\\Abdullah\\Desktop\\Bus Reservation .net\\backend\\Practise\\Controllers\\addRouteController.cs",
               "RelativeDocumentMoniker": "Controllers\\addRouteController.cs",
@@ -280,7 +293,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 13,
               "Title": "Bus.cs",
               "DocumentMoniker": "C:\\Users\\Abdullah\\Desktop\\Bus Reservation .net\\backend\\Practise\\Models\\Bus.cs",
               "RelativeDocumentMoniker": "Models\\Bus.cs",
@@ -292,7 +305,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 14,
               "Title": "GetDetailsController.cs",
               "DocumentMoniker": "C:\\Users\\Abdullah\\Desktop\\Bus Reservation .net\\backend\\Practise\\Controllers\\GetDetailsController.cs",
               "RelativeDocumentMoniker": "Controllers\\GetDetailsController.cs",
@@ -304,7 +317,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 15,
               "Title": "signupController.cs",
               "DocumentMoniker": "C:\\Users\\Abdullah\\Desktop\\Bus Reservation .net\\backend\\Practise\\Controllers\\signupController.cs",
               "RelativeDocumentMoniker": "Controllers\\signupController.cs",
@@ -316,7 +329,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 16,
               "Title": "User.cs",
               "DocumentMoniker": "C:\\Users\\Abdullah\\Desktop\\Bus Reservation .net\\backend\\Practise\\Models\\User.cs",
               "RelativeDocumentMoniker": "Models\\User.cs",
@@ -328,7 +341,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 17,
               "Title": "ReservationDTO.cs",
               "DocumentMoniker": "C:\\Users\\Abdullah\\Desktop\\Bus Reservation .net\\backend\\Practise\\DTO\\ReservationDTO.cs",
               "RelativeDocumentMoniker": "DTO\\ReservationDTO.cs",
@@ -340,7 +353,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 19,
               "Title": "GetSeatsController.cs",
               "DocumentMoniker": "C:\\Users\\Abdullah\\Desktop\\Bus Reservation .net\\backend\\Practise\\Controllers\\GetSeatsController.cs",
               "RelativeDocumentMoniker": "Controllers\\GetSeatsController.cs",
@@ -352,7 +365,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 18,
               "Title": "LoginDTO.cs",
               "DocumentMoniker": "C:\\Users\\Abdullah\\Desktop\\Bus Reservation .net\\backend\\Practise\\DTO\\LoginDTO.cs",
               "RelativeDocumentMoniker": "DTO\\LoginDTO.cs",
@@ -364,7 +377,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 20,
               "Title": "logoutController.cs",
               "DocumentMoniker": "C:\\Users\\Abdullah\\Desktop\\Bus Reservation .net\\backend\\Practise\\Controllers\\logoutController.cs",
               "RelativeDocumentMoniker": "Controllers\\logoutController.cs",
@@ -376,7 +389,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 21,
               "Title": "checkLoginController.cs",
               "DocumentMoniker": "C:\\Users\\Abdullah\\Desktop\\Bus Reservation .net\\backend\\Practise\\Controllers\\checkLoginController.cs",
               "RelativeDocumentMoniker": "Controllers\\checkLoginController.cs",
@@ -388,7 +401,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 22,
               "Title": "LoginController.cs",
               "DocumentMoniker": "C:\\Users\\Abdullah\\Desktop\\Bus Reservation .net\\backend\\Practise\\Controllers\\LoginController.cs",
               "RelativeDocumentMoniker": "Controllers\\LoginController.cs",
@@ -400,7 +413,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 26,
               "Title": "Search.cs",
               "DocumentMoniker": "C:\\Users\\Abdullah\\Desktop\\Bus Reservation .net\\backend\\Practise\\DTO\\Search.cs",
               "RelativeDocumentMoniker": "DTO\\Search.cs",
@@ -412,7 +425,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 23,
               "Title": "ReservationDetailDTO.cs",
               "DocumentMoniker": "C:\\Users\\Abdullah\\Desktop\\Bus Reservation .net\\backend\\Practise\\DTO\\ReservationDetailDTO.cs",
               "RelativeDocumentMoniker": "DTO\\ReservationDetailDTO.cs",
@@ -424,7 +437,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 24,
               "Title": "ReservationsDetail.cs",
               "DocumentMoniker": "C:\\Users\\Abdullah\\Desktop\\Bus Reservation .net\\backend\\Practise\\Models\\ReservationsDetail.cs",
               "RelativeDocumentMoniker": "Models\\ReservationsDetail.cs",
@@ -436,7 +449,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 25,
               "Title": "Reservations.cs",
               "DocumentMoniker": "C:\\Users\\Abdullah\\Desktop\\Bus Reservation .net\\backend\\Practise\\Models\\Reservations.cs",
               "RelativeDocumentMoniker": "Models\\Reservations.cs",
@@ -445,18 +458,6 @@
               "ViewState": "AgIAAAYAAAAAAAAAAAAAAA0AAAA3AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-07-17T06:20:39.512Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 26,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "C:\\Users\\Abdullah\\Desktop\\Bus Reservation .net\\backend\\Practise\\appsettings.json",
-              "RelativeDocumentMoniker": "appsettings.json",
-              "ToolTip": "C:\\Users\\Abdullah\\Desktop\\Bus Reservation .net\\backend\\Practise\\appsettings.json",
-              "RelativeToolTip": "appsettings.json",
-              "ViewState": "AgIAAA0AAAAAAAAAAAAwwA8AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-07-11T02:58:09.784Z"
             },
             {
               "$type": "Document",
