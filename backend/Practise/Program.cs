@@ -27,7 +27,11 @@ builder.Services.AddCors(options =>
 {
     options.AddDefaultPolicy(policy =>
     {
-        policy.WithOrigins("http://192.168.0.116:5173") // ✅ No trailing slash
+        policy.WithOrigins(
+            "http://localhost:3000",       // for local dev
+            "http://192.168.0.116:5173",   // LAN dev
+            "https://bus-reservation-system-in-asp-net-p.vercel.app/" // Vercel frontend
+        )
               .AllowAnyHeader()
               .AllowAnyMethod()
               .AllowCredentials();
@@ -49,5 +53,5 @@ app.UseAuthorization();
 
 app.MapControllers();
 
-// ✅ FIX 2: Add URL binding to 0.0.0.0 so it works on LAN
-app.Run("http://0.0.0.0:5212");
+var port = Environment.GetEnvironmentVariable("PORT") ?? "5212";
+app.Run($"http://0.0.0.0:{port}");
