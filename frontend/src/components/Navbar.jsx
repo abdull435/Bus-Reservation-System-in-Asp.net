@@ -5,14 +5,14 @@ export default function Navbar() {
   const [isLoggedin, setIsLoggedin] = useState(false);
 
   useEffect(() => {
-    axios.get('http://192.168.0.116:5212/checkLogin', { withCredentials: true })
+    axios.get('http://localhost:5212/checkLogin', { withCredentials: true })
       .then(res => {
           setIsLoggedin(res.data.loggedIn);
       });
   }, []);
 
   const handleLogout = async () => {
-      axios.get('http://192.168.0.116:5212/Logout', { withCredentials: true })
+      axios.get('http://localhost:5212/Logout', { withCredentials: true })
       .then(res=>{
         if(res.data.succes){
           setIsLoggedin(false);

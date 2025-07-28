@@ -3,18 +3,10 @@ using Practise.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Build connection string from environment variables
-var dbHost = Environment.GetEnvironmentVariable("MYSQL_ADDON_HOST");
-var dbPort = Environment.GetEnvironmentVariable("MYSQL_ADDON_PORT") ?? "3306";
-var dbName = Environment.GetEnvironmentVariable("MYSQL_ADDON_DB");
-var dbUser = Environment.GetEnvironmentVariable("MYSQL_ADDON_USER");
-var dbPassword = Environment.GetEnvironmentVariable("MYSQL_ADDON_PASSWORD");
+var def = builder.Configuration.GetConnectionString("DefaultConnection");
 
-var connectionString = $"server={dbHost};port={dbPort};database={dbName};user={dbUser};password={dbPassword};";
-
-// Register MySQL with Entity Framework
 builder.Services.AddDbContext<AppDbContext>(options =>
-    options.UseMySQL(connectionString));
+    options.UseMySQL(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 // Add other services
 builder.Services.AddControllers();
@@ -33,9 +25,8 @@ builder.Services.AddCors(options =>
     options.AddDefaultPolicy(policy =>
     {
         policy.WithOrigins(
-                "http://localhost:3000",       // for local dev
-                "http://192.168.0.116:5173",   // LAN dev
-                "https://bus-reservation-system-in-asp-net-p.vercel.app/" // Vercel frontend
+                "http://localhost:5173",
+                "http://192.168.1.12:5173"
 )
               .AllowAnyHeader()
               .AllowAnyMethod()
@@ -52,6 +43,4 @@ app.UseSwaggerUI();
 app.UseAuthorization();
 app.MapControllers();
 
-// Use PORT from Render
-var port = Environment.GetEnvironmentVariable("PORT") ?? "5000";
-app.Run($"http://0.0.0.0:{port}");
+app.Run("http://0.0.0.0:5212");

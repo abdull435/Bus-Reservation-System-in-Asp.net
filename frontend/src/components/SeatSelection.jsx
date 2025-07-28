@@ -122,7 +122,7 @@ const SeatSelection = () => {
     }))
     }
 
-      axios.post(`http://192.168.0.116:5212/Reservation`,reservation, { withCredentials: true })
+      axios.post(`http://localhost:5212/Reservation`,reservation, { withCredentials: true })
         .then(res => { {
             alert(res.data.message);
           }

@@ -130,3 +130,4 @@ C:\Users\Abdullah\Desktop\Bus Reservation .net\backend\Practise\obj\Debug\net8.0
 C:\Users\Abdullah\Desktop\Bus Reservation .net\backend\Practise\obj\Debug\net8.0\Practise.csproj.Up2Date
 C:\Users\Abdullah\Desktop\Bus Reservation .net\backend\Practise\obj\Debug\net8.0\Practise.genruntimeconfig.cache
 C:\Users\Abdullah\Desktop\Bus Reservation .net\backend\Practise\obj\Debug\net8.0\ref\Practise.dll
+C:\Users\Abdullah\Desktop\Bus Reservation .net\backend\Practise\obj\Debug\net8.0\Practise.sourcelink.json

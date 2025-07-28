@@ -13,7 +13,7 @@ const Home = () => {
 
   useEffect(() => {
     
-    axios.get('http://192.168.0.116:5212/get-cities')
+    axios.get('http://localhost:5212/get-cities')
       .then(res => {
         if (res.data.success) {
           setLoggedin(res.data.login);

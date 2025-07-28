@@ -15,7 +15,7 @@ const AddBus = () => {
     }
 
     axios
-      .post('http://192.168.0.116:5212/addBus', { bus_name: busName, total_seats: totalSeats, bus_type: busType },{withCredentials: true})
+      .post('http://localhost:5212/addBus', { bus_name: busName, total_seats: totalSeats, bus_type: busType },{withCredentials: true})
       .then((response) => {
         if (response.data.success) {
           alert('Bus added successfully');

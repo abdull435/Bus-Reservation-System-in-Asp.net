@@ -17,7 +17,7 @@ const Schedule = ({ from, to, date }) => {
 
     setLoading(true);
 
-    axios.post('http://192.168.0.116:5212/GetSchedules', {
+    axios.post('http://localhost:5212/GetSchedules', {
       from_city: from,
       to_city: to,
       date,
@@ -41,7 +41,7 @@ const Schedule = ({ from, to, date }) => {
   const handleViewSeats = (schedule) => {
     
 
-    axios.get('http://192.168.0.116:5212/checkLogin', { withCredentials: true })
+    axios.get('http://localhost:5212/checkLogin', { withCredentials: true })
       .then(res => {
         if(res.data.loggedIn){
           setSelectedSchedule(schedule);

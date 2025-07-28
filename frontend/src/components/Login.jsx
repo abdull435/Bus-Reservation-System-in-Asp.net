@@ -24,7 +24,7 @@ const Login = () => {
     try {
       
 
-      const res = await axios.post('http://192.168.0.116:5212/Login', {
+      const res = await axios.post('http://localhost:5212/Login', {
         email,
         password
       },{
