@@ -3,6 +3,7 @@ import AddBus from './AddBus';
 import AddRoute from './AddRoute';
 import AddSchedule from './AddSchedule';
 import UpdateBus from './UpdateBus';
+import UpdateRoute from './UPdateRoute';
 
 const AdminPanel = () => {
   const [activeComponent, setActiveComponent] = useState('');
@@ -18,6 +19,8 @@ const AdminPanel = () => {
         return <AddSchedule />;
       case 'update-bus':
         return <UpdateBus/>
+      case 'update-route':
+        return <UpdateRoute/>
       default:
         return <div className="text-center text-gray-600 mt-10">Please select an action above.</div>;
     }
@@ -72,7 +75,7 @@ const AdminPanel = () => {
             Update Bus
           </button>
           <button
-            onClick={() => setActiveComponent('add-route')}
+            onClick={() => setActiveComponent('update-route')}
             className="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-md cursor-pointer"
           >
             Update Route

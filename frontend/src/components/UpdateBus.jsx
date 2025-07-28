@@ -28,7 +28,7 @@ const UpdateBus = () => {
     }),[busId]
 
     return(
-        <div className="min-h-screen flex items-center justify-center">
+    <div className="min-h-screen flex items-center justify-center">
       <div className="max-w-md w-full bg-white rounded-xl shadow-md p-6 mt-[10vh]">
         <h1 className="text-2xl font-bold text-center text-blue-600 mb-6">Update Bus</h1>
         <form className="space-y-4">
