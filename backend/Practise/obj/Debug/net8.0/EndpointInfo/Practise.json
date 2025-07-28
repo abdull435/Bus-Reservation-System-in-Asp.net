@@ -122,6 +122,18 @@
         }
       }
     },
+    "/GetAllSchedules": {
+      "get": {
+        "tags": [
+          "GetAllSchedules"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/get-cities": {
       "get": {
         "tags": [

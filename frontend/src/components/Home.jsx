@@ -8,7 +8,7 @@ const Home = () => {
   const [from, setFrom] = useState('');
   const [to, setTo] = useState('');
   const [date, setDate] = useState('');
-  const [loggedin, setLoggedin] = useState(false);
+  // const [loggedin, setLoggedin] = useState(false);
   const [showSchedules, setShowSchedules] = useState(false);
 
   useEffect(() => {
@@ -16,7 +16,7 @@ const Home = () => {
     axios.get('http://localhost:5212/get-cities')
       .then(res => {
         if (res.data.success) {
-          setLoggedin(res.data.login);
+          // setLoggedin(res.data.login);
           setCities(res.data.routes);
         }
       })
@@ -32,7 +32,7 @@ const Home = () => {
     }
   };
 
-  const today = new Date().toISOString().split("T")[0];
+  // const today = new Date().toISOString().split("T")[0];
 
   return (
     <>

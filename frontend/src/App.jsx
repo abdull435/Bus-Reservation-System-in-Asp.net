@@ -8,7 +8,6 @@ import Login from './components/Login';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { ScheduleProvider } from './components/ScheduleContext';
 import Signup from './components/Signup';
-import UpdateRoute from './components/UPdateRoute';
 
 function App() {   
   return (
@@ -21,7 +20,6 @@ function App() {
       <Route path="/schedule" element={<><Navbar/><SeatSelection /></>} />
       <Route path="/signup" element={<Signup />} />
       <Route path="/admin" element={<AdminPanel />} />
-      <Route path='/u' element={<UpdateRoute/>}/>
       </Routes>
     </Router>
     </ScheduleProvider>

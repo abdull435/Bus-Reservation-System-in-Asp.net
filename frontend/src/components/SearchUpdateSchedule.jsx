@@ -1,0 +1,81 @@
+import { useEffect, useState } from "react";
+import axios from "axios";
+
+const UpdateSchedule = () => {
+
+    const [cities, setCities] = useState([]);
+    const [from, setFrom] = useState('');
+    const [to, setTo] = useState('');
+    const [date, setDate] = useState('');
+    const [showSchedules, setShowSchedules] = useState(false);
+
+    useEffect(() => {
+    
+    axios.get('http://localhost:5212/get-cities')
+      .then(res => {
+        if (res.data.success) {
+          setCities(res.data.routes);
+        }
+      })
+      .catch(err => console.error('Error fetching cities:', err));
+  }, []);
+
+    return (
+        <div className="min-h-screen flex items-center justify-center">
+            <div className="max-w-md w-full bg-white rounded-xl shadow-md p-6 mt-[10vh]">
+                <h1 className="text-2xl font-bold text-center text-blue-600 mb-6">Update Schedule</h1>
+                <form className="space-y-4">
+                    <div>
+                        <label className="block text-gray-700 text-sm font-bold mb-2">Travel From</label>
+                        <input
+                            list="fromOptions"
+                            name="from" required
+                            onChange={(e) => setFrom(e.target.value)}
+                            className="w-full px-3 py-2 border border-gray-300 rounded-md"
+                        />
+                        <datalist id="fromOptions">
+                            {cities.map((city, index) => (
+                                <option key={index} value={city} />
+                            ))}
+                        </datalist>
+                    </div>
+
+                    <div>
+                        <label className="block text-gray-700 text-sm font-bold mb-2">
+                            Travel To
+                        </label>
+                        <input list="toOptions" name="to" required
+                            onChange={(e) => setTo(e.target.value)}
+                            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        />
+                        <datalist id="toOptions">
+                            {cities.map((city, index) => (
+                                <option key={index} value={city} />
+                            ))}
+                        </datalist>
+                    </div>
+
+                    <div>
+                        <label className="block text-gray-700 text-sm font-bold mb-2">
+                            Departure Date
+                        </label>
+                        <input type="date" id="date" name="date" required
+                            onChange={(e) => setDate(e.target.value)}
+                            // min={today}
+                            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        />
+                    </div>
+
+                    <button
+                        type='button'
+                        // onClick={handleSubmit}
+                        className="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-4 rounded-md transition duration-300"
+                    >
+                        Find Schedule
+                    </button>
+                </form>
+            </div>
+        </div>
+    );
+}
+export default UpdateSchedule;

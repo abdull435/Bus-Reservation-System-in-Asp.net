@@ -78,6 +78,16 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "Practise.Controllers.GetAllSchedulesController",
+    "Method": "Get",
+    "RelativePath": "GetAllSchedules",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "Practise.Controllers.GetSchedulesController",
     "Method": "GetSchedule",
     "RelativePath": "GetSchedules",
