@@ -42,6 +42,13 @@ const AdminPanel = () => {
         >
           Add Schedule
         </button>
+        <button
+          onClick={() => setActiveComponent('Delete')}
+          className="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-md cursor-pointer"
+        >
+          Add Schedule
+        </button>
+
       </div>
 
       <div className="max-w-2xl mx-auto bg-white shadow-md rounded-lg p-6">
