@@ -3,7 +3,7 @@ import axios from "axios";
 
 const UpdateSchedule = ({ from, to, date }) => {
 
-    const navigate = useNavigate();
+    // const navigate = useNavigate();
     const [schedules, setSchedules] = useState([]);
     const [loading, setLoading] = useState(true);
 
@@ -49,7 +49,7 @@ const UpdateSchedule = ({ from, to, date }) => {
               <p><strong>Arrival:</strong> {new Date(schedule.arrival_time).toLocaleTimeString()}</p>
               <p><strong>Date:</strong> {new Date(schedule.date).toLocaleDateString()}</p>
               <p><strong>Price:</strong> {schedule.price}</p>
-              <button onClick={() => handleViewSeats(schedule)} className="mt-10 bg-blue-600 text-white px-4 py-2 rounded cursor-pointer"
+              <button className="mt-10 bg-blue-600 text-white px-4 py-2 rounded cursor-pointer"
               >View Seats</button>
             </div>
           ))}

@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import UpdateSchedule from "./UpdateSchedule"
 
-const UpdateSchedule = () => {
+const SearchUpdateSchedule = () => {
 
     const [cities, setCities] = useState([]);
     const [from, setFrom] = useState('');
@@ -20,11 +21,21 @@ const UpdateSchedule = () => {
       .catch(err => console.error('Error fetching cities:', err));
   }, []);
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (from && to && date) {
+      setShowSchedules(true);
+    } else {
+      alert("Please fill all fields.");
+    }
+  };
+
     return (
+        <>
         <div className="min-h-screen flex items-center justify-center">
             <div className="max-w-md w-full bg-white rounded-xl shadow-md p-6 mt-[10vh]">
                 <h1 className="text-2xl font-bold text-center text-blue-600 mb-6">Update Schedule</h1>
-                <form className="space-y-4">
+                <form className="space-y-4" onSubmit={handleSubmit}>
                     <div>
                         <label className="block text-gray-700 text-sm font-bold mb-2">Travel From</label>
                         <input
@@ -67,8 +78,7 @@ const UpdateSchedule = () => {
                     </div>
 
                     <button
-                        type='button'
-                        // onClick={handleSubmit}
+                        type="submit"
                         className="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-4 rounded-md transition duration-300"
                     >
                         Find Schedule
@@ -76,6 +86,13 @@ const UpdateSchedule = () => {
                 </form>
             </div>
         </div>
+
+        {showSchedules && (
+        <div className="w-full max-w-2xl mt-8 px-4 item-center justify-center flex flex-col">
+          <UpdateSchedule from={from} to={to} date={date} />
+        </div>
+      )}
+      </>
     );
 }
-export default UpdateSchedule;
+export default SearchUpdateSchedule;

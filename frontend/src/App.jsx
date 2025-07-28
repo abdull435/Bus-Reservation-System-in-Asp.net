@@ -2,7 +2,7 @@ import './App.css'
 import Navbar from './components/Navbar';
 import Home from './components/Home';
 import SeatSelection from './components/SeatSelection';
-import AddSchedule from './components/AddSchedule';
+import SearchUpdateSchedule from './components/SearchUpdateSchedule';
 import AdminPanel from './components/AdminPanel';
 import Login from './components/Login';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
@@ -20,6 +20,7 @@ function App() {
       <Route path="/schedule" element={<><Navbar/><SeatSelection /></>} />
       <Route path="/signup" element={<Signup />} />
       <Route path="/admin" element={<AdminPanel />} />
+      <Route path='/we' element={<SearchUpdateSchedule/>}/>
       </Routes>
     </Router>
     </ScheduleProvider>
