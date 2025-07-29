@@ -75,8 +75,6 @@ const UpdateRoute = () => {
         </div>
         </div>
     );
-
-
 };
 
 export default UpdateRoute;

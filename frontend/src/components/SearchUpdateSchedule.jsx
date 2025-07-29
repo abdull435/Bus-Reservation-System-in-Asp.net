@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import UpdateSchedule from "./UpdateSchedule"
+import SeeAllSchedules from "./SeeAllSchedules"
 
 const SearchUpdateSchedule = () => {
 
@@ -89,7 +89,7 @@ const SearchUpdateSchedule = () => {
 
         {showSchedules && (
         <div className="w-full max-w-2xl mt-8 px-4 item-center justify-center flex flex-col">
-          <UpdateSchedule from={from} to={to} date={date} />
+          <SeeAllSchedules from={from} to={to} date={date} close={()=>setShowSchedules(false)} />
         </div>
       )}
       </>
