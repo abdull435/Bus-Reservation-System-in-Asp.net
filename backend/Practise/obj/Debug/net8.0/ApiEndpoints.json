@@ -48,6 +48,27 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "Practise.Controllers.addScheduleController",
+    "Method": "updateSchedule",
+    "RelativePath": "addSchedule/update-schedule/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "model",
+        "Type": "Practise.DTO.addScheduleDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "Practise.Controllers.Bus_RouteController",
     "Method": "Get",
     "RelativePath": "Bus_Route",

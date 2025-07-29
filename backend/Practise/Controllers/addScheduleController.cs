@@ -21,7 +21,7 @@ namespace Practise.Controllers
         [HttpPost]
         public IActionResult addSchedules([FromBody] addScheduleDTO model)
         {
-            Console.WriteLine($"Bus ID: {model.bus_id}");
+            //Console.WriteLine($"Bus ID: {model.bus_id}");
             var schedule = new Schedules
             {
                 bus_id = model.bus_id,
@@ -34,6 +34,27 @@ namespace Practise.Controllers
 
             _context.schedules.Add(schedule);
             _context.SaveChanges();
+
+            return Ok(new { success = true });
+        }
+
+        [HttpPut("update-schedule/{id}")]
+        public async Task<IActionResult> updateSchedule(int id, [FromBody] addScheduleDTO model)
+        {
+            var schedule = await _context.schedules.FindAsync(id);
+            if (schedule == null)
+            {
+                return BadRequest("Not Found");
+            }
+
+            schedule.bus_id = model.bus_id;
+            schedule.route_id = model.route_id;
+            schedule.departure_time = model.departure_time;
+            schedule.arrival_time = model.arrival_time;
+            schedule.date = model.date;
+            schedule.price = model.price;
+
+            await _context.SaveChangesAsync();
 
             return Ok(new { success = true });
         }

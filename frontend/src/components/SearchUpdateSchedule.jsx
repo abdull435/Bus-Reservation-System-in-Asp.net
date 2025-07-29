@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import SeeAllSchedules from "./SeeAllSchedules"
+import SeeAllSchedules from "./SeeAllSchedules";
+import UpdateSchedule from "./updateSchedule";
+
 
 const SearchUpdateSchedule = () => {
 
@@ -9,6 +11,10 @@ const SearchUpdateSchedule = () => {
     const [to, setTo] = useState('');
     const [date, setDate] = useState('');
     const [showSchedules, setShowSchedules] = useState(false);
+
+    const [selectedSchedules, setSelectedSchedule] = useState([]);
+    const [showUpdateSchedule, setShowUpdateSchedule] = useState(false);
+    
 
     useEffect(() => {
     
@@ -89,9 +95,18 @@ const SearchUpdateSchedule = () => {
 
         {showSchedules && (
         <div className="w-full max-w-2xl mt-8 px-4 item-center justify-center flex flex-col">
-          <SeeAllSchedules from={from} to={to} date={date} close={()=>setShowSchedules(false)} />
+          <SeeAllSchedules from={from} to={to} date={date} updateForm={(schedule)=>{setSelectedSchedule(schedule)
+            setShowUpdateSchedule(true);
+            setShowSchedules(false);
+          }} />
         </div>
       )}
+
+      {showUpdateSchedule &&
+      (<UpdateSchedule selectedSchedule={selectedSchedules} />)
+
+    }
+
       </>
     );
 }

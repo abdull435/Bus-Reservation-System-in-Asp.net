@@ -98,6 +98,48 @@
         }
       }
     },
+    "/addSchedule/update-schedule/{id}": {
+      "put": {
+        "tags": [
+          "addSchedule"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/addScheduleDTO"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/addScheduleDTO"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/addScheduleDTO"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/Bus_Route": {
       "get": {
         "tags": [
@@ -467,6 +509,10 @@
       "addScheduleDTO": {
         "type": "object",
         "properties": {
+          "schedule_id": {
+            "type": "integer",
+            "format": "int32"
+          },
           "bus_id": {
             "type": "integer",
             "format": "int32"
