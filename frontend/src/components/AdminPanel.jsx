@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import ViewBus from './viewBus';
 import AddBus from './AddBus';
 import AddRoute from './AddRoute';
 import AddSchedule from './AddSchedule';
@@ -24,6 +25,8 @@ const AdminPanel = () => {
         return <UpdateRoute/>
       case 'update-schedule':
         return <UpdateSchedule/>
+      case 'view-bus':
+        return <ViewBus/>
       default:
         return <div className="text-center text-gray-600 mt-10">Please select an action above.</div>;
     }
@@ -34,6 +37,9 @@ const AdminPanel = () => {
     <div className="min-h-screen bg-gray-100 p-6">
       <h1 className="text-3xl font-bold text-center text-blue-700 mb-8">Admin Dashboard</h1>
       <div className='flex justify-center space-x-4 mb-8'>
+        <button onClick={() => setActiveSection(activeSection === "view" ? '' : "view")}
+          className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md cursor-pointer">
+          View</button>
         <button onClick={() => setActiveSection(activeSection === "add" ? '' : "add")}
           className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md cursor-pointer">
           Add</button>
@@ -111,6 +117,29 @@ const AdminPanel = () => {
             className="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-md cursor-pointer"
           >
             Delete Schedule
+          </button>
+
+        </div>}
+
+      {activeSection === "view" &&
+        <div className={"flex justify-center space-x-4 mb-8 "}>
+          <button
+            onClick={() => setActiveComponent('view-bus')}
+            className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md cursor-pointer"
+          >
+            View Bus
+          </button>
+          <button
+            onClick={() => setActiveComponent('view-route')}
+            className="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-md cursor-pointer"
+          >
+            View Route
+          </button>
+          <button
+            onClick={() => setActiveComponent('view-schedule')}
+            className="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-md cursor-pointer"
+          >
+            View Schedule
           </button>
 
         </div>}

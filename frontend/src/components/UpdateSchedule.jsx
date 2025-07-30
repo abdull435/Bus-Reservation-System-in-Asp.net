@@ -64,7 +64,7 @@ const UpdateSchedule = ({selectedSchedule}) => {
       price: price,
     };
     
-    axios.put(`http://localhost:5212/addSchedule/update-schedule/${scheduleId}`, scheduleData ,{ withCredentials: true })
+    axios.put(`http://localhost:5212/Schedule/update-schedule/${scheduleId}`, scheduleData ,{ withCredentials: true })
       .then((response) => {
         if(response.data.success){
           alert("Schedule Updated");

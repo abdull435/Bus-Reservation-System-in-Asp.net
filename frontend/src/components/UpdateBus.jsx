@@ -25,7 +25,32 @@ const UpdateBus = () => {
         setBusName(bus.bus_name);
         setTotalSeats(bus.total_seats);
         setBusType(bus.bus_type);}
-    }),[busId]
+    },[busId, buses])
+
+    const handleSubmit = () => {
+
+    if (!busName || !totalSeats || !busType) {
+      alert('Please fill out all fields');
+      return;
+    }
+
+    axios
+      .put(`http://localhost:5212/Bus/update-bus/${busId}`, { bus_name: busName, total_seats: totalSeats, bus_type: busType },{withCredentials: true})
+      .then((response) => {
+        if (response.data.success) {
+          alert('Bus added successfully');
+          setBusName('');
+        setTotalSeats('');
+        setBusType('');
+        } else {
+          alert('Error adding bus');
+        }
+      })
+      .catch((error) => {
+        console.error('Error adding bus:', error);
+        alert('Failed to add bus');
+      });
+  };
 
     return(
     <div className="min-h-screen flex items-center justify-center">
@@ -79,10 +104,10 @@ const UpdateBus = () => {
           </div>
         <button
             type='button'
-            // onClick={handleSubmit}
+            onClick={handleSubmit}
             className="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-4 rounded-md transition duration-300"
           >
-            Delete Bus
+            Update Bus
           </button>
         </form>
         </div>

@@ -57,7 +57,7 @@ const AddSchedule = () => {
       price: price,
     };
     
-    axios.post(`http://localhost:5212/addSchedule`, scheduleData, { withCredentials: true })
+    axios.post(`http://localhost:5212/Schedule/add-schedule"`, scheduleData, { withCredentials: true })
       .then((response) => {
         if (response.data.success) {
           alert('Schedule added successfully');

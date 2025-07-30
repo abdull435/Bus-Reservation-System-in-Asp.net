@@ -15,10 +15,13 @@ const AddBus = () => {
     }
 
     axios
-      .post('http://localhost:5212/addBus', { bus_name: busName, total_seats: totalSeats, bus_type: busType },{withCredentials: true})
+      .post('http://localhost:5212/Bus/add-bus', { bus_name: busName, total_seats: totalSeats, bus_type: busType },{withCredentials: true})
       .then((response) => {
         if (response.data.success) {
           alert('Bus added successfully');
+          setBusName('');
+          setTotalSeats('');
+          setBusType('');
         } else {
           alert('Error adding bus');
         }
