@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import ViewBus from './viewBus';
+import ViewRoutes from './viewRoutes';
+import ViewSchedules from './ViewSchedules';
 import AddBus from './AddBus';
 import AddRoute from './AddRoute';
 import AddSchedule from './AddSchedule';
@@ -27,6 +29,10 @@ const AdminPanel = () => {
         return <UpdateSchedule/>
       case 'view-bus':
         return <ViewBus/>
+      case 'view-route':
+        return <ViewRoutes/>
+      case 'view-schedule':
+        return <ViewSchedules/>
       default:
         return <div className="text-center text-gray-600 mt-10">Please select an action above.</div>;
     }
