@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import UpdateSchedule from "./UpdateSchedule";
 import SeeAllSchedules from "./SeeAllSchedules";
-import UpdateSchedule from "./updateSchedule";
+
 
 
 const SearchUpdateSchedule = () => {
