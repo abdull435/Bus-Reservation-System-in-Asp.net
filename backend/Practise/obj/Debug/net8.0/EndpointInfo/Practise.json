@@ -5,10 +5,10 @@
     "version": "1.0"
   },
   "paths": {
-    "/addBus": {
+    "/Bus/add-bus": {
       "post": {
         "tags": [
-          "addBus"
+          "Bus"
         ],
         "requestBody": {
           "content": {
@@ -36,72 +36,10 @@
         }
       }
     },
-    "/addRoute": {
-      "post": {
-        "tags": [
-          "addRoute"
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/addRouteDTO"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/addRouteDTO"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/addRouteDTO"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
-    "/addSchedule": {
-      "post": {
-        "tags": [
-          "addSchedule"
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/addScheduleDTO"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/addScheduleDTO"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/addScheduleDTO"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
-    "/addSchedule/update-schedule/{id}": {
+    "/Bus/update-bus/{id}": {
       "put": {
         "tags": [
-          "addSchedule"
+          "Bus"
         ],
         "parameters": [
           {
@@ -118,17 +56,17 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/addScheduleDTO"
+                "$ref": "#/components/schemas/Bus"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/addScheduleDTO"
+                "$ref": "#/components/schemas/Bus"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/addScheduleDTO"
+                "$ref": "#/components/schemas/Bus"
               }
             }
           }
@@ -308,6 +246,164 @@
             }
           }
         },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/Route/add-route": {
+      "post": {
+        "tags": [
+          "Route"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/addRouteDTO"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/addRouteDTO"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/addRouteDTO"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/Route/update-route/{id}": {
+      "put": {
+        "tags": [
+          "Route"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/addRouteDTO"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/addRouteDTO"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/addRouteDTO"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/Schedule/add-schedule": {
+      "post": {
+        "tags": [
+          "Schedule"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/addScheduleDTO"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/addScheduleDTO"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/addScheduleDTO"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/Schedule/update-schedule/{id}": {
+      "put": {
+        "tags": [
+          "Schedule"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/addScheduleDTO"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/addScheduleDTO"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/addScheduleDTO"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/Schedule/get-schedules": {
+      "get": {
+        "tags": [
+          "Schedule"
+        ],
         "responses": {
           "200": {
             "description": "OK"

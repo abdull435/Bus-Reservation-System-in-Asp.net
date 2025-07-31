@@ -9,16 +9,16 @@ namespace Practise.Controllers
 {
     [Route("[controller]")]
     [ApiController]
-    public class addScheduleController : ControllerBase
+    public class ScheduleController : ControllerBase
     {
         public readonly AppDbContext _context;
 
-        public addScheduleController(AppDbContext context)
+        public ScheduleController(AppDbContext context)
         {
             _context = context;
         }
 
-        [HttpPost]
+        [HttpPost("add-schedule")]
         public IActionResult addSchedules([FromBody] addScheduleDTO model)
         {
             //Console.WriteLine($"Bus ID: {model.bus_id}");
@@ -54,9 +54,18 @@ namespace Practise.Controllers
             schedule.date = model.date;
             schedule.price = model.price;
 
+
             await _context.SaveChangesAsync();
 
             return Ok(new { success = true });
+        }
+
+        [HttpGet("get-schedules")]
+        public IActionResult Get()
+        {
+            var schedules = _context.schedules.ToList();
+
+            return Ok(new { schedules });
         }
 
     }

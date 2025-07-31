@@ -1,8 +1,18 @@
 [
   {
-    "ContainingType": "Practise.Controllers.addBusController",
+    "ContainingType": "Practise.Controllers.Bus_RouteController",
+    "Method": "Get",
+    "RelativePath": "Bus_Route",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Practise.Controllers.BusController",
     "Method": "addBus",
-    "RelativePath": "addBus",
+    "RelativePath": "Bus/add-bus",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -16,41 +26,9 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "Practise.Controllers.addRouteController",
-    "Method": "addRoute",
-    "RelativePath": "addRoute",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "model",
-        "Type": "Practise.DTO.addRouteDTO",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "Practise.Controllers.addScheduleController",
-    "Method": "addSchedules",
-    "RelativePath": "addSchedule",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "model",
-        "Type": "Practise.DTO.addScheduleDTO",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "Practise.Controllers.addScheduleController",
-    "Method": "updateSchedule",
-    "RelativePath": "addSchedule/update-schedule/{id}",
+    "ContainingType": "Practise.Controllers.BusController",
+    "Method": "updateBus",
+    "RelativePath": "Bus/update-bus/{id}",
     "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
@@ -62,20 +40,10 @@
       },
       {
         "Name": "model",
-        "Type": "Practise.DTO.addScheduleDTO",
+        "Type": "Practise.Models.Bus",
         "IsRequired": true
       }
     ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "Practise.Controllers.Bus_RouteController",
-    "Method": "Get",
-    "RelativePath": "Bus_Route",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
     "ReturnTypes": []
   },
   {
@@ -177,6 +145,90 @@
       {
         "Name": "model",
         "Type": "Practise.DTO.ReservationDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Practise.Controllers.RouteController",
+    "Method": "addRoute",
+    "RelativePath": "Route/add-route",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "Practise.DTO.addRouteDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Practise.Controllers.RouteController",
+    "Method": "updateRoute",
+    "RelativePath": "Route/update-route/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "model",
+        "Type": "Practise.DTO.addRouteDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Practise.Controllers.ScheduleController",
+    "Method": "addSchedules",
+    "RelativePath": "Schedule/add-schedule",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "Practise.DTO.addScheduleDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Practise.Controllers.ScheduleController",
+    "Method": "Get",
+    "RelativePath": "Schedule/get-schedules",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Practise.Controllers.ScheduleController",
+    "Method": "updateSchedule",
+    "RelativePath": "Schedule/update-schedule/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "model",
+        "Type": "Practise.DTO.addScheduleDTO",
         "IsRequired": true
       }
     ],
