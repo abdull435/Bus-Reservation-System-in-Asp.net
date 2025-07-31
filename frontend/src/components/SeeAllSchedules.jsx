@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import UpdateSchedule from "./updateSchedule";
 import axios from "axios";
 
 const SeeAllSchedules = ({ from, to, date, updateForm }) => {
