@@ -24,11 +24,15 @@ builder.Services.AddCors(options =>
 {
     options.AddDefaultPolicy(policy =>
     {
-        policy.WithOrigins(
-                "http://localhost:5173",
-                "http://192.168.1.12:5173",
-                "https://bus-reservation-system-in-asp-net-c.vercel.app"
+            policy
+.SetIsOriginAllowed(origin =>
+    origin.StartsWith("https://bus-reservation-system-in-asp-net-c")
 )
+//         policy.WithOrigins(
+//                 "http://localhost:5173",
+//                 "http://192.168.1.12:5173",
+//                 "https://bus-reservation-system-in-asp-net-c.vercel.app"
+// )
               .AllowAnyHeader()
               .AllowAnyMethod()
               .AllowCredentials();
