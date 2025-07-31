@@ -15,7 +15,7 @@ const SeeAllSchedules = ({ from, to, date, updateForm }) => {
 
         setLoading(true);
 
-        axios.post('http://localhost:5212/GetSchedules', {
+        axios.post('https://bus-reservation-system-in-aspnet-production.up.railway.app/GetSchedules', {
             from_city: from,
             to_city: to,
             date,

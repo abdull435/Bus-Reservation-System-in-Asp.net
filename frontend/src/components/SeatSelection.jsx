@@ -27,7 +27,7 @@ const SeatSelection = () => {
 
   useEffect(() => {
     if (selectedSchedule) {
-      axios.post(`http://192.168.0.116:5212/GetSeats?schedule_id=${selectedSchedule.schedule_id}`,null, { withCredentials: true })
+      axios.post(`https://bus-reservation-system-in-aspnet-production.up.railway.app/GetSeats?schedule_id=${selectedSchedule.schedule_id}`,null, { withCredentials: true })
         .then(res => {
           if (res.data.success) {
             const newColors = [...seatColors];
@@ -122,7 +122,7 @@ const SeatSelection = () => {
     }))
     }
 
-      axios.post(`http://localhost:5212/Reservation`,reservation, { withCredentials: true })
+      axios.post(`https://bus-reservation-system-in-aspnet-production.up.railway.app/Reservation`,reservation, { withCredentials: true })
         .then(res => { {
             alert(res.data.message);
           }

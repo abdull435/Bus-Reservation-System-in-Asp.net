@@ -5,7 +5,7 @@ const ViewBus = () => {
   const [buses, setBuses] = useState([]);
 
   useEffect(()=>{
-    axios.get('http://localhost:5212/Bus_Route')
+    axios.get('https://bus-reservation-system-in-aspnet-production.up.railway.app/Bus_Route')
       .then(response => {
       setBuses(response.data.bus);
       })

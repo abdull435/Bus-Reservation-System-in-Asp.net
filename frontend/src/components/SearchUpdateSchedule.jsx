@@ -18,7 +18,7 @@ const SearchUpdateSchedule = () => {
 
     useEffect(() => {
     
-    axios.get('http://localhost:5212/get-cities')
+    axios.get('https://bus-reservation-system-in-aspnet-production.up.railway.app/get-cities')
       .then(res => {
         if (res.data.success) {
           setCities(res.data.routes);

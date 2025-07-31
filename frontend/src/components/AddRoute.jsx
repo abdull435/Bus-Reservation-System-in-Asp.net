@@ -19,7 +19,7 @@ const AddRoute = () => {
     }
 
     axios
-      .post('http://localhost:5212/Route/add-route', { from_city: fromCity, to_city: toCity }, { withCredentials: true })
+      .post('https://bus-reservation-system-in-aspnet-production.up.railway.app/Route/add-route', { from_city: fromCity, to_city: toCity }, { withCredentials: true })
       .then((response) => {
         if (response.data.success) {
           alert('Route added successfully');

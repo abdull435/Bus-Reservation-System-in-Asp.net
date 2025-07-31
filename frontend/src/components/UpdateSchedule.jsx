@@ -22,7 +22,7 @@ const UpdateSchedule = ({selectedSchedule}) => {
   const today = new Date().toISOString().split("T")[0];
 
   useEffect(() => {
-    axios.get('http://localhost:5212/Bus_Route')
+    axios.get('https://bus-reservation-system-in-aspnet-production.up.railway.app/Bus_Route')
       .then(response => {
       setBuses(response.data.bus);
       setRoutes(response.data.route);
@@ -64,7 +64,7 @@ const UpdateSchedule = ({selectedSchedule}) => {
       price: price,
     };
     
-    axios.put(`http://localhost:5212/Schedule/update-schedule/${scheduleId}`, scheduleData ,{ withCredentials: true })
+    axios.put(`https://bus-reservation-system-in-aspnet-production.up.railway.app/Schedule/update-schedule/${scheduleId}`, scheduleData ,{ withCredentials: true })
       .then((response) => {
         if(response.data.success){
           alert("Schedule Updated");

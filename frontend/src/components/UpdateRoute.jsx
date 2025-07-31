@@ -8,7 +8,7 @@ const UpdateRoute = () => {
     const [routes, setRoutes] = useState([]);
 
     useEffect(() => {
-        axios.get('http://localhost:5212/Bus_Route')
+        axios.get('https://bus-reservation-system-in-aspnet-production.up.railway.app/Bus_Route')
             .then(response => {
                 setRoutes(response.data.route);
             })
@@ -39,7 +39,7 @@ const UpdateRoute = () => {
     }
 
     axios
-      .put(`http://localhost:5212/Route/update-route/${routeId}`, { from_city: fromCity, to_city: toCity }, { withCredentials: true })
+      .put(`https://bus-reservation-system-in-aspnet-production.up.railway.app/Route/update-route/${routeId}`, { from_city: fromCity, to_city: toCity }, { withCredentials: true })
       .then((response) => {
         if (response.data.success) {
           alert(response.data.message);

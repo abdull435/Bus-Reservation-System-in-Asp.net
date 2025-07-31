@@ -41,7 +41,7 @@ const Schedule = ({ from, to, date }) => {
   const handleViewSeats = (schedule) => {
     
 
-    axios.get('http://localhost:5212/checkLogin', { withCredentials: true })
+    axios.get('https://bus-reservation-system-in-aspnet-production.up.railway.app', { withCredentials: true })
       .then(res => {
         if(res.data.loggedIn){
           setSelectedSchedule(schedule);
