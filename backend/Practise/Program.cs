@@ -17,6 +17,7 @@ builder.Services.AddSession(options =>
     options.Cookie.HttpOnly = true;
     options.Cookie.IsEssential = true;
     options.Cookie.SecurePolicy = CookieSecurePolicy.Always;
+    options.Cookie.SameSite = SameSiteMode.None; 
 });
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
