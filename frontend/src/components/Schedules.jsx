@@ -16,8 +16,8 @@ const Schedule = ({ from, to, date }) => {
     if (!from || !to || !date) return;
 
     setLoading(true);
-
-    axios.post('https://bus-reservation-system-in-aspnet-production.up.railway.apps/GetSchedules', {
+                
+    axios.post('https://bus-reservation-system-in-aspnet-production.up.railway.app/GetSchedules', {
       from_city: from,
       to_city: to,
       date,
@@ -41,7 +41,7 @@ const Schedule = ({ from, to, date }) => {
   const handleViewSeats = (schedule) => {
     
 
-    axios.get('https://bus-reservation-system-in-aspnet-production.up.railway.app', { withCredentials: true })
+    axios.get('https://bus-reservation-system-in-aspnet-production.up.railway.app/checkLogin', { withCredentials: true })
       .then(res => {
         if(res.data.loggedIn){
           setSelectedSchedule(schedule);
