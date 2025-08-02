@@ -17,7 +17,7 @@ const Schedule = ({ from, to, date }) => {
 
     setLoading(true);
 
-    axios.post('https://bus-reservation-system-in-asp-net-c.vercel.app/GetSchedules', {
+    axios.post('https://bus-reservation-system-in-aspnet-production.up.railway.apps/GetSchedules', {
       from_city: from,
       to_city: to,
       date,
