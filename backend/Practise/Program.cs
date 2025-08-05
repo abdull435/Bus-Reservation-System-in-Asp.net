@@ -24,7 +24,6 @@ builder.Services.AddCors(options =>
 {
     options.AddDefaultPolicy(policy =>
     {
-<<<<<<< HEAD
 
         policy.SetIsOriginAllowed(origin =>
             origin.StartsWith("https://bus-reservation-system-in-asp-net-c") ||
@@ -32,17 +31,6 @@ builder.Services.AddCors(options =>
             origin.StartsWith("http://192.168.1.18:5173")
         )
 
-=======
-            policy
-.SetIsOriginAllowed(origin =>
-    origin.StartsWith("https://bus-reservation-system-in-asp-net-c")
-)
-//         policy.WithOrigins(
-//                 "http://localhost:5173",
-//                 "http://192.168.1.12:5173",
-//                 "https://bus-reservation-system-in-asp-net-c.vercel.app"
-// )
->>>>>>> 52b794bd5e9d254fb456831e92ae943ee0304c78
               .AllowAnyHeader()
               .AllowAnyMethod()
               .AllowCredentials();
