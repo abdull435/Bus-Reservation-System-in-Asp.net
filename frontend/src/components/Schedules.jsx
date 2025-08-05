@@ -42,7 +42,6 @@ const Schedule = ({ from, to, date }) => {
   const handleViewSeats = (schedule) => {
     const data = localStorage.getItem("token");
     if (data) {
-      const decode = jwtDecode(data);
 
       setSelectedSchedule(schedule);
       navigate('/schedule');
