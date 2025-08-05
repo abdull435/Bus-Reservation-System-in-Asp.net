@@ -21,13 +21,8 @@ namespace Practise.Controllers
         { 
             var reserved = _context.reservationsDetail.Include(s => s.reservations)
                 .Where(s => s.reservations.schedule_id == schedule_id).ToList();
-            var email = HttpContext.Session.GetString("email");
-            var user_id = HttpContext.Session.GetInt32("user_id");
-            var name = HttpContext.Session.GetString("name");
-            var mobile = HttpContext.Session.GetInt32("mobile");
-            var cinic = HttpContext.Session.GetInt32("cinic");
 
-            return Ok(new {success = true , reservedSeats = reserved, user_id, name, email, mobile, cinic});
+            return Ok(new {success = true , reservedSeats = reserved});
         }
 
     }

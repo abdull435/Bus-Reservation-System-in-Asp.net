@@ -11,10 +11,12 @@ namespace Practise.Controllers
     public class LoginController : ControllerBase
     {
         private readonly AppDbContext _context;
+        private readonly IConfiguration _configuration;
 
-        public LoginController(AppDbContext context)
+        public LoginController(AppDbContext context, IConfiguration configuration)
         {
             _context = context;
+            _configuration = configuration;
         }
 
         [HttpPost]
@@ -25,25 +27,14 @@ namespace Practise.Controllers
 
             }
 
-            //Console.WriteLine($"Email: {model.email}, Password: {model.password}");
-
-
             var user = _context.users.FirstOrDefault(u => u.email == model.email && u.password == model.password);
             if (user == null)
             {
                 return Unauthorized(new { success = false, message = "Invalid credentials" });
             }
-            else
-            {
-                HttpContext.Session.SetInt32("user_id", user.user_id);
-                HttpContext.Session.SetString("name", user.name);
-                HttpContext.Session.SetString("email", user.email);
-                HttpContext.Session.SetInt32("mobile", user.mobile);
-                HttpContext.Session.SetInt32("cinic", user.cinic);
+                var token = GenerateJwt.CreateToken(user, _configuration);
 
-            }
-
-                return Ok(new { success = true, message = $"Logged in as {HttpContext.Session.GetString("mobile")}" });
+                return Ok(new { success = true, message = $"Logged in as {user.name}", token =token });
         }
 
     }

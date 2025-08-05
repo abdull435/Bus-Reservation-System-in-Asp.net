@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useSchedule } from './ScheduleContext';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import { jwtDecode } from 'jwt-decode';
 
 const Schedule = ({ from, to, date }) => {
   const navigate = useNavigate();
@@ -17,7 +18,7 @@ const Schedule = ({ from, to, date }) => {
 
     setLoading(true);
 
-    axios.post('http://localhost:5212/GetSchedules', {
+    axios.post('https://bus-reservation-system-in-aspnet-production.up.railway.app/GetSchedules', {
       from_city: from,
       to_city: to,
       date,
@@ -39,40 +40,61 @@ const Schedule = ({ from, to, date }) => {
   }, [from, to, date]);
 
   const handleViewSeats = (schedule) => {
-    
+    const data = localStorage.getItem("token");
+    if (data) {
+      const decode = jwtDecode(data);
 
-    axios.get('https://bus-reservation-system-in-aspnet-production.up.railway.app', { withCredentials: true })
-      .then(res => {
-        if(res.data.loggedIn){
-          setSelectedSchedule(schedule);
-          navigate('/schedule');
-        }
-    else{
+      setSelectedSchedule(schedule);
+      navigate('/schedule');
+    }
+    else {
       alert("logged in first");
     }
-      });
   };
 
   if (loading) return <p className="text-center mt-4">Loading schedules...</p>;
 
   return (
-    <div className="mt-6">
+
+    <div className="mt-6 mb-6">
       {schedules.length === 0 ? (
         <p className="text-center text-gray-600">No schedules found for the selected route and date.</p>
       ) : (
-        <div className="space-y-4">
-          {schedules.map(schedule => (
-            <div key={schedule.schedule_id} className="border p-4 rounded shadow">
-              <p><strong>Bus ID:</strong> {schedule.schedule_id}</p>
-              <p><strong>Departure:</strong> {new Date(schedule.departure_time).toLocaleTimeString()}</p>
-              <p><strong>Arrival:</strong> {new Date(schedule.arrival_time).toLocaleTimeString()}</p>
-              <p><strong>Date:</strong> {new Date(schedule.date).toLocaleDateString()}</p>
-              <p><strong>Price:</strong> {schedule.price}</p>
-              {/* You can add a button here to view seats */}
-              <button onClick={() => handleViewSeats(schedule)} className="mt-10 bg-blue-600 text-white px-4 py-2 rounded cursor-pointer"
-              >View Seats</button>
-            </div>
-          ))}
+        <div className="w-full bg-gray-200 p-10">
+          <table className="min-w-full  rounded shadow border-separate border-spacing-y-2">
+            <thead className="bg-white text-center">
+              <tr className='' >
+                <th className="px-4 py-3">Route</th>
+                <th className="px-4 py-3">Departure Time</th>
+                <th className="px-4 py-3">Arrival Time</th>
+                <th className="px-4 py-3">Date</th>
+                <th className="px-4 py-3">Price</th>
+                <th className="px-4 py-3">Action</th>
+              </tr>
+            </thead>
+            <tbody >
+              {schedules.map(schedule => (<tr key={schedule.schedule_id} className="border border-black text-center bg-white">
+                <td className="px-4 py-2 border-r border-gray-400"><strong>{from}</strong> to <strong>{to}</strong></td>
+                <td className="px-4 py-2 border-r border-gray-400">
+                  {new Date(schedule.departure_time).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: true })}
+                </td>
+                <td className="px-4 py-2 border-r border-gray-400">
+                  {new Date(schedule.arrival_time).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: true })}
+                </td>
+                <td className="px-4 py-2 border-r border-gray-400">
+                  {new Date(schedule.date).toLocaleDateString()}
+                </td>
+                <td className="px-4 py-2 border-r border-gray-400">{schedule.price}</td>
+                <td className='px-4 py-2 border-r border-gray-400'>
+                  <button className="bg-green-600 hover:bg-green-700 text-white px-3 py-1 rounded" onClick={() => handleViewSeats(schedule)}>
+                    Book Seat
+                  </button>
+                </td>
+              </tr>
+
+              ))}
+            </tbody>
+          </table>
         </div>
       )}
 

@@ -11,10 +11,6 @@ namespace Practise.Controllers
         public IActionResult checkLogin()
         {
             var loggedIn = HttpContext.Session.GetString("name") != null;
-            //if (HttpContext.Session.GetString("name") != null)
-            //{
-            //    loggedIn = true;
-            //}
 
             return Ok(new{  loggedIn });
         }

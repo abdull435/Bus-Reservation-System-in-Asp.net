@@ -131,3 +131,13 @@ C:\Users\Abdullah\Desktop\Bus Reservation .net\backend\Practise\obj\Debug\net8.0
 C:\Users\Abdullah\Desktop\Bus Reservation .net\backend\Practise\obj\Debug\net8.0\Practise.genruntimeconfig.cache
 C:\Users\Abdullah\Desktop\Bus Reservation .net\backend\Practise\obj\Debug\net8.0\ref\Practise.dll
 C:\Users\Abdullah\Desktop\Bus Reservation .net\backend\Practise\obj\Debug\net8.0\Practise.sourcelink.json
+C:\Users\Abdullah\Desktop\Bus Reservation .net\backend\Practise\bin\Debug\net8.0\DotNetEnv.dll
+C:\Users\Abdullah\Desktop\Bus Reservation .net\backend\Practise\bin\Debug\net8.0\Sprache.dll
+C:\Users\Abdullah\Desktop\Bus Reservation .net\backend\Practise\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\Abdullah\Desktop\Bus Reservation .net\backend\Practise\bin\Debug\net8.0\Microsoft.IdentityModel.Abstractions.dll
+C:\Users\Abdullah\Desktop\Bus Reservation .net\backend\Practise\bin\Debug\net8.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\Abdullah\Desktop\Bus Reservation .net\backend\Practise\bin\Debug\net8.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\Abdullah\Desktop\Bus Reservation .net\backend\Practise\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.dll
+C:\Users\Abdullah\Desktop\Bus Reservation .net\backend\Practise\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\Abdullah\Desktop\Bus Reservation .net\backend\Practise\bin\Debug\net8.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\Abdullah\Desktop\Bus Reservation .net\backend\Practise\bin\Debug\net8.0\System.IdentityModel.Tokens.Jwt.dll

@@ -35,6 +35,7 @@ const Login = () => {
 });
       if (res.data.success) {
         alert(res.data.message);
+        localStorage.setItem("token", res.data.token);
         navigate('/');
       } else {
         alert('Invalid credentials');

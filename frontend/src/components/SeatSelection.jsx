@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useLayoutEffect } from 'react';
 import axios from 'axios';
+import { jwtDecode } from 'jwt-decode';
 import { useSearchParams, useNavigate, data } from 'react-router-dom';
 import { useSchedule } from './ScheduleContext';
 import GenderDialog from './GenderDialog';
@@ -18,12 +19,15 @@ const SeatSelection = () => {
   const [tempReserv, setTempReserv] = useState([]);
   const [price, setPrice] = useState(0);
   const [totalPrice, setTotalPrice] = useState(0);
+  
+  const token = localStorage.getItem("token");
+  const decode = jwtDecode(token);
 
   const [userId, setUserId]=useState('');
-  const [name, setName]=useState('');
-  const [cinic, setCinic]=useState('');
-  const [email, setEmail]=useState('');
-  const [mobile, setMobile]=useState('');
+  const [name, setName]=useState(decode.name);
+  const [cinic, setCinic]=useState(decode.cnic);
+  const [email, setEmail]=useState(decode.email);
+  const [mobile, setMobile]=useState(decode.mobile);
 
   useEffect(() => {
     if (selectedSchedule) {
@@ -32,12 +36,6 @@ const SeatSelection = () => {
           if (res.data.success) {
             const newColors = [...seatColors];
             const reserved = [];
-            // alert(res.data.user_id);
-            setUserId(res.data.user_id);
-            setName(res.data.name);
-            setEmail(res.data.email);
-            setMobile(res.data.mobile);
-            setCinic(res.data.cinic);
             res.data.reservedSeats.forEach(seat => {
               const index = seat.seat_number - 1;
               newColors[index] = seat.gender === 'male' ? 'bg-blue-500' : 'bg-pink-500';

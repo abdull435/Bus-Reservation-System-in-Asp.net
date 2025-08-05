@@ -43,6 +43,7 @@ const Home = () => {
         <form className="space-y-4" onSubmit={handleSubmit}>
           <div>
             <label className="block text-gray-700 text-sm font-bold mb-2">Travel From</label>
+            {/* <FaMapMarkerAlt /> */}
             <input
               list="fromOptions"
               name="from" required
@@ -92,7 +93,7 @@ const Home = () => {
       
     </div>
     {showSchedules && (
-        <div className="w-full max-w-2xl mt-8 px-4 item-center justify-center flex flex-col">
+        <div className="w-full flex justify-center">
           <Schedule from={from} to={to} date={date} />
         </div>
       )}
