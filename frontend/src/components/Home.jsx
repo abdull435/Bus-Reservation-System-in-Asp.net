@@ -1,5 +1,5 @@
 import React from 'react';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
 import Schedule from './Schedules';
 const Home = () => {
@@ -8,8 +8,8 @@ const Home = () => {
   const [from, setFrom] = useState('');
   const [to, setTo] = useState('');
   const [date, setDate] = useState('');
-  // const [loggedin, setLoggedin] = useState(false);
   const [showSchedules, setShowSchedules] = useState(false);
+  
 
   useEffect(() => {
     
@@ -48,7 +48,7 @@ const Home = () => {
               list="fromOptions"
               name="from" required
               onChange={(e) => setFrom(e.target.value)}
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-white bg-white/10"
             />
             <datalist id="fromOptions">
               {cities.map((city, index) => (
@@ -64,7 +64,7 @@ const Home = () => {
             </label>
             <input list="toOptions" name="to" required
               onChange={(e) => setTo(e.target.value)}
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-white bg-white/10"
             />
             <datalist id="toOptions">
               {cities.map((city, index) => (
@@ -80,12 +80,12 @@ const Home = () => {
             <input type="date" id="date" name="date" required
             onChange={(e) => setDate(e.target.value)}
             // min={today}
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-white bg-white/10"
             />
           </div>
 
           <button type="submit"
-            className="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-4 rounded-md transition duration-300"
+            className="w-full bg-green-600 hover:bg-green-700 cursor-pointer text-white font-bold py-3 px-4 rounded-md transition duration-300"
           >FIND YOUR JOURNEY
           </button>
         </form>
@@ -93,7 +93,8 @@ const Home = () => {
       
     </div>
     {showSchedules && (
-        <div className="w-full flex justify-center">
+        <div 
+        className="md:p-20">
           <Schedule from={from} to={to} date={date} />
         </div>
       )}
