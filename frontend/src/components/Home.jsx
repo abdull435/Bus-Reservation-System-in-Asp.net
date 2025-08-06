@@ -16,7 +16,6 @@ const Home = () => {
     axios.get('https://bus-reservation-system-in-aspnet-production.up.railway.app/get-cities')
       .then(res => {
         if (res.data.success) {
-          // setLoggedin(res.data.login);
           setCities(res.data.routes);
         }
       })
@@ -32,17 +31,18 @@ const Home = () => {
     }
   };
 
-  // const today = new Date().toISOString().split("T")[0];
 
   return (
     <>
-    <div className="min-h-screen flex items-center justify-center">
-      <div className="max-w-md w-full mx-auto bg-white rounded-xl shadow-md  p-6  mt-[10vh]">
-        <h1 className="text-2xl font-bold text-center text-blue-600 mb-6">Ready, Steady, Go</h1>
+    <div className="min-h-screen flex items-center   bg-cover bg-center" 
+      style={{ backgroundImage: "url('/Images/3.jpg')" }}>
+      <div className="w-full max-w-sm md:max-w-md mx-auto mt-[10vh] rounded-xl shadow-lg p-6 bg-black/60">
 
-        <form className="space-y-4" onSubmit={handleSubmit}>
-          <div>
-            <label className="block text-gray-700 text-sm font-bold mb-2">Travel From</label>
+        <h1 className="text-2xl font-bold text-center text-white mb-6">Ready, Steady, Go</h1>
+
+        <form className="space-y-4 text-white" onSubmit={handleSubmit}>
+          <div> 
+            <label className="block text-white text-sm font-bold mb-2">Travel From</label>
             {/* <FaMapMarkerAlt /> */}
             <input
               list="fromOptions"
@@ -59,7 +59,7 @@ const Home = () => {
           </div>
 
           <div>
-            <label className="block text-gray-700 text-sm font-bold mb-2">
+            <label className="block text-sm font-bold mb-2">
               Travel To
             </label>
             <input list="toOptions" name="to" required
@@ -74,7 +74,7 @@ const Home = () => {
           </div>
 
           <div>
-            <label className="block text-gray-700 text-sm font-bold mb-2">
+            <label className="block text-sm font-bold mb-2">
               Departure Date
             </label>
             <input type="date" id="date" name="date" required
@@ -85,7 +85,7 @@ const Home = () => {
           </div>
 
           <button type="submit"
-            className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded-md transition duration-300"
+            className="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-4 rounded-md transition duration-300"
           >FIND YOUR JOURNEY
           </button>
         </form>

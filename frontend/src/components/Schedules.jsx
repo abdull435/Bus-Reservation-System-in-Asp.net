@@ -14,7 +14,9 @@ const Schedule = ({ from, to, date }) => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    if (!from || !to || !date) return;
+    if (!from || !to || !date) {
+      navigate("/home");
+      return};
 
     setLoading(true);
 
@@ -56,7 +58,7 @@ const Schedule = ({ from, to, date }) => {
   return (
 
     <div className="mt-6 mb-6">
-      {schedules.length === 0 ? (
+      {schedules.length == 0 ? (
         <p className="text-center text-gray-600">No schedules found for the selected route and date.</p>
       ) : (
         <div className="w-full bg-gray-200 p-10">

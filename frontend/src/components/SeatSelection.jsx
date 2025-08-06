@@ -49,6 +49,7 @@ const SeatSelection = () => {
         })
         .catch(err => console.error('Error fetching reserved seats:', err));
     }
+    // else{}
     const leftTemp = [];
     const rightTemp = [];
 
@@ -127,6 +128,10 @@ const SeatSelection = () => {
         })
         .catch(err => console.error('Error fetching reserved seats:', err));
   }
+if (selectedSchedule === null) {
+  navigate('/home');
+  return;
+}
 
 
   return (
