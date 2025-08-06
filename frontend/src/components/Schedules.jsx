@@ -61,7 +61,7 @@ const Schedule = ({ from, to, date }) => {
       {schedules.length == 0 ? (
         <p className="text-center text-gray-600">No schedules found for the selected route and date.</p>
       ) : (
-        <div className=''>
+        <div>
         <p className="text-2xl  text-black border-b pb-4 mb-4"><span className='text-orange-400'>Select Date:</span> {date}</p>
         <div className="p-4 bg-gray-200 md:overflow-hidden overflow-x-scroll">
           <table className=" min-w-full rounded border-separate border-spacing-y-2 ">
