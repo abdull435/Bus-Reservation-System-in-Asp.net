@@ -11,9 +11,10 @@ const Footer = () => {
           </div>
 
           <div className="flex space-x-6 text-sm">
-            <a href="/about" className="hover:text-gray-300">About</a>
-            <a href="/contact" className="hover:text-gray-300">Contact</a>
-            <a href="/privacy" className="hover:text-gray-300">Privacy Policy</a>
+            <img src="./Images/insta.png" className='cursor-pointer' alt="" />
+            <img src="./Images/facebook.png" className='cursor-pointer' alt="" />
+            <img src="./Images/whatsapp.png" className='cursor-pointer'/>
+            <img src="./Images/twitter.png "className='cursor-pointer' />
           </div>
 
         </div>

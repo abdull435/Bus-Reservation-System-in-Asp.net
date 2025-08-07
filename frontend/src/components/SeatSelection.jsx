@@ -26,6 +26,7 @@ const SeatSelection = () => {
   const [cinic, setCinic]=useState(decode.cinic);
   const [email, setEmail]=useState(decode.email);
   const [mobile, setMobile]=useState(decode.mobile);
+  const [reservBtn, setReservBtn] = useState(false);
 
   useEffect(() => {
     if (selectedSchedule) {
@@ -96,6 +97,10 @@ const SeatSelection = () => {
   }, [tempReserv, price]);
 
   const makeReservation = () =>{
+    if(reservBtn){
+      return;
+    }
+    setReservBtn(true);
     const reservation ={
       schedule_id: selectedSchedule.schedule_id,
       user_id: userId,
@@ -112,11 +117,13 @@ const SeatSelection = () => {
     }
 
       axios.post(`https://bus-reservation-system-in-aspnet-production.up.railway.app/Reservation`,reservation, { withCredentials: true })
-        .then(res => { {
+        .then(res =>  {
             alert(res.data.message);
-          }
+            setReservBtn(false);
         })
-        .catch(err => console.error('Error fetching reserved seats:', err));
+        .catch(err => {console.error('Error fetching reserved seats:', err);
+          setReservBtn(false);}
+      );
   }
 if (selectedSchedule === null) {
   navigate('/home');
