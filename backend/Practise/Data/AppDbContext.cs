@@ -15,8 +15,6 @@ namespace Practise.Data
 
         public DbSet<Bus> bus { get; set; }
 
-
-
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<User>().ToTable("users");
@@ -28,6 +26,9 @@ namespace Practise.Data
 
             modelBuilder.Entity<Schedules>().HasOne(s => s.routes).WithMany(r => r.schedules)
                 .HasForeignKey(f => f.route_id);
+
+            modelBuilder.Entity<Schedules>().HasOne(s => s.bus).WithMany(r => r.schedules)
+               .HasForeignKey(f => f.bus_id);
 
             modelBuilder.Entity<ReservationsDetail>().HasOne(s => s.reservations).WithMany(r => r.reservationsDetail)
                 .HasForeignKey(f => f.reservation_id);

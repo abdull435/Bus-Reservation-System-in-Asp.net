@@ -1,10 +1,9 @@
 import React, { useState, useEffect, useLayoutEffect } from 'react';
 import axios from 'axios';
 import { jwtDecode } from 'jwt-decode';
-import { useSearchParams, useNavigate, data } from 'react-router-dom';
+import { useNavigate, data } from 'react-router-dom';
 import { useSchedule } from './ScheduleContext';
 import GenderDialog from './GenderDialog';
-import Schedule from './Schedules';
 
 
 const SeatSelection = () => {
@@ -22,16 +21,15 @@ const SeatSelection = () => {
   
   const token = localStorage.getItem("token");
   const decode = jwtDecode(token);
-
-  const [userId, setUserId]=useState('');
+  const [userId, setUserID]=useState(decode.user_id);
   const [name, setName]=useState(decode.name);
-  const [cinic, setCinic]=useState(decode.cnic);
+  const [cinic, setCinic]=useState(decode.cinic);
   const [email, setEmail]=useState(decode.email);
   const [mobile, setMobile]=useState(decode.mobile);
 
   useEffect(() => {
     if (selectedSchedule) {
-      axios.post(`https://bus-reservation-system-in-aspnet-production.up.railway.app/GetSeats?schedule_id=${selectedSchedule.schedule_id}`,null, { withCredentials: true })
+      axios.post(`https://bus-reservation-system-in-aspnet-production.up.railway.app/Login/GetSeats?schedule_id=${selectedSchedule.schedule_id}`,null, { withCredentials: true })
         .then(res => {
           if (res.data.success) {
             const newColors = [...seatColors];
@@ -97,18 +95,10 @@ const SeatSelection = () => {
     setTotalPrice(price * tempReserv.length);
   }, [tempReserv, price]);
 
-  const show = () => {
-    const details = tempReserv
-      .map(index => `Seat ${index + 1}: ${seatColors[index]}`)
-      .join('\n');
-
-    alert(details);
-  }
-
   const makeReservation = () =>{
     const reservation ={
-      user_id : userId,
       schedule_id: selectedSchedule.schedule_id,
+      user_id: userId,
       name,
       cinic,
       email,
@@ -121,7 +111,7 @@ const SeatSelection = () => {
     }))
     }
 
-      axios.post(`https://bus-reservation-system-in-aspnet-production.up.railway.app/Reservation`,reservation, { withCredentials: true })
+      axios.post(`https://bus-reservation-system-in-aspnet-production.up.railway.app/Login/Reservation`,reservation, { withCredentials: true })
         .then(res => { {
             alert(res.data.message);
           }

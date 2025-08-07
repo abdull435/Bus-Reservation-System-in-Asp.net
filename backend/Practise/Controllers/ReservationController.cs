@@ -51,6 +51,16 @@ namespace Practise.Controllers
             // Step 4: Save seat details
             _context.SaveChanges();
 
+
+            var schedule = _context.schedules.FirstOrDefault(s => s.schedule_id == model.schedule_id);
+            if (schedule != null)
+            {
+                // Example: decrease available_seats by number of reserved seats
+                schedule.available_seats -= model.reservationDetail.Count;
+                _context.schedules.Update(schedule);
+                _context.SaveChanges();
+            }
+
             return Ok(new
             {
                 message = "Reservation and seat details saved successfully",

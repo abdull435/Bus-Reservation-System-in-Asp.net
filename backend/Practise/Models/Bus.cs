@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
 
 namespace Practise.Models
 {
@@ -9,5 +10,8 @@ namespace Practise.Models
         public string bus_name { get; set; }
         public int total_seats { get; set; }
         public string bus_type { get; set; }
+
+        [JsonIgnore]
+        public List<Schedules> schedules { get; set; }
     }
 }

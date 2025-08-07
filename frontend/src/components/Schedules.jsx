@@ -19,7 +19,7 @@ const Schedule = ({ from, to, date }) => {
 
     setLoading(true);
 
-    axios.post('https://bus-reservation-system-in-aspnet-production.up.railway.app/GetSchedules', {
+    axios.post('http://localhost:5212/GetSchedules', {
       from_city: from,
       to_city: to,
       date,
@@ -77,12 +77,13 @@ const Schedule = ({ from, to, date }) => {
               <tbody >
                 {
                   schedules.map(schedule => (<tr key={schedule.schedule_id} className="border border-black text-left bg-white shadow">
+                   {/* { alert(JSON.stringify(schedule))} */}
                     <td className="px-4 py-2 border-r border-gray-400"><strong>{from}</strong> to <strong>{to}</strong></td>
                     <td className="px-4 py-2 border-r border-gray-400">
                       {new Date(schedule.departure_time).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: true })}
                     </td>
-                    <td className="px-4 py-2 border-r border-gray-400">Ac/ Non AC</td>
-                    <td className="px-4 py-2 border-r border-gray-400">22</td>
+                    <td className="px-4 py-2 border-r border-gray-400">{schedule.bus.bus_type}</td>
+                    <td className="px-4 py-2 border-r border-gray-400">{schedule.available_seats}</td>
                     <td className="px-4 py-2 border-r border-gray-400">{schedule.price}</td>
                     <td className='px-4 '>
                       <button className="bg-green-600 hover:bg-green-700 text-white px-3 py-1 rounded" onClick={() => handleViewSeats(schedule)}>
@@ -101,8 +102,8 @@ const Schedule = ({ from, to, date }) => {
               <div key={schedule.schedule_id} className="bg-white p-4 rounded shadow border">
                 <p><strong>Route:</strong> {from} to {to}</p>
                 <p><strong>Departure:</strong> {new Date(schedule.departure_time).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: true })}</p>
-                <p><strong>Bus Type:</strong> AC / Non-AC</p>
-                <p><strong>Available Seats:</strong> 22</p>
+                <p><strong>Bus Type:</strong>{schedule.bus.bus_type}</p>
+                <p><strong>Available Seats:</strong>{schedule.available_seats}</p>
                 <p><strong>Price:</strong> {schedule.price}</p>
                   <button className="bg-green-600 hover:bg-green-700 text-white px-3 py-1 mt-2 rounded" onClick={() => handleViewSeats(schedule)}>
                         Book Seat

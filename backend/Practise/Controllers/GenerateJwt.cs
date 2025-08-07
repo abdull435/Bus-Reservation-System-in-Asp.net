@@ -14,22 +14,13 @@ namespace Practise.Controllers
         {
             var jwtSettings = configuration.GetSection("Jwt");
 
-            //var claims = new[]
-            //{
-            //    new Claim(ClaimTypes.NameIdentifier, user.user_id.ToString()),
-            //    new Claim(ClaimTypes.Name, user.name),
-            //    new Claim(ClaimTypes.Email, user.email),
-            //    new Claim("Mobile", user.mobile.ToString()),
-            //    new Claim("Cnic", user.cinic.ToString())
-            //};
-
             var claims = new[]
             {
-                new Claim("userId", user.user_id.ToString()),
+                new Claim("user_id", user.user_id.ToString()),
                 new Claim("name", user.name),
                 new Claim("email", user.email),
                 new Claim("mobile", user.mobile.ToString()),
-                new Claim("cnic", user.cinic.ToString())
+                new Claim("cinic", user.cinic.ToString())
             };
 
 

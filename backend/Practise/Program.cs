@@ -46,4 +46,4 @@ app.UseSwaggerUI();
 app.UseAuthorization();
 app.MapControllers();
 
-app.Run("http://0.0.0.0:8080");
+app.Run("http://0.0.0.0:5212");

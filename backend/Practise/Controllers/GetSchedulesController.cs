@@ -22,7 +22,7 @@ namespace Practise.Controllers
         public IActionResult GetSchedule([FromBody] Search request)
         {
             var schedules = _context.schedules
-        .Include(s => s.routes)
+        .Include(s => s.routes).Include(s => s.bus)
         .Where(s => s.date.Date == request.date &&
                     s.routes.from_city == request.from_city &&
                     s.routes.to_city == request.to_city)
