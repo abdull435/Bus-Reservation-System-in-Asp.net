@@ -74,6 +74,14 @@ export default function Navbar() {
             <a href="" className="hover:text-green-500 transition-all durantion-300">Terminal</a>
             <a href="" className="hover:text-green-500 transition-all durantion-300">Services</a>
             <a href="" className="hover:text-green-500 transition-all durantion-300">About Us</a>
+            {isLoggedin ?
+              <a onClick={() => handleLogout()}
+                className="hover:text-green-500 transition-all durantion-300"
+              >Logout</a>
+              :
+              <a href="/login"
+                className="hover:text-green-500 transition-all durantion-300"
+              >Login</a>}
           </div>)}
     </nav>
   );
