@@ -62,7 +62,7 @@ const Schedule = ({ from, to, date }) => {
       ) : (
         <div>
           <p className="text-2xl  text-black border-b pb-4 mb-4"><span className='text-orange-400'>Selected Date:</span> {date}</p>
-          <div className="p-4 bg-gray-200 md:overflow-hidden overflow-x-scroll">
+          <div className="hidden md:block p-4 bg-gray-200 md:overflow-hidden overflow-x-scroll">
             <table className=" min-w-full rounded border-separate border-spacing-y-2 ">
               <thead className="bg-white text-left">
                 <tr className='shadow' >
@@ -81,12 +81,8 @@ const Schedule = ({ from, to, date }) => {
                     <td className="px-4 py-2 border-r border-gray-400">
                       {new Date(schedule.departure_time).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: true })}
                     </td>
-                    <td className="px-4 py-2 border-r border-gray-400">
-                      {new Date(schedule.arrival_time).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: true })}
-                    </td>
-                    <td className="px-4 py-2 border-r border-gray-400">
-                      {new Date(schedule.date).toLocaleDateString()}
-                    </td>
+                    <td className="px-4 py-2 border-r border-gray-400">Ac/ Non AC</td>
+                    <td className="px-4 py-2 border-r border-gray-400">22</td>
                     <td className="px-4 py-2 border-r border-gray-400">{schedule.price}</td>
                     <td className='px-4 '>
                       <button className="bg-green-600 hover:bg-green-700 text-white px-3 py-1 rounded" onClick={() => handleViewSeats(schedule)}>
@@ -99,6 +95,20 @@ const Schedule = ({ from, to, date }) => {
                 }
               </tbody>
             </table>
+          </div>
+          <div className="block p-2 md:hidden space-y-4">
+            {schedules.map(schedule => (
+              <div key={schedule.schedule_id} className="bg-white p-4 rounded shadow border">
+                <p><strong>Route:</strong> {from} to {to}</p>
+                <p><strong>Departure:</strong> {new Date(schedule.departure_time).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: true })}</p>
+                <p><strong>Bus Type:</strong> AC / Non-AC</p>
+                <p><strong>Available Seats:</strong> 22</p>
+                <p><strong>Price:</strong> {schedule.price}</p>
+                  <button className="bg-green-600 hover:bg-green-700 text-white px-3 py-1 mt-2 rounded" onClick={() => handleViewSeats(schedule)}>
+                        Book Seat
+                      </button>
+              </div>
+            ))}
           </div>
         </div>
       )}
