@@ -135,20 +135,20 @@ if (selectedSchedule === null) {
 
 
   return (
-    <div className="flex w-full justify-center mt-[20vh]">
+    <div className="flex w-full justify-center mt-[20vh] mb-[10vh]">
       <div className='flex flex-col gap-4 w-[90%] justify-between md:flex-row '>
-        <div className='flex flex-col w-90 h-screen bg-gray-200 p-10 rounded-md'>
+        <div className='flex flex-col w-90 h-screen md:h-[110vh] bg-gray-200 p-10 rounded-md'>
           <div>
             <h4 className='font-inherit font-light text-xl border-b-1 p-2'>Passenger Info</h4>
           </div>
-          <div className='flex flex-col h-[50%] justify-between mt-10'>
+          <div className='flex flex-col h-[50%] justify-between mt-10 '>
             <input className='bg-white h-10 p-2' onChange={(e)=>setName(e.target.value)} type="text" value={name} placeholder='Name' />
             <input className='bg-white h-10 p-2' onChange={(e)=>setCinic(e.target.value)} type="text" value={cinic} placeholder='Cinic' />
             <input className='bg-white h-10 p-2' onChange={(e)=>setEmail(e.target.value)} type="text" value={email} placeholder='Email' />
             <input className='bg-white h-10 p-2' onChange={(e)=>setMobile(e.target.value)} type="text" value={mobile} placeholder='Mobile No' />
           </div>
         </div>
-        <div className='flex flex-col w-90 h-screen items-center p-10 bg-gray-200 rounded-md'>
+        <div className='flex flex-col w-90 h-screen md:h-[110vh] items-center p-10 bg-gray-200 rounded-md'>
           <h4 className='font-inherit font-light text-xl border-b-1 p-2'>Select Departure Seats</h4>
           <div className='grid grid-cols-2 gap-10 mt-10 '>
             <div className="grid grid-cols-2 gap-x-5 gap-y-2">
@@ -181,7 +181,7 @@ if (selectedSchedule === null) {
           </div>
         </div>
 
-        <div className='flex flex-col w-90 p-10 items-center h-screen bg-gray-200 rounded-md'>
+        <div className='flex flex-col w-90 p-10 items-center h-screen md:h-[110vh] bg-gray-200 rounded-md'>
           <div>
             <h4 className='font-light text-xl border-b-1 p-2'>Ticket Info</h4>
           </div>
@@ -229,7 +229,7 @@ if (selectedSchedule === null) {
             </div>
 
             <div>
-              <button onClick={()=>makeReservation()} className="bg-orange-300 text-lg font-normal color-white w-[100%] mt-10">Confirm</button>
+              <button onClick={()=>makeReservation()} className="bg-green-600 hover:bg-green-700 transition duration-300 rounded p-1  text-white cursor-pointer text-lg font-normal color-white w-[100%] mt-10">Confirm</button>
             </div>
           </div>
 

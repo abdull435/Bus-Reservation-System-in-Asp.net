@@ -40,17 +40,17 @@ export default function Navbar() {
           <img className=" w-15  h-auto" src="./Images/bus-logo.png"/>
 
           <div className="hidden md:block space-x-6">
-            <a href="" className="hover:text-yellow-300">Home</a>
-            <a href="" className="hover:text-yellow-300">Terminal</a>
-            <a href="" className="hover:text-yellow-300">Services</a>
-            <a href="" className=" hover:text-yellow-300">About Us</a>
+            <a href="" className="hover:text-green-500 transition-all durantion-300">Home</a>
+            <a href="" className="hover:text-green-500 transition-all durantion-300">Terminal</a>
+            <a href="" className="hover:text-green-500 transition-all durantion-300">Services</a>
+            <a href="" className="hover:text-green-500 transition-all durantion-300">About Us</a>
           </div>
 
 
           <div className="md:block">
             {isLoggedin ?
               <a onClick={() => handleLogout()}
-                className="bg-green-600 text-blue-800 font-semibold px-4 py-2 rounded transition duration-300 hover:bg-green-700"
+                className="bg-green-600 text-white font-semibold px-4 py-2 rounded transition duration-300 hover:bg-green-700"
               >Logout</a>
               :
               <a href="/login"
