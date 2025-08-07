@@ -19,7 +19,7 @@ const Schedule = ({ from, to, date }) => {
 
     setLoading(true);
 
-    axios.post('http://localhost:5212/GetSchedules', {
+    axios.post('https://bus-reservation-system-in-aspnet-production.up.railway.app/Login/GetSchedules', {
       from_city: from,
       to_city: to,
       date,
