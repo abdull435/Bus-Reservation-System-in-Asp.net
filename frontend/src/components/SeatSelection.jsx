@@ -5,7 +5,7 @@ import { useNavigate, data } from 'react-router-dom';
 import { useSchedule } from './ScheduleContext';
 import GenderDialog from './GenderDialog';
 import Booking from './Booking';
-
+import Loading from './Loading';
 
 const SeatSelection = () => {
   const navigate = useNavigate();
@@ -33,6 +33,7 @@ const SeatSelection = () => {
 
   const [showDialog, setShowDialog] = useState(false);
   const [showBooking, setShowBooking] = useState(false);
+  const [showLoading, setShowLoading] = useState(false);
 
   useEffect(() => {
     if (selectedSchedule) {
@@ -116,6 +117,7 @@ const SeatSelection = () => {
     if (reservBtn) {
       return;
     }
+    setShowLoading(true);
     setReservBtn(true);
     const reservation = {
       schedule_id: selectedSchedule.schedule_id,
@@ -128,7 +130,6 @@ const SeatSelection = () => {
     
     axios.post(`https://bus-reservation-system-in-aspnet-production.up.railway.app/Reservation`, reservation, { withCredentials: true })
       .then(res => {
-        alert(res.data.reservation_id);
         const ticket = {
           ticketId: res.data.reservation_id,
           departure, arrival, name,  seats: tempReserv.length, totalPrice,
@@ -136,10 +137,9 @@ const SeatSelection = () => {
           departure_time: selectedSchedule.arrival_time,
           arrival_time: selectedSchedule.departure_time
         }
-        alert("a");
         setBookingDetail(ticket);
+        setShowLoading(false);
         setShowBooking(true);
-        alert("b");
         setReservBtn(false);
       })
       .catch(err => {
@@ -271,6 +271,12 @@ const SeatSelection = () => {
           close={() => setShowBooking(false)}
         />
       )}
+
+      {showLoading && (
+        <Loading/>
+      )
+
+      }
     </div>
   );
 };

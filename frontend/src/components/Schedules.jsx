@@ -52,18 +52,18 @@ const Schedule = ({ from, to, date }) => {
     }
   };
 
-  if (loading) return <p className="text-center mt-4">Loading schedules...</p>;
+  if (loading) return <p className="text-center animate-pulse mt-4">Loading schedules...</p>;
 
   return (
 
     <div className="mt-10 mb-6">
-      {schedules.length == 0 ? (
-        <p className="text-center text-gray-600">No schedules found for the selected route and date.</p>
-      ) : (
         <div>
           <p className="text-2xl  text-black border-b pb-4 mb-4"><span className='text-orange-400'>Selected Date:</span> {date}</p>
           <div className="hidden md:block p-4 bg-gray-200 md:overflow-hidden overflow-x-scroll">
-            <table className=" min-w-full rounded border-separate border-spacing-y-2 ">
+            {schedules.length==0 ?(
+              <p className="text-center text-gray-600">No schedules found for the selected route and date.</p>
+            ):(
+              <table className=" min-w-full rounded border-separate border-spacing-y-2 ">
               <thead className="bg-white text-left">
                 <tr className='shadow' >
                   <th className="px-4 py-3">Route</th>
@@ -96,9 +96,12 @@ const Schedule = ({ from, to, date }) => {
                 }
               </tbody>
             </table>
+            )}
+            
           </div>
           <div className="block p-2 md:hidden space-y-4">
-            {schedules.map(schedule => (
+            {schedules.length==0 ? (<p className="p-4 text-center bg-gray-200 text-gray-600">No schedules found for the selected route and date.</p>):(
+              schedules.map(schedule => (
               <div key={schedule.schedule_id} className="bg-white p-4 rounded shadow border">
                 <p><strong>Route:</strong> {from} to {to}</p>
                 <p><strong>Departure:</strong> {new Date(schedule.departure_time).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: true })}</p>
@@ -109,10 +112,11 @@ const Schedule = ({ from, to, date }) => {
                         Book Seat
                       </button>
               </div>
-            ))}
+            ))
+            )}
+            
           </div>
         </div>
-      )}
 
     </div>
   );
