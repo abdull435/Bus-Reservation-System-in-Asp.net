@@ -5,7 +5,9 @@ import { Navigate, useNavigate } from "react-router-dom";
 
 export default function Navbar() {
   const [isLoggedin, setIsLoggedin] = useState(false);
+  const [mobileNav, setMobileNav] = useState(false);
   const navigate = useNavigate();
+
   useEffect(() => {
     const token = localStorage.getItem("token"); // move here
   if (token) {
@@ -30,6 +32,9 @@ export default function Navbar() {
     
   };
 
+  const mobileView =()=>{
+      setMobileNav(!mobileNav);
+  }
 
 
   return (
@@ -46,8 +51,11 @@ export default function Navbar() {
             <a href="" className="hover:text-green-500 transition-all durantion-300">About Us</a>
           </div>
 
+          <div className="md:hidden">
+            <img src="./Images/hambar.png" onClick={mobileView} />
+          </div>
 
-          <div className="md:block">
+          <div className="hidden md:block">
             {isLoggedin ?
               <a onClick={() => handleLogout()}
                 className="bg-green-600 text-white font-semibold px-4 py-2 rounded transition duration-300 hover:bg-green-700"
@@ -58,14 +66,15 @@ export default function Navbar() {
               >Login</a>
 
             }
-
           </div>
-
-
         </div>
       </div>
-
-
+      {mobileNav && (<div className="flex text-white flex-col text-center space-y-2 p-2">
+            <a href="" className="hover:text-green-500 transition-all durantion-300">Home</a>
+            <a href="" className="hover:text-green-500 transition-all durantion-300">Terminal</a>
+            <a href="" className="hover:text-green-500 transition-all durantion-300">Services</a>
+            <a href="" className="hover:text-green-500 transition-all durantion-300">About Us</a>
+          </div>)}
     </nav>
   );
 }
