@@ -57,9 +57,9 @@ export default function Navbar() {
 
           <div className="hidden md:block">
             {isLoggedin ?
-              <a onClick={() => handleLogout()}
+              <Link onClick={() => handleLogout()}
                 className="bg-lime-600 text-white font-semibold px-4 py-2 rounded transition duration-300 hover:bg-lime-700"
-              >Logout</a>
+              >Logout</Link>
               :
               <Link to="/login"
                 className="bg-lime-600 text-white font-semibold px-4 py-2 rounded transition duration-300 hover:bg-lime-700"
@@ -75,13 +75,13 @@ export default function Navbar() {
             <a href="" className="hover:text-green-500 transition-all durantion-300">Services</a>
             <a href="" className="hover:text-green-500 transition-all durantion-300">About Us</a>
             {isLoggedin ?
-              <a onClick={() => handleLogout()}
+              <Link onClick={() => handleLogout()}
                 className="hover:text-green-500 transition-all durantion-300"
-              >Logout</a>
+              >Logout</Link>
               :
-              <a href="/login"
+              <Link to="/login"
                 className="hover:text-green-500 transition-all durantion-300"
-              >Login</a>}
+              >Login</Link>}
           </div>)}
     </nav>
   );

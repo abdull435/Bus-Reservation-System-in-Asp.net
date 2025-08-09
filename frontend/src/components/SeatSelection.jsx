@@ -33,7 +33,7 @@ const SeatSelection = () => {
 
   const [showDialog, setShowDialog] = useState(false);
   const [showBooking, setShowBooking] = useState(false);
-  const [showLoading, setShowLoading] = useState(false);
+  const [showLoading, setShowLoading] = useState(true);
 
   useEffect(() => {
     if (selectedSchedule) {
@@ -51,9 +51,11 @@ const SeatSelection = () => {
             setSeatColors(newColors);
             setReservedIndexes(reserved);
             setPrice(selectedSchedule.price);
+            setShowLoading(false);
           }
         })
         .catch(err => console.error('Error fetching reserved seats:', err));
+
     }
     const leftTemp = [];
     const rightTemp = [];
@@ -97,15 +99,19 @@ const SeatSelection = () => {
       }
       else if (gender === 'cancel') {
         updated[selectedSeatIndex] = 'bg-white'
-        tempReserv
       }
       return updated;
     });
 
-    if (!tempReserv.includes(selectedSeatIndex)) {
-      setTempReserv((prev) => [...prev, selectedSeatIndex]);
-      setSelectedSeatIndex(null);
+    if(gender === 'cancel'){
+      setTempReserv(prev => prev.filter(num => num !== selectedSeatIndex));
     }
+
+    else if (!tempReserv.includes(selectedSeatIndex)) {
+      setTempReserv((prev) => [...prev, selectedSeatIndex]);
+      
+    }
+    setSelectedSeatIndex(null);
     setShowDialog(false);
   };
 
@@ -114,6 +120,10 @@ const SeatSelection = () => {
   }, [tempReserv, price]);
 
   const makeReservation = () => {
+    if(tempReserv.length==0){
+      alert("First select a seat for booking");
+      return;
+    }
     if (reservBtn) {
       return;
     }
