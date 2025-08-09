@@ -164,7 +164,7 @@ const AddSchedule = () => {
           <button
             type='button'
             onClick={handleSubmit}
-            className="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-4 rounded-md transition duration-300"
+            className="w-full bg-lime-600 hover:bg-lime-700 text-white font-bold py-3 px-4 rounded-md transition duration-300"
           >
             Add Schedule
           </button>

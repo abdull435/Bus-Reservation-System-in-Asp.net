@@ -44,16 +44,16 @@ const AdminPanel = () => {
       <h1 className="text-3xl font-bold text-center text-blue-700 mb-8">Admin Dashboard</h1>
       <div className='flex justify-center space-x-4 mb-8'>
         <button onClick={() => setActiveSection(activeSection === "view" ? '' : "view")}
-          className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md cursor-pointer">
+          className="bg-lime-600 hover:bg-lime-700 text-white px-4 py-2 rounded-md cursor-pointer">
           View</button>
         <button onClick={() => setActiveSection(activeSection === "add" ? '' : "add")}
-          className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md cursor-pointer">
+          className="bg-lime-600 hover:bg-lime-700 text-white px-4 py-2 rounded-md cursor-pointer">
           Add</button>
         <button onClick={() => setActiveSection(activeSection === "update" ? '' : "update")}
           className="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-md cursor-pointer">
           Update</button>
         <button onClick={() => setActiveSection(activeSection === "delete" ? '' : "delete")}
-          className="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-md cursor-pointer">
+          className="bg-lime-600 hover:bg-lime-700 text-white px-4 py-2 rounded-md cursor-pointer">
           Delete</button>
 
       </div>
@@ -62,13 +62,13 @@ const AdminPanel = () => {
         <div className={"flex justify-center space-x-4 mb-8"}>
           <button
             onClick={() => setActiveComponent('add-bus')}
-            className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md cursor-pointer"
+            className="bg-lime-600 hover:bg-lime-700 text-white px-4 py-2 rounded-md cursor-pointer"
           >
             Add Bus
           </button>
           <button
             onClick={() => setActiveComponent('add-route')}
-            className="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-md cursor-pointer"
+            className="bg-lime-600 hover:bg-lime-700 text-white px-4 py-2 rounded-md cursor-pointer"
           >
             Add Route
           </button>
@@ -85,13 +85,13 @@ const AdminPanel = () => {
         <div className={"flex justify-center space-x-4 mb-8 "}>
           <button
             onClick={() => setActiveComponent('update-bus')}
-            className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md cursor-pointer"
+            className="bg-lime-600 hover:bg-lime-700 text-white px-4 py-2 rounded-md cursor-pointer"
           >
             Update Bus
           </button>
           <button
             onClick={() => setActiveComponent('update-route')}
-            className="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-md cursor-pointer"
+            className="bg-lime-600 hover:bg-lime-700 text-white px-4 py-2 rounded-md cursor-pointer"
           >
             Update Route
           </button>
@@ -108,13 +108,13 @@ const AdminPanel = () => {
         <div className={"flex justify-center space-x-4 mb-8 "}>
           <button
             onClick={() => setActiveComponent('add-bus')}
-            className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md cursor-pointer"
+            className="bg-lime-600 hover:bg-lime-700 text-white px-4 py-2 rounded-md cursor-pointer"
           >
             Delete Bus
           </button>
           <button
             onClick={() => setActiveComponent('add-route')}
-            className="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-md cursor-pointer"
+            className="bg-lime-600 hover:bg-lime-700 text-white px-4 py-2 rounded-md cursor-pointer"
           >
             Delete Route
           </button>
@@ -131,13 +131,13 @@ const AdminPanel = () => {
         <div className={"flex justify-center space-x-4 mb-8 "}>
           <button
             onClick={() => setActiveComponent('view-bus')}
-            className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md cursor-pointer"
+            className="bg-lime-600 hover:bg-lime-700 text-white px-4 py-2 rounded-md cursor-pointer"
           >
             View Bus
           </button>
           <button
             onClick={() => setActiveComponent('view-route')}
-            className="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-md cursor-pointer"
+            className="bg-lime-600 hover:bg-lime-700 text-white px-4 py-2 rounded-md cursor-pointer"
           >
             View Route
           </button>

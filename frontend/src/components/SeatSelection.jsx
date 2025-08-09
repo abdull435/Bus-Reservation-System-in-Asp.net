@@ -250,7 +250,7 @@ const SeatSelection = () => {
               </div>
 
               <div>
-                <button onClick={() => makeReservation()} className="bg-green-600 hover:bg-green-700 transition duration-300 rounded p-1  text-white cursor-pointer text-lg font-normal color-white w-[100%] mt-10">Confirm</button>
+                <button onClick={() => makeReservation()} className="bg-lime-600 hover:bg-lime-700 transition duration-300 rounded p-1  text-white cursor-pointer text-lg font-normal color-white w-[100%] mt-10">Confirm</button>
               </div>
             </div>
 

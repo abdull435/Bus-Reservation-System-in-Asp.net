@@ -55,7 +55,7 @@ const SeeAllSchedules = ({ from, to, date, updateForm }) => {
       ) : (
         <div className="overflow-x-auto">
         <table className="min-w-full bg-white border border-gray-300 rounded shadow">
-          <thead className="bg-blue-600 text-white text-left">
+          <thead className="bg-lime-600 text-white text-left">
             <tr className="">
               <th className="px-4 py-2">Route</th>
               <th className="px-4 py-2">Departure</th>
@@ -76,7 +76,7 @@ const SeeAllSchedules = ({ from, to, date, updateForm }) => {
                 </td>
                 <td className="px-4 py-2">Rs. {schedule.price}</td>
                 <td className="px-4 py-2">
-                  <button className="bg-blue-600 hover:bg-blue-700 text-white px-3 py-1 rounded" onClick={()=>handleUpdate(schedule)}>
+                  <button className="bg-lime-600 hover:bg-lime-700 text-white px-3 py-1 rounded" onClick={()=>handleUpdate(schedule)}>
                     Edit Schedule
                   </button>
                 </td>

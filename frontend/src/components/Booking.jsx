@@ -24,7 +24,7 @@ const Booking = ({ bookingDetail, close }) => {
                     <p>Departure Time:  {new Date(bookingDetail.departure_time).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: true })}</p>
                     <p>Arrival Time: {new Date(bookingDetail.arrival_time).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: true })}</p>
                     <p>Price: {bookingDetail.totalPrice}</p>
-                    <button className="bg-green-600 w-[100%] mt-5 p-3 rounded text-white cursor-pointer hover:bg-green-700 transition duration-300" 
+                    <button className="bg-lime-600 w-[100%] mt-5 p-3 rounded text-white cursor-pointer hover:bg-lime-700 transition duration-300" 
                     onClick={goHome}>Close</button>
                 </div>
             </div>

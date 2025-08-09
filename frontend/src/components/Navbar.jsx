@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { jwtDecode } from "jwt-decode";
-import { Navigate, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function Navbar() {
   const [isLoggedin, setIsLoggedin] = useState(false);
@@ -27,7 +27,7 @@ export default function Navbar() {
 
   const handleLogout = async () => {
     localStorage.removeItem("token");
-    // setIsLoggedin(false);
+    setIsLoggedin(false);
     navigate('/home');
     
   };
@@ -58,12 +58,12 @@ export default function Navbar() {
           <div className="hidden md:block">
             {isLoggedin ?
               <a onClick={() => handleLogout()}
-                className="bg-green-600 text-white font-semibold px-4 py-2 rounded transition duration-300 hover:bg-green-700"
+                className="bg-lime-600 text-white font-semibold px-4 py-2 rounded transition duration-300 hover:bg-lime-700"
               >Logout</a>
               :
-              <a href="/login"
-                className="bg-green-600 text-white font-semibold px-4 py-2 rounded transition duration-300 hover:bg-green-700"
-              >Login</a>
+              <Link to="/login"
+                className="bg-lime-600 text-white font-semibold px-4 py-2 rounded transition duration-300 hover:bg-lime-700"
+              >Login</Link>
 
             }
           </div>

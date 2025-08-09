@@ -76,7 +76,7 @@ const Signup = () => {
           />
           <button
             onClick={handleSignup}
-            className="w-full bg-blue-600 text-white py-2 rounded-md"
+            className="w-full bg-lime-600 text-white py-2 rounded-md"
           >
             Sign Up
           </button>

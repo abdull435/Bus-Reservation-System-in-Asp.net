@@ -20,7 +20,7 @@ const ViewBus = () => {
         <div className='w-full overflow-x-auto'>
         <table className="min-w-full bg-white ">
           <thead >
-            <tr className="bg-blue-600 text-white text-center border border-black">
+            <tr className="bg-lime-600 text-white text-center border border-black">
               <th className='px-4 py-2 border border-black'>Bus ID</th>
               <th className="px-4 py-2 border border-black">Name</th>
               <th className="px-4 py-2 border border-black">Total Seats</th>

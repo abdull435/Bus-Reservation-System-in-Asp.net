@@ -85,7 +85,7 @@ const Home = () => {
           </div>
 
           <button type="submit"
-            className="w-full bg-green-600 hover:bg-green-700 cursor-pointer text-white font-bold py-3 px-4 rounded-md transition duration-300"
+            className="w-full bg-lime-600 hover:bg-lime-700 cursor-pointer text-white font-bold py-3 px-4 rounded-md transition duration-300"
           >FIND YOUR JOURNEY
           </button>
         </form>

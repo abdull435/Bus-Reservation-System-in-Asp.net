@@ -86,7 +86,7 @@ const Schedule = ({ from, to, date }) => {
                     <td className="px-4 py-2 border-r border-gray-400">{schedule.available_seats}</td>
                     <td className="px-4 py-2 border-r border-gray-400">{schedule.price}</td>
                     <td className='px-4 '>
-                      <button className="bg-green-600 hover:bg-green-700 text-white px-3 py-1 rounded" onClick={() => handleViewSeats(schedule)}>
+                      <button className="bg-lime-600 hover:bg-lime-700 text-white px-3 py-1 rounded" onClick={() => handleViewSeats(schedule)}>
                         Book Seat
                       </button>
                     </td>
@@ -108,7 +108,7 @@ const Schedule = ({ from, to, date }) => {
                 <p><strong>Bus Type:</strong>{schedule.bus.bus_type}</p>
                 <p><strong>Available Seats:</strong>{schedule.available_seats}</p>
                 <p><strong>Price:</strong> {schedule.price}</p>
-                  <button className="bg-green-600 hover:bg-green-700 text-white px-3 py-1 mt-2 rounded" onClick={() => handleViewSeats(schedule)}>
+                  <button className="bg-lime-600 hover:bg-lime-700 text-white px-3 py-1 mt-2 rounded" onClick={() => handleViewSeats(schedule)}>
                         Book Seat
                       </button>
               </div>
