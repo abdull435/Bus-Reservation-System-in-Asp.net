@@ -34,14 +34,14 @@ const AdminPanel = () => {
       case 'view-schedule':
         return <ViewSchedules/>
       default:
-        return <div className="text-center text-gray-600 mt-10">Please select an action above.</div>;
+        return <div className="text-center mt-10">Please select an action above.</div>;
     }
   };
 
   return (
 
-    <div className="min-h-screen bg-gray-100 p-6">
-      <h1 className="text-3xl font-bold text-center text-blue-700 mb-8">Admin Dashboard</h1>
+    <div className="min-h-screen bg-gray-800  p-6">
+      <h1 className="text-3xl font-bold text-center text-white mb-8">Admin Dashboard</h1>
       <div className='flex justify-center space-x-4 mb-8'>
         <button onClick={() => setActiveSection(activeSection === "view" ? '' : "view")}
           className="bg-lime-600 hover:bg-lime-700 text-white px-4 py-2 rounded-md cursor-pointer">
@@ -50,7 +50,7 @@ const AdminPanel = () => {
           className="bg-lime-600 hover:bg-lime-700 text-white px-4 py-2 rounded-md cursor-pointer">
           Add</button>
         <button onClick={() => setActiveSection(activeSection === "update" ? '' : "update")}
-          className="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-md cursor-pointer">
+          className="bg-lime-600 hover:bg-lime-700 text-white px-4 py-2 rounded-md cursor-pointer">
           Update</button>
         <button onClick={() => setActiveSection(activeSection === "delete" ? '' : "delete")}
           className="bg-lime-600 hover:bg-lime-700 text-white px-4 py-2 rounded-md cursor-pointer">
@@ -62,19 +62,19 @@ const AdminPanel = () => {
         <div className={"flex justify-center space-x-4 mb-8"}>
           <button
             onClick={() => setActiveComponent('add-bus')}
-            className="bg-lime-600 hover:bg-lime-700 text-white px-4 py-2 rounded-md cursor-pointer"
+            className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md cursor-pointer"
           >
             Add Bus
           </button>
           <button
             onClick={() => setActiveComponent('add-route')}
-            className="bg-lime-600 hover:bg-lime-700 text-white px-4 py-2 rounded-md cursor-pointer"
+            className="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-md cursor-pointer"
           >
             Add Route
           </button>
           <button
             onClick={() => setActiveComponent('add-schedule')}
-            className="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-md cursor-pointer"
+            className="bg-orange-600 hover:bg-orange-700 text-white px-4 py-2 rounded-md cursor-pointer"
           >
             Add Schedule
           </button>
@@ -85,19 +85,19 @@ const AdminPanel = () => {
         <div className={"flex justify-center space-x-4 mb-8 "}>
           <button
             onClick={() => setActiveComponent('update-bus')}
-            className="bg-lime-600 hover:bg-lime-700 text-white px-4 py-2 rounded-md cursor-pointer"
+            className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md cursor-pointer"
           >
             Update Bus
           </button>
           <button
             onClick={() => setActiveComponent('update-route')}
-            className="bg-lime-600 hover:bg-lime-700 text-white px-4 py-2 rounded-md cursor-pointer"
+            className="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-md cursor-pointer"
           >
             Update Route
           </button>
           <button
             onClick={() => setActiveComponent('update-schedule')}
-            className="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-md cursor-pointer"
+            className="bg-orange-600 hover:bg-orange-700 text-white px-4 py-2 rounded-md cursor-pointer"
           >
             Update Schedule
           </button>
@@ -108,19 +108,19 @@ const AdminPanel = () => {
         <div className={"flex justify-center space-x-4 mb-8 "}>
           <button
             onClick={() => setActiveComponent('add-bus')}
-            className="bg-lime-600 hover:bg-lime-700 text-white px-4 py-2 rounded-md cursor-pointer"
+            className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md cursor-pointer"
           >
             Delete Bus
           </button>
           <button
             onClick={() => setActiveComponent('add-route')}
-            className="bg-lime-600 hover:bg-lime-700 text-white px-4 py-2 rounded-md cursor-pointer"
+            className="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-md cursor-pointer"
           >
             Delete Route
           </button>
           <button
             onClick={() => setActiveComponent('add-schedule')}
-            className="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-md cursor-pointer"
+            className="bg-orange-600 hover:bg-orange-700 text-white px-4 py-2 rounded-md cursor-pointer"
           >
             Delete Schedule
           </button>
@@ -131,26 +131,26 @@ const AdminPanel = () => {
         <div className={"flex justify-center space-x-4 mb-8 "}>
           <button
             onClick={() => setActiveComponent('view-bus')}
-            className="bg-lime-600 hover:bg-lime-700 text-white px-4 py-2 rounded-md cursor-pointer"
+            className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md cursor-pointer"
           >
             View Bus
           </button>
           <button
             onClick={() => setActiveComponent('view-route')}
-            className="bg-lime-600 hover:bg-lime-700 text-white px-4 py-2 rounded-md cursor-pointer"
+            className="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-md cursor-pointer"
           >
             View Route
           </button>
           <button
             onClick={() => setActiveComponent('view-schedule')}
-            className="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-md cursor-pointer"
+            className="bg-orange-600 hover:bg-orange-700 text-white px-4 py-2 rounded-md cursor-pointer"
           >
             View Schedule
           </button>
 
         </div>}
 
-      <div className="max-w-2xl mx-auto bg-white shadow-md rounded-lg p-6">
+      <div className="max-w-2xl mx-auto bg-black/50 text-white shadow-md rounded-lg p-6">
         {renderComponent()}
       </div>
     </div>

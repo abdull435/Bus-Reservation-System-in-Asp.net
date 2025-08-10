@@ -54,7 +54,7 @@ const SeeAllSchedules = ({ from, to, date, updateForm }) => {
         <p className="text-center text-gray-600">No schedules found for the selected route and date.</p>
       ) : (
         <div className="overflow-x-auto">
-        <table className="min-w-full bg-white border border-gray-300 rounded shadow">
+        <table className="min-w-full  border border-gray-300 rounded shadow">
           <thead className="bg-lime-600 text-white text-left">
             <tr className="">
               <th className="px-4 py-2">Route</th>

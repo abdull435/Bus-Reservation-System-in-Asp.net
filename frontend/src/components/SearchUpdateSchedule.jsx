@@ -40,16 +40,16 @@ const SearchUpdateSchedule = () => {
     return (
         <>
         <div className="min-h-screen flex items-center justify-center">
-            <div className="max-w-md w-full bg-white rounded-xl shadow-md p-6 mt-[10vh]">
-                <h1 className="text-2xl font-bold text-center text-blue-600 mb-6">Update Schedule</h1>
+            <div className="max-w-md w-full rounded-xl text-white shadow-md p-6 mt-[10vh]">
+                <h1 className="text-2xl font-bold text-center mb-6">Update Schedule</h1>
                 <form className="space-y-4" onSubmit={handleSubmit}>
                     <div>
-                        <label className="block text-gray-700 text-sm font-bold mb-2">Travel From</label>
+                        <label className="block  text-sm font-bold mb-2">Travel From</label>
                         <input
                             list="fromOptions"
                             name="from" required
                             onChange={(e) => setFrom(e.target.value)}
-                            className="w-full px-3 py-2 border border-gray-300 rounded-md"
+                            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-white bg-white/10"
                         />
                         <datalist id="fromOptions">
                             {cities.map((city, index) => (
@@ -59,12 +59,12 @@ const SearchUpdateSchedule = () => {
                     </div>
 
                     <div>
-                        <label className="block text-gray-700 text-sm font-bold mb-2">
+                        <label className="block  text-sm font-bold mb-2">
                             Travel To
                         </label>
                         <input list="toOptions" name="to" required
                             onChange={(e) => setTo(e.target.value)}
-                            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-white bg-white/10"
                         />
                         <datalist id="toOptions">
                             {cities.map((city, index) => (
@@ -74,13 +74,13 @@ const SearchUpdateSchedule = () => {
                     </div>
 
                     <div>
-                        <label className="block text-gray-700 text-sm font-bold mb-2">
+                        <label className="block  text-sm font-bold mb-2">
                             Departure Date
                         </label>
                         <input type="date" id="date" name="date" required
                             onChange={(e) => setDate(e.target.value)}
                             // min={today}
-                            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-white bg-white/10"
                         />
                     </div>
 

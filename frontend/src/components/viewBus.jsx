@@ -16,15 +16,15 @@ const ViewBus = () => {
 
   return (
     <div className="min-h-screen flex flex-col items-center ">
-        <h1 className="text-2xl font-bold text-center text-blue-600 mb-6">View Buses</h1>
+        <h1 className="text-2xl font-bold text-center text-white mb-6">View Buses</h1>
         <div className='w-full overflow-x-auto'>
-        <table className="min-w-full bg-white ">
+        <table className="min-w-full">
           <thead >
             <tr className="bg-lime-600 text-white text-center border border-black">
-              <th className='px-4 py-2 border border-black'>Bus ID</th>
-              <th className="px-4 py-2 border border-black">Name</th>
-              <th className="px-4 py-2 border border-black">Total Seats</th>
-              <th className="px-4 py-2 border border-black">Type</th>
+              <th className='px-4 py-2 border'>Bus ID</th>
+              <th className="px-4 py-2 border">Name</th>
+              <th className="px-4 py-2 border">Total Seats</th>
+              <th className="px-4 py-2 border">Type</th>
             </tr>
           </thead>
           <tbody>

@@ -16,31 +16,31 @@ const ViewSchedules = () => {
 
   return (
     <div className="min-h-screen flex flex-col items-center ">
-        <h1 className="text-2xl font-bold text-center text-blue-600 mb-6">View schedules</h1>
+        <h1 className="text-2xl font-bold text-center text-white mb-6">View schedules</h1>
         <div className='w-full overflow-x-auto'>
-        <table className="min-w-full bg-white border border-gray-300 rounded shadow">
+        <table className="min-w-full border border-gray-300 rounded shadow">
           <thead className="bg-lime-600 text-white text-center">
             <tr className="">
-              <th className='px-4 py-2 border border-black'>Schedule Id</th>
-              <th className='px-4 py-2 border border-black'>Bus Id</th>
-              <th className='px-4 py-2 border border-black'>Route Id</th>
-              <th className='px-4 py-2 border border-black'>Departure Time</th>
-              <th className='px-4 py-2 border border-black'>Arrival Times</th>
-              <th className='px-4 py-2 border border-black'>Date</th>
-              <th className='px-4 py-2 border border-black'>Price</th>
+              <th className='px-4 py-2 border'>Schedule Id</th>
+              <th className='px-4 py-2 border'>Bus Id</th>
+              <th className='px-4 py-2 border'>Route Id</th>
+              <th className='px-4 py-2 border'>Departure Time</th>
+              <th className='px-4 py-2 border'>Arrival Times</th>
+              <th className='px-4 py-2 border'>Date</th>
+              <th className='px-4 py-2 border'>Price</th>
             </tr>
           </thead>
           <tbody>
             {
                 schedules.map(s=>(
                     <tr key={s.schedule_id} className="border-t text-center">
-                <td className="px-4 py-2 border border-black">{s.schedule_id}</td>
-                <td className="px-4 py-2 border border-black">{s.bus_id}</td>
-                <td className="px-4 py-2 border border-black">{s.route_id}</td>
-                <td className="px-4 py-2 border border-black">{new Date(s.departure_time).toLocaleTimeString()}</td>
-                <td className="px-4 py-2 border border-black">{new Date(s.arrival_time).toLocaleTimeString()}</td>
-                <td className="px-4 py-2 border border-black">{new Date(s.date).toLocaleDateString()}</td>
-                <td className="px-4 py-2 border border-black">{s.price}</td>
+                <td className="px-4 py-2 border ">{s.schedule_id}</td>
+                <td className="px-4 py-2 border ">{s.bus_id}</td>
+                <td className="px-4 py-2 border ">{s.route_id}</td>
+                <td className="px-4 py-2 border ">{new Date(s.departure_time).toLocaleTimeString()}</td>
+                <td className="px-4 py-2 border ">{new Date(s.arrival_time).toLocaleTimeString()}</td>
+                <td className="px-4 py-2 border ">{new Date(s.date).toLocaleDateString()}</td>
+                <td className="px-4 py-2 border ">{s.price}</td>
               </tr>
                 ))
             }

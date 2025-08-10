@@ -34,46 +34,46 @@ const AddBus = () => {
 
   return (
     <div className="min-h-screen flex items-center justify-center">
-      <div className="max-w-md w-full bg-white rounded-xl shadow-md p-6 mt-[10vh]">
-        <h1 className="text-2xl font-bold text-center text-blue-600 mb-6">Add Bus</h1>
-        <form className="space-y-4">
+      <div className="max-w-md w-full rounded-xl shadow-md p-6 mt-[10vh]">
+        <h1 className="text-2xl font-bold text-center text-white mb-6">Add Bus</h1>
+        <form className="space-y-4 text-white">
           <div>
-            <label className="block text-gray-700 text-sm font-bold mb-2">Bus Name</label>
+            <label className="block text-sm font-bold mb-2">Bus Name</label>
             <input
               type="text"
               value={busName}
               onChange={(e) => setBusName(e.target.value)}
               required
-              className="w-full px-3 py-2 border border-gray-300 rounded-md"
+              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-white bg-white/10"
             />
           </div>
 
           <div>
-            <label className="block text-gray-700 text-sm font-bold mb-2">Total Seats</label>
+            <label className="block text-sm font-bold mb-2">Total Seats</label>
             <input
               type="number"
               max={40}
               value={totalSeats}
               onChange={(e) => setTotalSeats(e.target.value)}
               required
-              className="w-full px-3 py-2 border border-gray-300 rounded-md"
+              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-white bg-white/10"
             />
           </div>
 
           <div>
-            <label className="block text-gray-700 text-sm font-bold mb-2">Bus Type</label>
+            <label className="block text-sm font-bold mb-2">Bus Type</label>
             <input
               type="text"
               value={busType}
               onChange={(e) => setBusType(e.target.value)}
               required
-              className="w-full px-3 py-2 border border-gray-300 rounded-md"
+              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-white bg-white/10"
             />
           </div>
 
           <button
             onClick={handleSubmit}
-            className="w-full bg-lime-600 hover:bg-lime-700 text-white font-bold py-3 px-4 rounded-md transition duration-300"
+            className="w-full bg-lime-600 hover:bg-lime-700 text-white font-bold py-3 px-4 rounded-md transition duration-300 cursor-pointer"
           >
             Add Bus
           </button>

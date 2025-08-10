@@ -80,8 +80,8 @@ const UpdateSchedule = ({selectedSchedule}) => {
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center">
-      <h1 className="text-2xl font-bold text-center text-blue-600 mb-6">Selected Schedule</h1>
-    <table className="min-w-full bg-white border border-gray-300 rounded shadow">
+      <h1 className="text-2xl font-bold text-center text-white mb-6">Selected Schedule</h1>
+    <table className="min-w-full  border border-gray-300 rounded shadow">
           <thead className="bg-lime-600 text-white text-center">
             <tr className="">
               <th className='px-4 py-2'>Bus</th>
@@ -109,20 +109,20 @@ const UpdateSchedule = ({selectedSchedule}) => {
               </tr>
           </tbody>
         </table>
-      <div className="max-w-md w-full bg-white rounded-xl shadow-md p-6 mt-[5vh]">
-        <h1 className="text-2xl font-bold text-center text-blue-600 mb-6">Update Schedule</h1>
+      <div className="max-w-md w-full rounded-xl shadow-md p-6 mt-[5vh]">
+        <h1 className="text-2xl font-bold text-center text-white mb-6">Update Schedule</h1>
         <form className="space-y-4">
           <div>
-            <label className="block text-gray-700 text-sm font-bold mb-2">Select Bus</label>
+            <label className="block text-sm font-bold mb-2">Select Bus</label>
             <select
               value={busId}
               onChange={(e) => setBusId(e.target.value)}
               required
-              className="w-full px-3 py-2 border border-gray-300 rounded-md"
+              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-white bg-white/10"
             >
-              <option value="">Select Bus</option>
+              <option className='bg-black' value="">Select Bus</option>
               {buses.map((buse) => (
-                <option key={buse.bus_id} value={buse.bus_id}>
+                <option className='bg-black' key={buse.bus_id} value={buse.bus_id}>
                   {buse.bus_name}
                 </option>
               ))}
@@ -130,16 +130,16 @@ const UpdateSchedule = ({selectedSchedule}) => {
           </div>
 
           <div>
-            <label className="block text-gray-700 text-sm font-bold mb-2">Select Route</label>
+            <label className="block text-sm font-bold mb-2">Select Route</label>
             <select
               value={routeId}
               onChange={(e) => setRouteId(e.target.value)}
               required
-              className="w-full px-3 py-2 border border-gray-300 rounded-md"
+              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-white bg-white/10"
             >
-              <option value="">Select Route</option>
+              <option className='bg-black' value="">Select Route</option>
               {routes.map((route) => (
-                <option key={route.route_id} value={route.route_id}>
+                <option className='bg-black' key={route.route_id} value={route.route_id}>
                   {route.from_city} to {route.to_city}
                 </option>
               ))}
@@ -147,47 +147,47 @@ const UpdateSchedule = ({selectedSchedule}) => {
           </div>
 
           <div>
-            <label className="block text-gray-700 text-sm font-bold mb-2">Date</label>
+            <label className="block text-sm font-bold mb-2">Date</label>
             <input
               type="date"
               value={date}
               min={today}
               onChange={(e) => setDate(e.target.value)}
               required
-              className="w-full px-3 py-2 border border-gray-300 rounded-md"
+              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-white bg-white/10"
             />
           </div>
 
           <div>
-            <label className="block text-gray-700 text-sm font-bold mb-2">Departure Time</label>
+            <label className="block text-sm font-bold mb-2">Departure Time</label>
             <input
               type="time"
               value={departureTime}
               onChange={(e) => setDepartureTime(e.target.value)}
               required
-              className="w-full px-3 py-2 border border-gray-300 rounded-md"
+              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-white bg-white/10"
             />
           </div>
 
           <div>
-            <label className="block text-gray-700 text-sm font-bold mb-2">Arrival Time</label>
+            <label className="block text-sm font-bold mb-2">Arrival Time</label>
             <input
               type="time"
               value={arrivalTime}
               onChange={(e) => setArrivalTime(e.target.value)}
               required
-              className="w-full px-3 py-2 border border-gray-300 rounded-md"
+              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-white bg-white/10"
             />
           </div>
 
           <div>
-            <label className="block text-gray-700 text-sm font-bold mb-2">Ticket Price</label>
+            <label className="block text-sm font-bold mb-2">Ticket Price</label>
             <input
               type="price"
               value={price}
               onChange={(e) => setPrice(e.target.value)}
               required
-              className="w-full px-3 py-2 border border-gray-300 rounded-md"
+              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-white bg-white/10"
             />
           </div>
 
