@@ -35,55 +35,56 @@ const Signup = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center">
-      <div className="max-w-md w-full mx-auto bg-white rounded-xl shadow-md p-6">
-        <h2 className="text-2xl font-bold text-center text-blue-600 mb-6">Sign Up</h2>
+    <div className="min-h-[100svh] flex items-center justify-center bg-cover bg-center"
+    style={{ backgroundImage: "url('/Images/21.jpg')" }}>
+      <div className="max-w-md bg-black/80 rounded-xl shadow-md m-2 p-6 text-white">
+        <h2 className="text-2xl font-bold text-center mb-6">Sign Up</h2>
         <form className="space-y-4">
           <input
             type="text"
             placeholder="Full Name"
             required
             onChange={(e) => setName(e.target.value)}
-            className="w-full px-3 py-2 border rounded-md"
+            className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-white bg-white/10"
           />
           <input
             type=""
             placeholder="Email"
             required
             onChange={(e) => setEmail(e.target.value)}
-            className="w-full px-3 py-2 border rounded-md"
+            className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-white bg-white/10"
           />
           <input
             type="password"
             placeholder="Password"
             required
             onChange={(e) => setPassword(e.target.value)}
-            className="w-full px-3 py-2 border rounded-md"
+            className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-white bg-white/10"
           />
           <input
             type="phone"
             placeholder="Mobile"
             required
             onChange={(e) => setMobile(e.target.value)}
-            className="w-full px-3 py-2 border rounded-md"
+            className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-white bg-white/10"
           />
           <input
             type="text"
             placeholder="Password"
             required
             onChange={(e) => setCinic(e.target.value)}
-            className="w-full px-3 py-2 border rounded-md"
+            className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-white bg-white/10"
           />
           <button
             onClick={handleSignup}
-            className="w-full bg-lime-600 text-white py-2 rounded-md"
+            className="w-full bg-lime-600 text-white py-2 rounded-md "
           >
             Sign Up
           </button>
         </form>
         <p className="mt-4 text-center">
           Already have an account?{' '}
-          <Link to="/login" className="text-blue-600 hover:underline">Login</Link>
+          <Link to="/login" className="text-lime-400 hover:underline">Login</Link>
         </p>
       </div>
     </div>
