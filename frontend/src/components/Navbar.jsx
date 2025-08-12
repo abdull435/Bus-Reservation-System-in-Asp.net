@@ -69,18 +69,18 @@ export default function Navbar() {
           </div>
         </div>
       </div>
-      {mobileNav && (<div className="flex text-white flex-col text-center space-y-2 p-2">
-            <a href="" className="hover:text-green-500 transition-all durantion-300">Home</a>
-            <a href="" className="hover:text-green-500 transition-all durantion-300">Terminal</a>
-            <a href="" className="hover:text-green-500 transition-all durantion-300">Services</a>
-            <a href="" className="hover:text-green-500 transition-all durantion-300">About Us</a>
+      {mobileNav && (<div className="flex text-white flex-col text-center space-y-2 ">
+            <a href="" className="hover:text-green-500 transition-all durantion-300 p-1 border-b">Home</a>
+            <a href="" className="hover:text-green-500 transition-all durantion-300 p-1 border-b">Terminal</a>
+            <a href="" className="hover:text-green-500 transition-all durantion-300 p-1 border-b">Services</a>
+            <a href="" className="hover:text-green-500 transition-all durantion-300 p-1 border-b">About Us</a>
             {isLoggedin ?
               <Link onClick={() => handleLogout()}
-                className="hover:text-green-500 transition-all durantion-300"
+                className="hover:text-green-500 transition-all durantion-300 p-1 border-b"
               >Logout</Link>
               :
               <Link to="/login"
-                className="hover:text-green-500 transition-all durantion-300"
+                className="hover:text-green-500 transition-all durantion-300 p-1 border-b"
               >Login</Link>}
           </div>)}
     </nav>
