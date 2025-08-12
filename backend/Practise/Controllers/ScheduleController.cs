@@ -1,9 +1,10 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Routing;
 using Practise.Data;
-using Practise.Models;
 using Practise.DTO;
+using Practise.Models;
 
 namespace Practise.Controllers
 {
@@ -17,7 +18,7 @@ namespace Practise.Controllers
         {
             _context = context;
         }
-
+        [Authorize(Roles = "Admin")]
         [HttpPost("add-schedule")]
         public IActionResult addSchedules([FromBody] addScheduleDTO model)
         {
@@ -38,6 +39,7 @@ namespace Practise.Controllers
             return Ok(new { success = true });
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpPut("update-schedule/{id}")]
         public async Task<IActionResult> updateSchedule(int id, [FromBody] addScheduleDTO model)
         {

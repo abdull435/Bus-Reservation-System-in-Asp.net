@@ -19,10 +19,14 @@ const AddRoute = () => {
     }
 
     axios
-      .post('https://bus-reservation-system-in-aspnet-production.up.railway.app/Route/add-route', { from_city: fromCity, to_city: toCity }, { withCredentials: true })
+      .post('https://bus-reservation-system-in-aspnet-production.up.railway.app/Route/add-route', { from_city: fromCity, to_city: toCity },{headers: {
+    Authorization: `Bearer ${localStorage.getItem("token")}`
+  }}, { withCredentials: true })
       .then((response) => {
         if (response.data.success) {
           alert('Route added successfully');
+          setFromCity('');
+          setToCity('');
         } else {
           alert('Error adding route');
         }

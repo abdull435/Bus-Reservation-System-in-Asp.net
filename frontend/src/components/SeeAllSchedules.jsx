@@ -4,10 +4,7 @@ import axios from "axios";
 const SeeAllSchedules = ({ from, to, date, updateForm }) => {
 
     const [schedules, setSchedules] = useState([]);
-    const [selectedSchedules, setSelectedSchedule] = useState([]);
     const [loading, setLoading] = useState(true);
-
-    const [showUpdateSchedule, setShowSchedule] = useState(false);
 
     useEffect(() => {
         if (!from || !to || !date) return;
@@ -38,17 +35,12 @@ const SeeAllSchedules = ({ from, to, date, updateForm }) => {
     const handleUpdate=(schedule)=>{
       console.log(schedule.bus_id)
       updateForm(schedule)
-
-      // setSelectedSchedule(schedule);
-      // setShowSchedule(true);
-      // close
     }
 
 
     if (loading) return <p className="text-center mt-4">Loading schedules...</p>;
 
     return(
-      <>
         <div className="mt-6">
       {schedules.length === 0 ? (
         <p className="text-center text-gray-600">No schedules found for the selected route and date.</p>
@@ -87,12 +79,6 @@ const SeeAllSchedules = ({ from, to, date, updateForm }) => {
       </div>
       )}
     </div>
-{/* 
-    {showUpdateSchedule &&
-      (<UpdateSchedule scheduleId={selectedSchedules} close={close}/>)
-
-    }; */}
-    </>
     );
     
 

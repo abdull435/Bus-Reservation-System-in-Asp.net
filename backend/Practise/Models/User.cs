@@ -11,5 +11,6 @@ namespace Practise.Models
         public string password { get; set; }
         public int mobile { get; set; }
         public int cinic { get; set; }
+        public string role { get; set; }
     }
 }

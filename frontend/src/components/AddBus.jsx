@@ -15,7 +15,11 @@ const AddBus = () => {
     }
 
     axios
-      .post('https://bus-reservation-system-in-aspnet-production.up.railway.app/Bus/add-bus', { bus_name: busName, total_seats: totalSeats, bus_type: busType },{withCredentials: true})
+      .post('https://bus-reservation-system-in-aspnet-production.up.railway.app/Bus/add-bus', { bus_name: busName, total_seats: totalSeats, bus_type: busType }
+        ,{headers: {
+    Authorization: `Bearer ${localStorage.getItem("token")}`
+  }}
+        ,{withCredentials: true})
       .then((response) => {
         if (response.data.success) {
           alert('Bus added successfully');

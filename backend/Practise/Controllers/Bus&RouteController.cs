@@ -1,9 +1,12 @@
 ﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Authorization;
+
 using Microsoft.AspNetCore.Mvc;
 using Practise.Data;
 
 namespace Practise.Controllers
 {
+    [Authorize(Roles ="Admin")]
     [Route("[controller]")]
     [ApiController]
     public class Bus_RouteController : ControllerBase

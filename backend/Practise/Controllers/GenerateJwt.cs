@@ -20,7 +20,8 @@ namespace Practise.Controllers
                 new Claim("name", user.name),
                 new Claim("email", user.email),
                 new Claim("mobile", user.mobile.ToString()),
-                new Claim("cinic", user.cinic.ToString())
+                new Claim("cinic", user.cinic.ToString()),
+                new Claim(ClaimTypes.Role, user.role.ToString()),
             };
 
 

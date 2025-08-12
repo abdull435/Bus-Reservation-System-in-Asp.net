@@ -14,17 +14,17 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/Bus"
+                "$ref": "#/components/schemas/addBusDTO"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/Bus"
+                "$ref": "#/components/schemas/addBusDTO"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/Bus"
+                "$ref": "#/components/schemas/addBusDTO"
               }
             }
           }
@@ -56,17 +56,17 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/Bus"
+                "$ref": "#/components/schemas/addBusDTO"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/Bus"
+                "$ref": "#/components/schemas/addBusDTO"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/Bus"
+                "$ref": "#/components/schemas/addBusDTO"
               }
             }
           }
@@ -445,28 +445,6 @@
   },
   "components": {
     "schemas": {
-      "Bus": {
-        "type": "object",
-        "properties": {
-          "bus_id": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "bus_name": {
-            "type": "string",
-            "nullable": true
-          },
-          "total_seats": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "bus_type": {
-            "type": "string",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
       "LoginDTO": {
         "type": "object",
         "properties": {
@@ -580,6 +558,32 @@
           "cinic": {
             "type": "integer",
             "format": "int32"
+          },
+          "role": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "addBusDTO": {
+        "type": "object",
+        "properties": {
+          "bus_id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "bus_name": {
+            "type": "string",
+            "nullable": true
+          },
+          "total_seats": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "bus_type": {
+            "type": "string",
+            "nullable": true
           }
         },
         "additionalProperties": false

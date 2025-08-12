@@ -15,7 +15,7 @@ const SearchUpdateSchedule = () => {
 
     const [selectedSchedules, setSelectedSchedule] = useState([]);
     const [showUpdateSchedule, setShowUpdateSchedule] = useState(false);
-    
+    const today = new Date().toISOString().split("T")[0];
 
     useEffect(() => {
     
@@ -79,7 +79,7 @@ const SearchUpdateSchedule = () => {
                         </label>
                         <input type="date" id="date" name="date" required
                             onChange={(e) => setDate(e.target.value)}
-                            // min={today}
+                            min={today}
                             className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-white bg-white/10"
                         />
                     </div>

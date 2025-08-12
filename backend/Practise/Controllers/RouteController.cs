@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Practise.Data;
 using Practise.DTO;
@@ -6,6 +7,7 @@ using Practise.Models;
 
 namespace Practise.Controllers
 {
+    [Authorize(Roles = "Admin")]
     [Route("[controller]")]
     [ApiController]
     public class RouteController : ControllerBase

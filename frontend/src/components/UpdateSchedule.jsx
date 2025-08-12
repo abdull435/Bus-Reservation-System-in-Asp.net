@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-const UpdateSchedule = ({selectedSchedule}) => {
-  
+const UpdateSchedule = ({ selectedSchedule }) => {
+
   const scheduleId = selectedSchedule.schedule_id;
   const from = selectedSchedule.routes.from_city;
   const to = selectedSchedule.routes.to_city;
@@ -14,7 +14,7 @@ const UpdateSchedule = ({selectedSchedule}) => {
   const [date, setDate] = useState('');
   const [price, setPrice] = useState('');
 
-  
+
   const [bus, setBus] = useState('');
   const [buses, setBuses] = useState([]);
   const [routes, setRoutes] = useState([]);
@@ -22,12 +22,16 @@ const UpdateSchedule = ({selectedSchedule}) => {
   const today = new Date().toISOString().split("T")[0];
 
   useEffect(() => {
-    axios.get('https://bus-reservation-system-in-aspnet-production.up.railway.app/Bus_Route')
+    axios.get('https://bus-reservation-system-in-aspnet-production.up.railway.app/Bus_Route', {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("token")}`
+      }
+    })
       .then(response => {
-      setBuses(response.data.bus);
-      setRoutes(response.data.route);
-      const matchedBus = response.data.bus.find(b => b.bus_id === selectedSchedule.bus_id);
-      setBus(matchedBus.bus_name);
+        setBuses(response.data.bus);
+        setRoutes(response.data.route);
+        const matchedBus = response.data.bus.find(b => b.bus_id === selectedSchedule.bus_id);
+        setBus(matchedBus.bus_name);
 
       })
       .catch(error => {
@@ -63,13 +67,17 @@ const UpdateSchedule = ({selectedSchedule}) => {
       date: date,
       price: price,
     };
-    
-    axios.put(`https://bus-reservation-system-in-aspnet-production.up.railway.app/Schedule/update-schedule/${scheduleId}`, scheduleData ,{ withCredentials: true })
+
+    axios.put(`https://bus-reservation-system-in-aspnet-production.up.railway.app/Schedule/update-schedule/${scheduleId}`, scheduleData, {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("token")}`
+      }
+    }, { withCredentials: true })
       .then((response) => {
-        if(response.data.success){
+        if (response.data.success) {
           alert("Schedule Updated");
         }
-        
+
       })
       .catch((error) => {
         console.error('Error adding schedule:', error);
@@ -81,34 +89,36 @@ const UpdateSchedule = ({selectedSchedule}) => {
   return (
     <div className="min-h-screen flex flex-col items-center justify-center">
       <h1 className="text-2xl font-bold text-center text-white mb-6">Selected Schedule</h1>
-    <table className="min-w-full  border border-gray-300 rounded shadow">
-          <thead className="bg-lime-600 text-white text-center">
-            <tr className="">
-              <th className='px-4 py-2'>Bus</th>
-              <th className="px-4 py-2">Route</th>
-              <th className="px-4 py-2">Departure Time</th>
-              <th className="px-4 py-2">Arrival Time</th>
-              <th className="px-4 py-2">Date</th>
-              <th className="px-4 py-2">Price</th>
-            </tr>
-          </thead>
-          <tbody>
-              <tr key={selectedSchedule.schedule_id} className="border-t text-center">
-                <td className="px-4 py-2">{bus}</td>
-                <td className="px-4 py-2">{from} to {to}</td>
-                <td className="px-4 py-2">
-                  {new Date(selectedSchedule.departure_time).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: true })}
-                </td>
-                <td className="px-4 py-2">
-                  {new Date(selectedSchedule.arrival_time).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: true })}
-                </td>
-                <td className="px-4 py-2">
-                  {new Date(selectedSchedule.date).toLocaleDateString()}
-                </td>
-                <td className="px-4 py-2">{selectedSchedule.price}</td>
-              </tr>
-          </tbody>
-        </table>
+      <table className="min-w-full  border border-gray-300 rounded shadow">
+        <thead className="bg-lime-600 text-white text-center">
+          <tr className="">
+            <th className='px-4 py-2'>Schedule Id</th>
+            <th className='px-4 py-2'>Bus</th>
+            <th className="px-4 py-2">Route</th>
+            <th className="px-4 py-2">Departure Time</th>
+            <th className="px-4 py-2">Arrival Time</th>
+            <th className="px-4 py-2">Date</th>
+            <th className="px-4 py-2">Price</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr key={selectedSchedule.schedule_id} className="border-t text-center">
+            <td className="px-4 py-2">{selectedSchedule.schedule_id}</td>
+            <td className="px-4 py-2">{bus}</td>
+            <td className="px-4 py-2">{from} to {to}</td>
+            <td className="px-4 py-2">
+              {new Date(selectedSchedule.departure_time).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: true })}
+            </td>
+            <td className="px-4 py-2">
+              {new Date(selectedSchedule.arrival_time).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: true })}
+            </td>
+            <td className="px-4 py-2">
+              {new Date(selectedSchedule.date).toLocaleDateString()}
+            </td>
+            <td className="px-4 py-2">{selectedSchedule.price}</td>
+          </tr>
+        </tbody>
+      </table>
       <div className="max-w-md w-full rounded-xl shadow-md p-6 mt-[5vh]">
         <h1 className="text-2xl font-bold text-center text-white mb-6">Update Schedule</h1>
         <form className="space-y-4">

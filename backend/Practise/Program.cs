@@ -1,5 +1,8 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
 using Practise.Data;
+using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,13 +13,29 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 
 // Add other services
 builder.Services.AddControllers();
-builder.Services.AddDistributedMemoryCache();
-builder.Services.AddSession(options =>
+// add jwt token authentication
+
+var jwtSettings = builder.Configuration.GetSection("Jwt");
+
+builder.Services.AddAuthentication(options =>
 {
-    options.IdleTimeout = TimeSpan.FromMinutes(300);
-    options.Cookie.HttpOnly = true;
-    options.Cookie.IsEssential = true;
+    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+})
+.AddJwtBearer(options =>
+{
+    options.TokenValidationParameters = new TokenValidationParameters
+    {
+        ValidateIssuer = true,
+        ValidateAudience = true,
+        ValidateLifetime = true,
+        ValidateIssuerSigningKey = true,
+        ValidIssuer = jwtSettings["Issuer"],
+        ValidAudience = jwtSettings["Audience"],
+        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtSettings["Key"]))
+    };
 });
+
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
@@ -29,7 +48,10 @@ builder.Services.AddCors(options =>
             origin.StartsWith("https://bus-reservation-system-in-asp-net-c") ||
             origin.StartsWith("http://localhost:5173") ||
             origin.StartsWith("http://192.168.1.18:5173")
+
         )
+
+        
 
               .AllowAnyHeader()
               .AllowAnyMethod()
@@ -39,10 +61,10 @@ builder.Services.AddCors(options =>
 
 var app = builder.Build();
 
-app.UseSession();
 app.UseCors();
 app.UseSwagger();
 app.UseSwaggerUI();
+app.UseAuthentication();
 app.UseAuthorization();
 app.MapControllers();
 

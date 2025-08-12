@@ -1,10 +1,13 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Practise.Data;
+using Practise.DTO;
 using Practise.Models;
 
 namespace Practise.Controllers
 {
+    [Authorize(Roles = "Admin")]
     [Route("[controller]")]
     [ApiController]
     public class BusController : ControllerBase
@@ -17,9 +20,15 @@ namespace Practise.Controllers
         }
 
         [HttpPost("add-bus")]
-        public IActionResult addBus([FromBody] Bus model)
+        public IActionResult addBus([FromBody] addBusDTO model)
         {
-            _context.bus.Add(model);
+            var bus = new Bus
+            {
+                bus_name = model.bus_name,
+                total_seats = model.total_seats,
+                bus_type = model.bus_type,
+            };
+            _context.bus.Add(bus);
             _context.SaveChanges();
 
             return Ok(new { success = true });
@@ -27,7 +36,7 @@ namespace Practise.Controllers
 
         [HttpPut("update-bus/{id}")]
 
-        public async Task<IActionResult> updateBus(int id, [FromBody] Bus model)
+        public async Task<IActionResult> updateBus(int id, [FromBody] addBusDTO model)
         {
             var bus = await _context.bus.FindAsync(id);
 

@@ -10,7 +10,9 @@ const UpdateBus = () => {
     const [buses, setBuses]= useState([]);
 
     useEffect(()=>{
-        axios.get('https://bus-reservation-system-in-aspnet-production.up.railway.app/Bus_Route')
+        axios.get('https://bus-reservation-system-in-aspnet-production.up.railway.app/Bus_Route',{headers: {
+    Authorization: `Bearer ${localStorage.getItem("token")}`
+  }})
       .then(response => {
         setBuses(response.data.bus);
       })
@@ -35,7 +37,11 @@ const UpdateBus = () => {
     }
 
     axios
-      .put(`https://bus-reservation-system-in-aspnet-production.up.railway.app/Bus/update-bus/${busId}`, { bus_name: busName, total_seats: totalSeats, bus_type: busType },{withCredentials: true})
+      .put(`https://bus-reservation-system-in-aspnet-production.up.railway.app/Bus/update-bus/${busId}`,
+        { bus_name: busName, total_seats: totalSeats, bus_type: busType },
+        {headers: {
+        Authorization: `Bearer ${localStorage.getItem("token")}`
+      }})
       .then((response) => {
         if (response.data.success) {
           alert('Bus added successfully');

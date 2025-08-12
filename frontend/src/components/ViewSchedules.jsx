@@ -5,7 +5,9 @@ const ViewSchedules = () => {
   const [schedules, setSchedules] = useState([]);
 
   useEffect(()=>{
-    axios.get('https://bus-reservation-system-in-aspnet-production.up.railway.app/Schedule/get-schedules')
+    axios.get('https://bus-reservation-system-in-aspnet-production.up.railway.app/Schedule/get-schedules',{headers: {
+    Authorization: `Bearer ${localStorage.getItem("token")}`
+  }})
       .then(response => {
       setSchedules(response.data.schedules);
       })

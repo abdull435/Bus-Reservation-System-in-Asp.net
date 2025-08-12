@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import ViewBus from './viewBus';
 import ViewRoutes from './viewRoutes';
 import ViewSchedules from './ViewSchedules';
@@ -8,10 +8,38 @@ import AddSchedule from './AddSchedule';
 import UpdateBus from './UpdateBus';
 import UpdateRoute from './UpdateRoute';
 import UpdateSchedule from './SearchUpdateSchedule';
+import { jwtDecode } from 'jwt-decode';
+import { useNavigate } from 'react-router-dom';
 
 const AdminPanel = () => {
   const [activeComponent, setActiveComponent] = useState('');
   const [activeSection, setActiveSection] = useState('')
+
+
+  const navigate = useNavigate();
+
+
+  useEffect(() => {
+
+    const token = localStorage.getItem("token");
+    
+
+    if (!token) {
+      return navigate("/login");
+    }
+    const decode = jwtDecode(token);
+    if (token) {
+
+
+      const role = decode["http://schemas.microsoft.com/ws/2008/06/identity/claims/role"];
+
+      if (!role || role != "Admin") {
+        return navigate("/login");
+      }
+    }
+
+  }, []);
+
 
   const renderComponent = () => {
     switch (activeComponent) {
@@ -22,17 +50,17 @@ const AdminPanel = () => {
       case 'add-schedule':
         return <AddSchedule />;
       case 'update-bus':
-        return <UpdateBus/>
+        return <UpdateBus />
       case 'update-route':
-        return <UpdateRoute/>
+        return <UpdateRoute />
       case 'update-schedule':
-        return <UpdateSchedule/>
+        return <UpdateSchedule />
       case 'view-bus':
-        return <ViewBus/>
+        return <ViewBus />
       case 'view-route':
-        return <ViewRoutes/>
+        return <ViewRoutes />
       case 'view-schedule':
-        return <ViewSchedules/>
+        return <ViewSchedules />
       default:
         return <div className="text-center mt-10">Please select an action above.</div>;
     }
@@ -55,6 +83,9 @@ const AdminPanel = () => {
         <button onClick={() => setActiveSection(activeSection === "delete" ? '' : "delete")}
           className="bg-lime-600 hover:bg-lime-700 text-white px-4 py-2 rounded-md cursor-pointer">
           Delete</button>
+        <button onClick={()=> { localStorage.removeItem("token");navigate("/login");}}
+          className="bg-lime-600 hover:bg-lime-700 text-white px-4 py-2 rounded-md cursor-pointer">
+          Logout</button>
 
       </div>
 

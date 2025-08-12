@@ -16,7 +16,9 @@ const AddSchedule = () => {
 
   useEffect(() => {
 
-    axios.get('https://bus-reservation-system-in-aspnet-production.up.railway.app/Bus_Route')
+    axios.get('https://bus-reservation-system-in-aspnet-production.up.railway.app/Bus_Route',{headers: {
+    Authorization: `Bearer ${localStorage.getItem("token")}`
+  }})
       .then(response => {
         setBuses(response.data.bus);
         setRoutes(response.data.route);
@@ -57,7 +59,9 @@ const AddSchedule = () => {
       price: price,
     };
     
-    axios.post(`https://bus-reservation-system-in-aspnet-production.up.railway.app/Schedule/add-schedule"`, scheduleData, { withCredentials: true })
+    axios.post(`https://bus-reservation-system-in-aspnet-production.up.railway.app/Schedule/add-schedule`, scheduleData ,{headers: {
+    Authorization: `Bearer ${localStorage.getItem("token")}`
+  }}, { withCredentials: true })
       .then((response) => {
         if (response.data.success) {
           alert('Schedule added successfully');
