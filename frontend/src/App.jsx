@@ -9,6 +9,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { ScheduleProvider } from './components/ScheduleContext';
 import Signup from './components/Signup';
 import CustomerHistory from './components/CustomerHistory';
+import UpdateUser from './components/UpdateUser';
 
 function App() {   
   return (
@@ -21,6 +22,7 @@ function App() {
       <Route path="/signup" element={<Signup />} />
       <Route path="/admin" element={<AdminPanel />} />
       <Route path='/SeeReservations' element={<><Navbar/><CustomerHistory/></>}/>
+      <Route path='/update-user' element={<><UpdateUser/></>}/>
       </Routes>
     </Router>
     </ScheduleProvider>

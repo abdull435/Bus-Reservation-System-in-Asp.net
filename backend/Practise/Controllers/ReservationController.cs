@@ -18,7 +18,6 @@ namespace Practise.Controllers
         }
 
         [HttpPost]
-
         public IActionResult makeReservation([FromBody] ReservationDTO model)
         {
 

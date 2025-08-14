@@ -92,7 +92,7 @@ export default function Navbar() {
       {showSetting &&
         <div className="hidden md:flex fixed  flex-col text-center w-[15%] h-[30vh] rounded bg-black/60 text-white mt-[10vh] mr-[10vh] ">
           <Link to="/seeReservations" onClick={() => setShowSetting(false)} className="border-b p-2 hover:bg-lime-700 transition duration-300">Booking History</Link>
-          <Link onClick={() => setShowSetting(false)} className="border-b p-2 hover:bg-lime-700 transition duration-300">Account Setting</Link>
+          <Link onClick={() => setShowSetting(false)} to="/update-user" className="border-b p-2 hover:bg-lime-700 transition duration-300">Account Setting</Link>
           <button onClick={()=>handleLogout()} className="border-b p-2 hover:bg-lime-700 transition duration-300 cursor-pointer">Logout</button>
         </div>
       }

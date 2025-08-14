@@ -265,5 +265,26 @@
       }
     ],
     "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Practise.Controllers.UpdateUserController",
+    "Method": "UpdateUser",
+    "RelativePath": "UpdateUser/update-user/{user_id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "user_id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "model",
+        "Type": "Practise.DTO.userUpdateDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
   }
 ]

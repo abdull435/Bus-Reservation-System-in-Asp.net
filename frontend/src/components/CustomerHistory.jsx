@@ -13,7 +13,7 @@ const CustomerHistory = () => {
   useEffect(() => {
     setShowLoading(true);
     const id = decode.user_id;
-    axios.get(`http://localhost:5212/Reservation/get-reservations/${id}`, { withCredentials: true })
+    axios.get(`https://bus-reservation-system-in-aspnet-production.up.railway.app/Reservation/get-reservations/${id}`, { withCredentials: true })
       .then(res => {
         setReservations(res.data.reservation)
         setShowLoading(false);
