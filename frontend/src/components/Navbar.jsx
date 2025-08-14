@@ -37,7 +37,7 @@ export default function Navbar() {
 
   return (
     <div className="flex justify-end">
-      <nav className="bg-black/60 shadow-md fixed top-0 w-full min-h-[10vh]">
+      <nav className="bg-black/80 shadow-md fixed top-0 w-full min-h-[8-vh] md:min-h-[8-vh]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16 text-white">
             <img className=" w-15  h-auto" src="./Images/bus-logo.png" />
@@ -49,15 +49,16 @@ export default function Navbar() {
             </div>
 
             <div className="md:hidden">
-              <img src="./Images/hambar.png" onClick={()=>setMobileNav(!mobileNav)} />
+              <img src={mobileNav?'./Images/delete.png':'./Images/stack.png'} onClick={()=>setMobileNav(!mobileNav)} 
+                className="w-[35px] h-[35px]"/>
             </div>
 
             <div className="hidden md:block">
               {isLoggedin ?
-                (<div className="space-x-2">
-                  <Link  onClick={() => setShowSetting(!showSetting)}
-                    className="bg-lime-600 text-white font-semibold px-4 py-2 rounded transition duration-300 hover:bg-lime-700"
-                  >Setting</Link>
+                (<div className="">
+                  <img src={showSetting?'./Images/delete.png':'./Images/stack.png'} onClick={() => setShowSetting(!showSetting)}
+                    className="w-[40px] h-[40px] cursor-pointer"
+                  />
                 </div>)
                 :
                 <Link to="/login"
@@ -67,11 +68,11 @@ export default function Navbar() {
             </div>
           </div>
         </div>
-        {mobileNav && (<div className="flex text-white flex-col text-center space-y-2 ">
+        {mobileNav && (<div className="flex md:hidden text-white flex-col text-center space-y-2 ">
           <Link to="/home" className="hover:text-green-500 transition-all durantion-300 p-1 border-b">Home</Link>
-          <a href="" className="hover:text-green-500 transition-all durantion-300 p-1 border-b">Terminal</a>
-          <a href="" className="hover:text-green-500 transition-all durantion-300 p-1 border-b">Services</a>
-          <a href="" className="hover:text-green-500 transition-all durantion-300 p-1 border-b">About Us</a>
+          <Link to="/terminals" className="hover:text-green-500 transition-all durantion-300 p-1 border-b">Terminal</Link>
+          <Link to="/services" className="hover:text-green-500 transition-all durantion-300 p-1 border-b">Services</Link>
+          <Link to="/about" className="hover:text-green-500 transition-all durantion-300 p-1 border-b">About Us</Link>
           {isLoggedin ?
             <div className="flex flex-col">
               <button onClick={() => handleLogout()}
@@ -87,12 +88,12 @@ export default function Navbar() {
             >Login</Link>}
         </div>)}
       </nav>
+
       {showSetting &&
-        <div className="fixed flex flex-col text-center w-[12%] h-[30vh] rounded bg-black/60 text-white mt-[10vh] mr-10 
-        transition duration-300 ease-in-out transform origin-top-right">
-          <Link to="/seeReservations" onClick={() => setShowSetting(false)} className="border-b">Booking History</Link>
-          <Link onClick={() => setShowSetting(false)} className="border-b">Account Setting</Link>
-          <button onClick={()=>handleLogout()} className="border-b">Logout</button>
+        <div className="hidden md:flex fixed  flex-col text-center w-[15%] h-[30vh] rounded bg-black/60 text-white mt-[10vh] mr-[10vh] ">
+          <Link to="/seeReservations" onClick={() => setShowSetting(false)} className="border-b p-2 hover:bg-lime-700 transition duration-300">Booking History</Link>
+          <Link onClick={() => setShowSetting(false)} className="border-b p-2 hover:bg-lime-700 transition duration-300">Account Setting</Link>
+          <button onClick={()=>handleLogout()} className="border-b p-2 hover:bg-lime-700 transition duration-300 cursor-pointer">Logout</button>
         </div>
       }
     </div>
