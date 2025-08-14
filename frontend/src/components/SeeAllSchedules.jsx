@@ -4,7 +4,7 @@ import axios from "axios";
 const SeeAllSchedules = ({ from, to, date, updateForm }) => {
 
     const [schedules, setSchedules] = useState([]);
-    const [loading, setLoading] = useState(true);
+    const [loading, setLoading] = useState(false);
 
     useEffect(() => {
         if (!from || !to || !date) return;

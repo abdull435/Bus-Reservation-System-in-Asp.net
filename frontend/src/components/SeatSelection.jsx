@@ -35,6 +35,9 @@ const SeatSelection = () => {
   const [showBooking, setShowBooking] = useState(false);
   const [showLoading, setShowLoading] = useState(true);
 
+  
+
+
   useEffect(() => {
     if (selectedSchedule) {
       axios.post(`https://bus-reservation-system-in-aspnet-production.up.railway.app/GetSeats?schedule_id=${selectedSchedule.schedule_id}`, null, { withCredentials: true })

@@ -3,44 +3,28 @@
   "WorkspaceRootPath": "C:\\Users\\Abdullah\\Desktop\\Bus Reservation .net\\backend\\Practise\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{9F004392-B937-4854-A58B-4E14BE3FFBBA}|Practise.csproj|c:\\users\\abdullah\\desktop\\bus reservation .net\\backend\\practise\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9F004392-B937-4854-A58B-4E14BE3FFBBA}|Practise.csproj|solutionrelative:models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{9F004392-B937-4854-A58B-4E14BE3FFBBA}|Practise.csproj|c:\\users\\abdullah\\desktop\\bus reservation .net\\backend\\practise\\controllers\\reservationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9F004392-B937-4854-A58B-4E14BE3FFBBA}|Practise.csproj|solutionrelative:controllers\\reservationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9F004392-B937-4854-A58B-4E14BE3FFBBA}|Practise.csproj|c:\\users\\abdullah\\desktop\\bus reservation .net\\backend\\practise\\models\\reservationsdetail.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9F004392-B937-4854-A58B-4E14BE3FFBBA}|Practise.csproj|solutionrelative:models\\reservationsdetail.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{9F004392-B937-4854-A58B-4E14BE3FFBBA}|Practise.csproj|c:\\users\\abdullah\\desktop\\bus reservation .net\\backend\\practise\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{9F004392-B937-4854-A58B-4E14BE3FFBBA}|Practise.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9F004392-B937-4854-A58B-4E14BE3FFBBA}|Practise.csproj|c:\\users\\abdullah\\desktop\\bus reservation .net\\backend\\practise\\controllers\\routecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9F004392-B937-4854-A58B-4E14BE3FFBBA}|Practise.csproj|solutionrelative:controllers\\routecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{9F004392-B937-4854-A58B-4E14BE3FFBBA}|Practise.csproj|c:\\users\\abdullah\\desktop\\bus reservation .net\\backend\\practise\\models\\reservations.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9F004392-B937-4854-A58B-4E14BE3FFBBA}|Practise.csproj|solutionrelative:models\\reservations.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9F004392-B937-4854-A58B-4E14BE3FFBBA}|Practise.csproj|c:\\users\\abdullah\\desktop\\bus reservation .net\\backend\\practise\\controllers\\schedulecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9F004392-B937-4854-A58B-4E14BE3FFBBA}|Practise.csproj|solutionrelative:controllers\\schedulecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{9F004392-B937-4854-A58B-4E14BE3FFBBA}|Practise.csproj|c:\\users\\abdullah\\desktop\\bus reservation .net\\backend\\practise\\models\\schedules.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9F004392-B937-4854-A58B-4E14BE3FFBBA}|Practise.csproj|solutionrelative:models\\schedules.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9F004392-B937-4854-A58B-4E14BE3FFBBA}|Practise.csproj|c:\\users\\abdullah\\desktop\\bus reservation .net\\backend\\practise\\controllers\\buscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9F004392-B937-4854-A58B-4E14BE3FFBBA}|Practise.csproj|solutionrelative:controllers\\buscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9F004392-B937-4854-A58B-4E14BE3FFBBA}|Practise.csproj|c:\\users\\abdullah\\desktop\\bus reservation .net\\backend\\practise\\controllers\\reservationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9F004392-B937-4854-A58B-4E14BE3FFBBA}|Practise.csproj|solutionrelative:controllers\\reservationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9F004392-B937-4854-A58B-4E14BE3FFBBA}|Practise.csproj|c:\\users\\abdullah\\desktop\\bus reservation .net\\backend\\practise\\controllers\\getschedulescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9F004392-B937-4854-A58B-4E14BE3FFBBA}|Practise.csproj|solutionrelative:controllers\\getschedulescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9F004392-B937-4854-A58B-4E14BE3FFBBA}|Practise.csproj|c:\\users\\abdullah\\desktop\\bus reservation .net\\backend\\practise\\controllers\\getdetailscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9F004392-B937-4854-A58B-4E14BE3FFBBA}|Practise.csproj|solutionrelative:controllers\\getdetailscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9F004392-B937-4854-A58B-4E14BE3FFBBA}|Practise.csproj|c:\\users\\abdullah\\desktop\\bus reservation .net\\backend\\practise\\controllers\\getallschedulescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9F004392-B937-4854-A58B-4E14BE3FFBBA}|Practise.csproj|solutionrelative:controllers\\getallschedulescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9F004392-B937-4854-A58B-4E14BE3FFBBA}|Practise.csproj|c:\\users\\abdullah\\desktop\\bus reservation .net\\backend\\practise\\controllers\\checklogincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9F004392-B937-4854-A58B-4E14BE3FFBBA}|Practise.csproj|solutionrelative:controllers\\checklogincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{9F004392-B937-4854-A58B-4E14BE3FFBBA}|Practise.csproj|c:\\users\\abdullah\\desktop\\bus reservation .net\\backend\\practise\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9F004392-B937-4854-A58B-4E14BE3FFBBA}|Practise.csproj|solutionrelative:data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -58,124 +42,77 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\Abdullah\\Desktop\\Bus Reservation .net\\backend\\Practise\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
               "ToolTip": "C:\\Users\\Abdullah\\Desktop\\Bus Reservation .net\\backend\\Practise\\Program.cs",
               "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAADgAAAAAAAAAAAAAAEYAAAAcAAAAAAAAAA==",
+              "ViewState": "AgIAAD8AAAAAAAAAAAASwEYAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-12T16:27:53.517Z"
+              "WhenOpened": "2025-08-13T09:35:40Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "User.cs",
-              "DocumentMoniker": "C:\\Users\\Abdullah\\Desktop\\Bus Reservation .net\\backend\\Practise\\Models\\User.cs",
-              "RelativeDocumentMoniker": "Models\\User.cs",
-              "ToolTip": "C:\\Users\\Abdullah\\Desktop\\Bus Reservation .net\\backend\\Practise\\Models\\User.cs",
-              "RelativeToolTip": "Models\\User.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-12T15:52:59.34Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "ScheduleController.cs",
-              "DocumentMoniker": "C:\\Users\\Abdullah\\Desktop\\Bus Reservation .net\\backend\\Practise\\Controllers\\ScheduleController.cs",
-              "RelativeDocumentMoniker": "Controllers\\ScheduleController.cs",
-              "ToolTip": "C:\\Users\\Abdullah\\Desktop\\Bus Reservation .net\\backend\\Practise\\Controllers\\ScheduleController.cs",
-              "RelativeToolTip": "Controllers\\ScheduleController.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAAAkAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-12T15:19:00.318Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "RouteController.cs",
-              "DocumentMoniker": "C:\\Users\\Abdullah\\Desktop\\Bus Reservation .net\\backend\\Practise\\Controllers\\RouteController.cs",
-              "RelativeDocumentMoniker": "Controllers\\RouteController.cs",
-              "ToolTip": "C:\\Users\\Abdullah\\Desktop\\Bus Reservation .net\\backend\\Practise\\Controllers\\RouteController.cs",
-              "RelativeToolTip": "Controllers\\RouteController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAgAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-12T15:18:42.542Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
               "Title": "ReservationController.cs",
               "DocumentMoniker": "C:\\Users\\Abdullah\\Desktop\\Bus Reservation .net\\backend\\Practise\\Controllers\\ReservationController.cs",
               "RelativeDocumentMoniker": "Controllers\\ReservationController.cs",
               "ToolTip": "C:\\Users\\Abdullah\\Desktop\\Bus Reservation .net\\backend\\Practise\\Controllers\\ReservationController.cs",
               "RelativeToolTip": "Controllers\\ReservationController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAEQAAAAAAAAAAAAcwE0AAAApAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-12T15:18:40.778Z"
+              "WhenOpened": "2025-08-13T09:30:07.845Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "GetSchedulesController.cs",
-              "DocumentMoniker": "C:\\Users\\Abdullah\\Desktop\\Bus Reservation .net\\backend\\Practise\\Controllers\\GetSchedulesController.cs",
-              "RelativeDocumentMoniker": "Controllers\\GetSchedulesController.cs",
-              "ToolTip": "C:\\Users\\Abdullah\\Desktop\\Bus Reservation .net\\backend\\Practise\\Controllers\\GetSchedulesController.cs",
-              "RelativeToolTip": "Controllers\\GetSchedulesController.cs",
-              "ViewState": "AgIAABMAAAAAAAAAAAAQwAAAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 5,
+              "Title": "AppDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\Abdullah\\Desktop\\Bus Reservation .net\\backend\\Practise\\Data\\AppDbContext.cs",
+              "RelativeDocumentMoniker": "Data\\AppDbContext.cs",
+              "ToolTip": "C:\\Users\\Abdullah\\Desktop\\Bus Reservation .net\\backend\\Practise\\Data\\AppDbContext.cs",
+              "RelativeToolTip": "Data\\AppDbContext.cs",
+              "ViewState": "AgIAABEAAAAAAAAAAAAcwCAAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-12T15:18:24.652Z"
+              "WhenOpened": "2025-08-13T09:04:58.162Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "GetDetailsController.cs",
-              "DocumentMoniker": "C:\\Users\\Abdullah\\Desktop\\Bus Reservation .net\\backend\\Practise\\Controllers\\GetDetailsController.cs",
-              "RelativeDocumentMoniker": "Controllers\\GetDetailsController.cs",
-              "ToolTip": "C:\\Users\\Abdullah\\Desktop\\Bus Reservation .net\\backend\\Practise\\Controllers\\GetDetailsController.cs",
-              "RelativeToolTip": "Controllers\\GetDetailsController.cs",
-              "ViewState": "AgIAABUAAAAAAAAAAAAYwAAAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "ReservationsDetail.cs",
+              "DocumentMoniker": "C:\\Users\\Abdullah\\Desktop\\Bus Reservation .net\\backend\\Practise\\Models\\ReservationsDetail.cs",
+              "RelativeDocumentMoniker": "Models\\ReservationsDetail.cs",
+              "ToolTip": "C:\\Users\\Abdullah\\Desktop\\Bus Reservation .net\\backend\\Practise\\Models\\ReservationsDetail.cs",
+              "RelativeToolTip": "Models\\ReservationsDetail.cs",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAxwA4AAAAUAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-12T15:18:19.283Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "GetAllSchedulesController.cs",
-              "DocumentMoniker": "C:\\Users\\Abdullah\\Desktop\\Bus Reservation .net\\backend\\Practise\\Controllers\\GetAllSchedulesController.cs",
-              "RelativeDocumentMoniker": "Controllers\\GetAllSchedulesController.cs",
-              "ToolTip": "C:\\Users\\Abdullah\\Desktop\\Bus Reservation .net\\backend\\Practise\\Controllers\\GetAllSchedulesController.cs",
-              "RelativeToolTip": "Controllers\\GetAllSchedulesController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-12T15:18:16.042Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "checkLoginController.cs",
-              "DocumentMoniker": "C:\\Users\\Abdullah\\Desktop\\Bus Reservation .net\\backend\\Practise\\Controllers\\checkLoginController.cs",
-              "RelativeDocumentMoniker": "Controllers\\checkLoginController.cs",
-              "ToolTip": "C:\\Users\\Abdullah\\Desktop\\Bus Reservation .net\\backend\\Practise\\Controllers\\checkLoginController.cs",
-              "RelativeToolTip": "Controllers\\checkLoginController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-12T15:18:12.085Z"
+              "WhenOpened": "2025-08-13T09:04:46.857Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "BusController.cs",
-              "DocumentMoniker": "C:\\Users\\Abdullah\\Desktop\\Bus Reservation .net\\backend\\Practise\\Controllers\\BusController.cs",
-              "RelativeDocumentMoniker": "Controllers\\BusController.cs",
-              "ToolTip": "C:\\Users\\Abdullah\\Desktop\\Bus Reservation .net\\backend\\Practise\\Controllers\\BusController.cs",
-              "RelativeToolTip": "Controllers\\BusController.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAkAAAAEAAAAAAAAAA==",
+              "Title": "Schedules.cs",
+              "DocumentMoniker": "C:\\Users\\Abdullah\\Desktop\\Bus Reservation .net\\backend\\Practise\\Models\\Schedules.cs",
+              "RelativeDocumentMoniker": "Models\\Schedules.cs",
+              "ToolTip": "C:\\Users\\Abdullah\\Desktop\\Bus Reservation .net\\backend\\Practise\\Models\\Schedules.cs",
+              "RelativeToolTip": "Models\\Schedules.cs",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAYwA0AAAA0AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-12T14:51:25.603Z"
+              "WhenOpened": "2025-08-13T09:02:42.466Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Reservations.cs",
+              "DocumentMoniker": "C:\\Users\\Abdullah\\Desktop\\Bus Reservation .net\\backend\\Practise\\Models\\Reservations.cs",
+              "RelativeDocumentMoniker": "Models\\Reservations.cs",
+              "ToolTip": "C:\\Users\\Abdullah\\Desktop\\Bus Reservation .net\\backend\\Practise\\Models\\Reservations.cs",
+              "RelativeToolTip": "Models\\Reservations.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAA/wA4AAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-13T08:57:43.979Z"
             }
           ]
         }

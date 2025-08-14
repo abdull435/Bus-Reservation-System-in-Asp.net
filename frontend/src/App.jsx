@@ -8,6 +8,7 @@ import Footer from './components/Footer';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { ScheduleProvider } from './components/ScheduleContext';
 import Signup from './components/Signup';
+import CustomerHistory from './components/CustomerHistory';
 
 function App() {   
   return (
@@ -19,6 +20,7 @@ function App() {
       <Route path="/schedule" element={<><Navbar/><SeatSelection /><Footer/></>} />
       <Route path="/signup" element={<Signup />} />
       <Route path="/admin" element={<AdminPanel />} />
+      <Route path='/SeeReservations' element={<><Navbar/><CustomerHistory/></>}/>
       </Routes>
     </Router>
     </ScheduleProvider>

@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Practise.Data;
 using Practise.DTO;
 using Practise.Models;
@@ -66,6 +67,15 @@ namespace Practise.Controllers
                 message = "Reservation and seat details saved successfully",
                 reservation_id = reservation.reservation_id
             });
+        }
+
+        [HttpGet("get-reservations/{user_id}")]
+        public IActionResult getRservations(int user_id)
+        {
+            var reservation = _context.reservations.Where(u => u.user_id == user_id).Include(r => r.reservationsDetail)
+                .Include(s => s.schedule).ThenInclude(r => r.routes).ToList();
+
+            return Ok(new { reservation });
         }
     }
 }

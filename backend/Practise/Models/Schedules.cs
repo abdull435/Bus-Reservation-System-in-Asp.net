@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
 using ZstdSharp.Unsafe;
 
 namespace Practise.Models
@@ -13,9 +14,11 @@ namespace Practise.Models
         public DateTime departure_time { get; set; }
         public DateTime arrival_time { get; set; }
         public DateTime date { get; set; }
-
         public float price { get; set; }
         public Routes routes { get; set; }
         public Bus bus { get; set; }
+
+        [JsonIgnore]
+        public List<Reservations> reservations { get; set; }
     }
 }

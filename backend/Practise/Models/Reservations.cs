@@ -14,8 +14,7 @@ namespace Practise.Models
         public DateTime reservation_date {  get; set; }
         public float total_price { get; set; }
         public int schedule_id { get; set; }
-
-        [JsonIgnore]
+        public Schedules schedule { get; set; }
 
         public List<ReservationsDetail> reservationsDetail { get; set; }
 

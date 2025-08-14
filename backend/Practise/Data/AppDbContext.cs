@@ -32,6 +32,12 @@ namespace Practise.Data
 
             modelBuilder.Entity<ReservationsDetail>().HasOne(s => s.reservations).WithMany(r => r.reservationsDetail)
                 .HasForeignKey(f => f.reservation_id);
+
+            modelBuilder.Entity<Reservations>().HasOne(r => r.schedule).WithMany(r =>r.reservations)
+                .HasForeignKey(f => f.schedule_id);
+
+            modelBuilder.Entity<Reservations>().HasMany(r => r.reservationsDetail)
+                .WithOne(r => r.reservations).HasForeignKey(f => f.reservation_id);
         }
     }
 }

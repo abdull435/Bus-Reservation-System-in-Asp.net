@@ -11,6 +11,8 @@ namespace Practise.Models
         public int reservation_id {  get; set; }
         public int seat_number {  get; set; }
         public string gender { get; set; }
+
+        [JsonIgnore]
         public Reservations reservations { get; set; }
     }
 }
