@@ -141,3 +141,4 @@ C:\Users\Abdullah\Desktop\Bus Reservation .net\backend\Practise\bin\Debug\net8.0
 C:\Users\Abdullah\Desktop\Bus Reservation .net\backend\Practise\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
 C:\Users\Abdullah\Desktop\Bus Reservation .net\backend\Practise\bin\Debug\net8.0\Microsoft.IdentityModel.Tokens.dll
 C:\Users\Abdullah\Desktop\Bus Reservation .net\backend\Practise\bin\Debug\net8.0\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\Abdullah\Desktop\Bus Reservation .net\backend\Practise\bin\Debug\net8.0\BCrypt.Net-Next.dll

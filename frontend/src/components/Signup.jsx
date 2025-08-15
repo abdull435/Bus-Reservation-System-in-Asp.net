@@ -1,10 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import Loading from './Loading';
 
 const Signup = () => {
   const navigate = useNavigate();
+  const [showLoading, setShowLoading] = useState(false);
 
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -12,31 +14,34 @@ const Signup = () => {
   const [mobile, setMobile] = useState('');
   const [cinic, setCinic] = useState('');
 
-  const handleSignup = async(e) => {
+  const handleSignup = async (e) => {
     e.preventDefault();
+    setShowLoading(true);
     try {
-      const res = await axios.post('https://bus-reservation-system-in-aspnet-production.up.railway.app/signup', {
+      const res = await axios.post('http://localhost:5212/signup', {
         name,
         email,
         password,
         mobile,
         cinic
-      },{withCredentials: true});
+      });
       if (res.data.success) {
-        alert(res.data.message);
-        navigate('/login')
+        localStorage.setItem("verifyEmail", email);
+        navigate('/verify-user')
       } else {
-        alert(res.data.message || 'Signup failed');
+        alert(res.data.message);
       }
     } catch (err) {
-      console.error(err);
-      alert(err.response?.data?.message || 'An unexpected error occurred');
+      alert(err.response?.data?.message || "Something went wrong. Please try again.");
+    }
+    finally{
+      setShowLoading(false);
     }
   };
 
   return (
     <div className="min-h-[100svh] flex items-center justify-center bg-cover bg-center"
-    style={{ backgroundImage: "url('/Images/21.jpg')" }}>
+      style={{ backgroundImage: "url('/Images/21.jpg')" }}>
       <div className="max-w-md bg-black/80 rounded-xl shadow-md m-2 p-6 text-white">
         <h2 className="text-2xl font-bold text-center mb-6">Sign Up</h2>
         <form className="space-y-4" onSubmit={handleSignup}>
@@ -79,7 +84,7 @@ const Signup = () => {
             className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-white bg-white/10"
           />
           <button
-          type='submit'
+            type='submit'
             className="w-full bg-lime-600 text-white py-2 rounded-md cursor-pointer"
           >
             Sign Up
@@ -90,6 +95,10 @@ const Signup = () => {
           <Link to="/login" className="text-lime-400 hover:underline">Login</Link>
         </p>
       </div>
+
+      {showLoading &&
+        <Loading />
+      }
     </div>
   );
 };

@@ -3,21 +3,21 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { jwtDecode } from 'jwt-decode';
+import Loading from './Loading';
 
 const Login = () => {
 
   const navigate = useNavigate();
+  const [showLoading, setShowLoading] = useState(false);
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   const handleLogin = async (e) => {
     e.preventDefault();
-
+    setShowLoading(true);
     try {
-
-
-      const res = await axios.post('https://bus-reservation-system-in-aspnet-production.up.railway.app/Login', {
+      const res = await axios.post('http://localhost:5212/Login', {
         email,
         password
       }, {
@@ -39,14 +39,17 @@ const Login = () => {
         alert(res.data.message);
       }
     } catch (err) {
-      alert(err.response.data.message);
+      alert(err.response?.data?.message || "Something went wrong. Please try again.");
+    }
+    finally{
+      setShowLoading(false);
     }
   };
 
   return (
     <div className="min-h-[100svh] flex items-center justify-center bg-cover bg-center"
       style={{ backgroundImage: "url('/Images/21.jpg')" }}>
-      <div className=" bg-black/80 rounded-xl shadow-md p-6 m-2 text-white">
+      <div className="max-w-md bg-black/80 rounded-xl shadow-md p-6 m-2 text-white">
         <h2 className="text-2xl font-bold text-center text-white mb-6">Login</h2>
         <form onSubmit={handleLogin} className="space-y-4">
           <input
@@ -75,6 +78,9 @@ const Login = () => {
           <Link to="/signup" className="text-lime-400 hover:underline">Sign up</Link>
         </p>
       </div>
+      {showLoading &&
+        <Loading />
+      }
     </div>
   );
 };

@@ -31,11 +31,21 @@ namespace Practise.Controllers
 
                 }
 
-                var user = _context.users.FirstOrDefault(u => u.email == model.email && u.password == model.password);
+                var user = _context.users.FirstOrDefault(u => u.email == model.email);
+
                 if (user == null)
                 {
                     return Unauthorized(new { success = false, message = "Invalid credentials" });
                 }
+
+                bool isPasswordValid = BCrypt.Net.BCrypt.Verify(model.password, user.password);
+
+                if (!isPasswordValid)
+                {
+                    return Unauthorized(new { success = false, message = "Invalid credentials" });
+                }
+
+
                 var token = GenerateJwt.CreateToken(user, _configuration);
 
                 return Ok(new { success = true, message = $"Logged in as {user.name}", token = token });

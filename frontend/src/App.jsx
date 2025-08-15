@@ -10,6 +10,7 @@ import { ScheduleProvider } from './components/ScheduleContext';
 import Signup from './components/Signup';
 import CustomerHistory from './components/CustomerHistory';
 import UpdateUser from './components/UpdateUser';
+import VerifyUser from './components/VerifyUser';
 
 function App() {   
   return (
@@ -23,6 +24,7 @@ function App() {
       <Route path="/admin" element={<AdminPanel />} />
       <Route path='/SeeReservations' element={<><Navbar/><CustomerHistory/></>}/>
       <Route path='/update-user' element={<><UpdateUser/></>}/>
+      <Route path='/verify-user' element={<><VerifyUser/></>}/>
       </Routes>
     </Router>
     </ScheduleProvider>

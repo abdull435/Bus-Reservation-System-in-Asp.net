@@ -267,6 +267,22 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "Practise.Controllers.signupController",
+    "Method": "VerifyCode",
+    "RelativePath": "signup/verify-code",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "Practise.DTO.VerifyCodeDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "Practise.Controllers.UpdateUserController",
     "Method": "UpdateUser",
     "RelativePath": "UpdateUser/{user_id}",
