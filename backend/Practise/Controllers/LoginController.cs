@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Practise.Data;
 using Practise.DTO;
 using Practise.Models;
@@ -22,19 +23,31 @@ namespace Practise.Controllers
         [HttpPost]
         public IActionResult Login([FromBody] LoginDTO model)
         {
-            if (model == null || string.IsNullOrEmpty(model.email) || string.IsNullOrEmpty(model.password)) {
-                return BadRequest(new { success = false, message = "email or Password is missing" });
-
-            }
-
-            var user = _context.users.FirstOrDefault(u => u.email == model.email && u.password == model.password);
-            if (user == null)
+            try
             {
-                return Unauthorized(new { success = false, message = "Invalid credentials" });
-            }
+                if (model == null || string.IsNullOrEmpty(model.email) || string.IsNullOrEmpty(model.password))
+                {
+                    return BadRequest(new { success = false, message = "email or Password is missing" });
+
+                }
+
+                var user = _context.users.FirstOrDefault(u => u.email == model.email && u.password == model.password);
+                if (user == null)
+                {
+                    return Unauthorized(new { success = false, message = "Invalid credentials" });
+                }
                 var token = GenerateJwt.CreateToken(user, _configuration);
 
-                return Ok(new { success = true, message = $"Logged in as {user.name}", token =token });
+                return Ok(new { success = true, message = $"Logged in as {user.name}", token = token });
+            }
+            catch (DbUpdateException dbEx)
+            {
+                return StatusCode(500, new { success = false, message = "Database error occurred", error = dbEx.InnerException?.Message });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { success = false, message = "An unexpected error occurred", error = ex.Message });
+            }
         }
 
     }

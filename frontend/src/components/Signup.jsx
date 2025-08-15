@@ -15,22 +15,22 @@ const Signup = () => {
   const handleSignup = async(e) => {
     e.preventDefault();
     try {
-      const res = await axios.post('https://bus-reservation-system-in-aspnet-production.up.railway.app/signup', {
+      const res = await axios.post('http://localhost:5212/signup', {
         name,
         email,
         password,
         mobile,
         cinic
       },{withCredentials: true});
-      if (res.data.succes) {
-        alert('Signup successful now Please log in.');
+      if (res.data.success) {
+        alert(res.data.message);
         navigate('/login')
       } else {
         alert(res.data.message || 'Signup failed');
       }
     } catch (err) {
       console.error(err);
-      alert('Error signing up');
+      alert(err.response?.data?.message || 'An unexpected error occurred');
     }
   };
 
@@ -39,7 +39,7 @@ const Signup = () => {
     style={{ backgroundImage: "url('/Images/21.jpg')" }}>
       <div className="max-w-md bg-black/80 rounded-xl shadow-md m-2 p-6 text-white">
         <h2 className="text-2xl font-bold text-center mb-6">Sign Up</h2>
-        <form className="space-y-4">
+        <form className="space-y-4" onSubmit={handleSignup}>
           <input
             type="text"
             placeholder="Full Name"
@@ -48,10 +48,27 @@ const Signup = () => {
             className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-white bg-white/10"
           />
           <input
-            type=""
+            type="email"
             placeholder="Email"
             required
             onChange={(e) => setEmail(e.target.value)}
+            className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-white bg-white/10"
+          />
+          <input
+            type="text"
+            placeholder="Cnic"
+            required
+            onChange={(e) => setCinic(e.target.value)}
+            className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-white bg-white/10"
+          />
+          <input
+            type="tel"
+            placeholder="Mobile"
+            required
+            maxLength={11}
+            pattern="[0-9]{11}"
+            title="Enter a valid mobile number with 11 digits"
+            onChange={(e) => setMobile(e.target.value)}
             className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-white bg-white/10"
           />
           <input
@@ -61,23 +78,9 @@ const Signup = () => {
             onChange={(e) => setPassword(e.target.value)}
             className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-white bg-white/10"
           />
-          <input
-            type="phone"
-            placeholder="Mobile"
-            required
-            onChange={(e) => setMobile(e.target.value)}
-            className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-white bg-white/10"
-          />
-          <input
-            type="text"
-            placeholder="Password"
-            required
-            onChange={(e) => setCinic(e.target.value)}
-            className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-white bg-white/10"
-          />
           <button
-            onClick={handleSignup}
-            className="w-full bg-lime-600 text-white py-2 rounded-md "
+          type='submit'
+            className="w-full bg-lime-600 text-white py-2 rounded-md cursor-pointer"
           >
             Sign Up
           </button>

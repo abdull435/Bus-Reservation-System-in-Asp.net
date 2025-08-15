@@ -443,17 +443,17 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/User"
+                "$ref": "#/components/schemas/UserDTO"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/User"
+                "$ref": "#/components/schemas/UserDTO"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/User"
+                "$ref": "#/components/schemas/UserDTO"
               }
             }
           }
@@ -465,7 +465,7 @@
         }
       }
     },
-    "/UpdateUser/update-user/{user_id}": {
+    "/UpdateUser/{user_id}": {
       "put": {
         "tags": [
           "UpdateUser"
@@ -485,17 +485,17 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/userUpdateDTO"
+                "$ref": "#/components/schemas/UserDTO"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/userUpdateDTO"
+                "$ref": "#/components/schemas/UserDTO"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/userUpdateDTO"
+                "$ref": "#/components/schemas/UserDTO"
               }
             }
           }
@@ -597,7 +597,7 @@
         },
         "additionalProperties": false
       },
-      "User": {
+      "UserDTO": {
         "type": "object",
         "properties": {
           "user_id": {
@@ -617,14 +617,10 @@
             "nullable": true
           },
           "mobile": {
-            "type": "integer",
-            "format": "int32"
+            "type": "string",
+            "nullable": true
           },
           "cinic": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "role": {
             "type": "string",
             "nullable": true
           }
@@ -701,36 +697,6 @@
           "price": {
             "type": "number",
             "format": "float"
-          }
-        },
-        "additionalProperties": false
-      },
-      "userUpdateDTO": {
-        "type": "object",
-        "properties": {
-          "user_id": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "name": {
-            "type": "string",
-            "nullable": true
-          },
-          "email": {
-            "type": "string",
-            "nullable": true
-          },
-          "password": {
-            "type": "string",
-            "nullable": true
-          },
-          "mobile": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "cinic": {
-            "type": "integer",
-            "format": "int32"
           }
         },
         "additionalProperties": false

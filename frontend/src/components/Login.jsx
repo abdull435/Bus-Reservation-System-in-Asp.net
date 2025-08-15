@@ -17,7 +17,7 @@ const Login = () => {
     try {
 
 
-      const res = await axios.post('https://bus-reservation-system-in-aspnet-production.up.railway.app/Login', {
+      const res = await axios.post('http://localhost:5212/Login', {
         email,
         password
       }, {
@@ -36,11 +36,10 @@ const Login = () => {
           navigate('/');
         }
       } else {
-        alert('Invalid credentials');
+        alert(res.data.message);
       }
     } catch (err) {
-      console.error(err);
-      alert('Error logging in');
+      alert(err.response.data.message);
     }
   };
 
@@ -51,7 +50,7 @@ const Login = () => {
         <h2 className="text-2xl font-bold text-center text-white mb-6">Login</h2>
         <form onSubmit={handleLogin} className="space-y-4">
           <input
-            type=""
+            type="email"
             placeholder="Email"
             required
             onChange={(e) => setEmail(e.target.value)}

@@ -252,7 +252,7 @@
   },
   {
     "ContainingType": "Practise.Controllers.signupController",
-    "Method": "signup",
+    "Method": "Signup",
     "RelativePath": "signup",
     "HttpMethod": "POST",
     "IsController": true,
@@ -260,7 +260,7 @@
     "Parameters": [
       {
         "Name": "model",
-        "Type": "Practise.Models.User",
+        "Type": "Practise.DTO.UserDTO",
         "IsRequired": true
       }
     ],
@@ -269,7 +269,7 @@
   {
     "ContainingType": "Practise.Controllers.UpdateUserController",
     "Method": "UpdateUser",
-    "RelativePath": "UpdateUser/update-user/{user_id}",
+    "RelativePath": "UpdateUser/{user_id}",
     "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
@@ -281,7 +281,7 @@
       },
       {
         "Name": "model",
-        "Type": "Practise.DTO.userUpdateDTO",
+        "Type": "Practise.DTO.UserDTO",
         "IsRequired": true
       }
     ],

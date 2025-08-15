@@ -18,23 +18,34 @@ namespace Practise.Controllers
             _context = context;
         }
 
-        [HttpPut("update-user/{user_id}")]
-        public async Task<IActionResult> UpdateUser(int user_id ,[FromBody] userUpdateDTO model)
+        [HttpPut("{user_id}")]
+        public async Task<IActionResult> UpdateUser(int user_id ,[FromBody] UserDTO model)
         {
-            var user = await _context.users.FindAsync(user_id);
-            if (user == null)
+            try
             {
-                return BadRequest(new{ message = "User not found" });
+                var user = await _context.users.FindAsync(user_id);
+                if (user == null)
+                {
+                    return BadRequest(new { message = "User not found" });
+                }
+                user.name = model.name;
+                user.email = model.email;
+                user.cinic = model.cinic;
+                user.mobile = model.mobile;
+                user.password = model.password;
+
+                await _context.SaveChangesAsync();
+
+                return Ok(new { success = true, message = "User Update Successfully" });
             }
-            user.name = model.name;
-            user.email = model.email;
-            user.cinic = model.cinic;
-            user.mobile = model.mobile;
-            user.password = model.password;
-
-            await _context.SaveChangesAsync();
-
-            return Ok(new{ message ="User Update Successfully"});
+            catch (DbUpdateException dbEx)
+            {
+                return StatusCode(500, new { success = false, message = "Database error occurred", error = dbEx.InnerException?.Message });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { success = false, message = "An unexpected error occurred", error = ex.Message });
+            }
         }
         
     }
