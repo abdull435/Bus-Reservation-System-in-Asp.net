@@ -20,7 +20,7 @@ const UpdateUser = () => {
     e.preventDefault();
     const user_id=decode.user_id;
     try {
-      const res = await axios.put(`http://localhost:5212/UpdateUser/${user_id}`, {
+      const res = await axios.put(`https://bus-reservation-system-in-aspnet-production.up.railway.app/UpdateUser/${user_id}`, {
         name,
         email,
         mobile,

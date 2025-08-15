@@ -17,7 +17,7 @@ const Login = () => {
     try {
 
 
-      const res = await axios.post('http://localhost:5212/Login', {
+      const res = await axios.post('https://bus-reservation-system-in-aspnet-production.up.railway.app/Login', {
         email,
         password
       }, {
