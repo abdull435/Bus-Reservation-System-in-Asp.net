@@ -20,7 +20,7 @@ const VerifyUser = () => {
         e.preventDefault();
         setShowLoading(true);
         try {
-            const res = await axios.post('http://localhost:5212/signup/verify-code', {
+            const res = await axios.post('https://bus-reservation-system-in-aspnet-production.up.railway.app/signup/verify-code', {
                 email: localStorage.getItem("verifyEmail"),
                 code
             });

@@ -18,7 +18,7 @@ const Signup = () => {
     e.preventDefault();
     setShowLoading(true);
     try {
-      const res = await axios.post('http://localhost:5212/signup', {
+      const res = await axios.post('https://bus-reservation-system-in-aspnet-production.up.railway.app/signup', {
         name,
         email,
         password,
