@@ -571,8 +571,8 @@
             "nullable": true
           },
           "cinic": {
-            "type": "integer",
-            "format": "int32"
+            "type": "string",
+            "nullable": true
           },
           "reservation_date": {
             "type": "string",
