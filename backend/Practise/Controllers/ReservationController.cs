@@ -20,61 +20,100 @@ namespace Practise.Controllers
         [HttpPost]
         public IActionResult makeReservation([FromBody] ReservationDTO model)
         {
-
-            var reservation = new Reservations
+            try
             {
-                user_id = model.user_id,
-                name = model.name,
-                email = model.email,
-                cinic = model.cinic,
-                reservation_date = model.reservation_date,
-                total_price = model.total_price,
-                schedule_id = model.schedule_id,
-                reservationsDetail = new List<ReservationsDetail>() // initialize list
-            };
+                DateTime utcTime = DateTime.UtcNow;
 
-            _context.reservations.Add(reservation);
-             _context.SaveChanges(); // Save once to get reservation_id
+                TimeZoneInfo pakistanTimeZone = TimeZoneInfo.FindSystemTimeZoneById("Pakistan Standard Time");
+                DateTime pakistanTime = TimeZoneInfo.ConvertTimeFromUtc(utcTime, pakistanTimeZone);
+                DateTime todayDate = pakistanTime.Date;
 
-            // Step 3: Add each seat detail with foreign key
-            foreach (var detail in model.reservationDetail)
-            {
-                var reservationDetail = new ReservationsDetail
+                var checkReservation = _context.reservations.Count(r => r.email == model.email
+                && r.reservation_date.Date == todayDate);
+
+                if (checkReservation > 4)
                 {
-                    reservation_id = reservation.reservation_id, // foreign ke y from saved parent
-                    seat_number = detail.seat_number,
-                    gender = detail.gender
+                    return BadRequest(new { success = false, message = "Maximum 4 reservations allowed in a day." });
+                }
+
+                if(model.total_seats > 4)
+                {
+                    return BadRequest(new { success = false, message = "Maximum 4 seats allowed to reserve." });
+                }
+
+                var reservation = new Reservations
+                {
+                    user_id = model.user_id,
+                    name = model.name,
+                    email = model.email,
+                    cinic = model.cinic,
+                    reservation_date = pakistanTime,
+                    price = model.price,
+                    total_seats = model.total_seats,
+                    total_price = model.total_price,
+                    schedule_id = model.schedule_id,
+                    reservationsDetail = new List<ReservationsDetail>()
                 };
-                _context.reservationsDetail.Add(reservationDetail);
-            }
 
-            // Step 4: Save seat details
-            _context.SaveChanges();
-
-
-            var schedule = _context.schedules.FirstOrDefault(s => s.schedule_id == model.schedule_id);
-            if (schedule != null)
-            {
-                // Example: decrease available_seats by number of reserved seats
-                schedule.available_seats -= model.reservationDetail.Count;
-                _context.schedules.Update(schedule);
+                _context.reservations.Add(reservation);
                 _context.SaveChanges();
-            }
 
-            return Ok(new
+                foreach (var detail in model.reservationDetail)
+                {
+                    var reservationDetail = new ReservationsDetail
+                    {
+                        reservation_id = reservation.reservation_id,
+                        seat_number = detail.seat_number,
+                        gender = detail.gender
+                    };
+                    _context.reservationsDetail.Add(reservationDetail);
+                }
+
+                _context.SaveChanges();
+
+
+                var schedule = _context.schedules.FirstOrDefault(s => s.schedule_id == model.schedule_id);
+                if (schedule != null)
+                {
+                    schedule.available_seats -= model.reservationDetail.Count;
+                    _context.schedules.Update(schedule);
+                    _context.SaveChanges();
+                }
+
+                return Ok(new
+                {
+                    message = "Reservation and seat details saved successfully",
+                    reservation_id = reservation.reservation_id,
+                });
+            }
+            catch (DbUpdateException dbEx)
             {
-                message = "Reservation and seat details saved successfully",
-                reservation_id = reservation.reservation_id
-            });
+                return StatusCode(500, new { success = false, message = "Database error occurred", error = dbEx.InnerException?.Message });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { success = false, message = "An unexpected error occurred", error = ex.Message });
+            }
         }
 
         [HttpGet("get-reservations/{user_id}")]
-        public IActionResult getRservations(int user_id)
+        public IActionResult getReservations(int user_id)
         {
-            var reservation = _context.reservations.Where(u => u.user_id == user_id).Include(r => r.reservationsDetail)
-                .Include(s => s.schedule).ThenInclude(r => r.routes).ToList();
+            try
+            {
+                var reservation = _context.reservations.Where(u => u.user_id == user_id)
+                    .Include(s => s.schedule).ThenInclude(r => r.routes).ToList();
 
-            return Ok(new { reservation });
+                return Ok(new { reservation });
+            }
+            catch (DbUpdateException dbEx)
+            {
+                return StatusCode(500, new { success = false, message = "Database error occurred", error = dbEx.InnerException?.Message });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { success = false, message = "An unexpected error occurred", error = ex.Message });
+            }
         }
     }
 }

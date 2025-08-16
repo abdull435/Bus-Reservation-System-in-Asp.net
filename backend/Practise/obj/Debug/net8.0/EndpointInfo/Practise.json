@@ -578,6 +578,14 @@
             "type": "string",
             "format": "date-time"
           },
+          "price": {
+            "type": "number",
+            "format": "float"
+          },
+          "total_seats": {
+            "type": "integer",
+            "format": "int32"
+          },
           "total_price": {
             "type": "number",
             "format": "float"

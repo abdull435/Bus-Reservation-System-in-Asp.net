@@ -134,7 +134,8 @@ const SeatSelection = () => {
     setReservBtn(true);
     const reservation = {
       schedule_id: selectedSchedule.schedule_id,
-      user_id: userId, name, cinic, email, mobile, reservation_date: new Date(), total_price: totalPrice,
+      user_id: userId, name, cinic, email, mobile, reservation_date: new Date(),price,
+      total_seats:tempReserv.length, total_price: totalPrice,
       reservationDetail: tempReserv.map(index => ({
         seat_number: index + 1,
         gender: seatColors[index] === 'bg-blue-500' ? 'male' : 'female'
@@ -145,7 +146,8 @@ const SeatSelection = () => {
       .then(res => {
         const ticket = {
           ticketId: res.data.reservation_id,
-          departure, arrival, name,  seats: tempReserv.length, totalPrice,
+          departure, arrival, name,  seats: tempReserv.map(index => ({
+          seat_number: index + 1})), totalPrice,
           date: selectedSchedule.date,
           departure_time: selectedSchedule.arrival_time,
           arrival_time: selectedSchedule.departure_time
@@ -156,10 +158,10 @@ const SeatSelection = () => {
         setReservBtn(false);
       })
       .catch(err => {
-        console.error('Error fetching reserved seats:', err);
+        setShowLoading(false);
+        alert(err.response?.data?.message || "Something went wrong. Please try again.");
         setReservBtn(false);
-      }
-      );
+      });
   }
   if (selectedSchedule === null) {
     navigate('/home');

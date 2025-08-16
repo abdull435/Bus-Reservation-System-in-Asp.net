@@ -5,8 +5,8 @@ import { useNavigate } from "react-router-dom";
 import Loading from './Loading';
 
 const CustomerHistory = () => {
-  const navigate =useNavigate();
-  const [showLoading, setShowLoading] = useState(true);
+  const navigate = useNavigate();
+  const [showLoading, setShowLoading] = useState(false);
   const [reservations, setReservations] = useState([]);
   const [decode, setDecode] = useState(null);
   const userInfo = localStorage.getItem("token");
@@ -22,13 +22,13 @@ const CustomerHistory = () => {
     axios.get(`https://bus-reservation-system-in-aspnet-production.up.railway.app/Reservation/get-reservations/${decoded.user_id}`, { withCredentials: true })
       .then(res => {
         setReservations(res.data.reservation)
+        setShowLoading(false);
       })
       .catch(error => {
-        console.error('Error fetching reservations:', error);
-      }).finally(() => {
-    setShowLoading(false);
-  });
-      
+        setShowLoading(false);
+        alert(error.response?.data?.message || "Something went wrong. Please try again.");
+      })
+
   }, [])
 
   if (showLoading) {
@@ -36,10 +36,9 @@ const CustomerHistory = () => {
   }
 
   return (
-    <div>
       <div className="min-w-full h-screen bg-white mt-[12vh]">
         <div>
-          <p className="text-2xl w-full text-black border-b pb-1 pl-5 mb-5">{decode.name}</p>
+          <p className="text-2xl w-full text-black border-b pb-1 pl-5 mb-5">{decode?.name}</p>
           <div className="p-4 bg-gray-200 ">
             {reservations.length == 0 ? (
               <p className="text-center text-gray-600">No Reservation found.</p>
@@ -51,10 +50,11 @@ const CustomerHistory = () => {
                     <tr className='shadow' >
                       <th className="px-4 py-3">Id</th>
                       <th className="px-4 py-3">Route</th>
-                      <th className="px-4 py-3">Date</th>
+                      <th className="px-4 py-3">Booking Time</th>
                       <th className="px-4 py-3">Departure Time</th>
                       <th className="px-4 py-3">Price</th>
                       <th className="px-4 py-3">Seats</th>
+                      <th className="px-4 py-3">Total</th>
                     </tr>
                   </thead>
                   <tbody >
@@ -64,16 +64,27 @@ const CustomerHistory = () => {
                         <td className="px-4 py-2 border-r border-gray-400">
                           {reservation.schedule.routes.from_city} - {reservation.schedule.routes.to_city}</td>
                         <td className="px-4 py-2 border-r border-gray-400">
-                          {new Date(reservation.reservation_date).toLocaleDateString('en-US', {
+                          {new Date(reservation.reservation_date).toLocaleString('en-US', {
                             day: '2-digit',
-                            month: 'short', // or 'long'
-                            year: 'numeric'
+                            month: 'short',  // "Jan", "Feb"... use "long" for full month name
+                            year: 'numeric',
+                            hour: '2-digit',
+                            minute: '2-digit',
+                            hour12: true     // 12-hour format with AM/PM
                           })}</td>
                         <td className="px-4 py-2 border-r border-gray-400">
-                          {new Date(reservation.schedule.departure_time).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: true })}
+                          {new Date(reservation.schedule.departure_time).toLocaleString('en-US', {
+                            day: '2-digit',
+                            month: 'short',  // "Jan", "Feb"... use "long" for full month name
+                            year: 'numeric',
+                            hour: '2-digit',
+                            minute: '2-digit',
+                            hour12: true     // 12-hour format with AM/PM
+                          })}
                         </td>
-                        <td className="px-4 py-2 border-r border-gray-400">{reservation.total_price}</td>
-                        <td className="px-4 py-2 ">{reservation.reservationsDetail.length}</td>
+                        <td className="px-4 py-2 border-r border-gray-400">{reservation.price}</td>
+                        <td className="px-4 py-2 border-r border-gray-400">{reservation.total_seats}</td>
+                        <td className="px-4 py-2">{reservation.total_price}</td>
                       </tr>
 
                       ))
@@ -84,12 +95,7 @@ const CustomerHistory = () => {
             </div>)}
           </div>
         </div>
-
       </div>
-      {showLoading && (
-        <Loading />
-      )}
-    </div>
   );
 }
 

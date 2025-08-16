@@ -14,11 +14,8 @@ export default function Navbar() {
     const token = localStorage.getItem("token"); // move here
     if (token) {
       try {
-        const decoded = jwtDecode(token);
-        console.log("Decoded JWT:", decoded);
         setIsLoggedin(true);
       } catch (err) {
-        console.error("Invalid token");
         setIsLoggedin(false);
       }
     } else {
@@ -32,7 +29,6 @@ export default function Navbar() {
     setIsLoggedin(false);
     setShowSetting(false);
     navigate('/home');
-    
   };
 
   return (

@@ -152,7 +152,7 @@
   },
   {
     "ContainingType": "Practise.Controllers.ReservationController",
-    "Method": "getRservations",
+    "Method": "getReservations",
     "RelativePath": "Reservation/get-reservations/{user_id}",
     "HttpMethod": "GET",
     "IsController": true,

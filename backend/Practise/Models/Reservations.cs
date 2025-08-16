@@ -12,6 +12,9 @@ namespace Practise.Models
         public string email { get; set; }
         public string cinic { get; set; }
         public DateTime reservation_date {  get; set; }
+
+        public float price { get; set; }
+        public int total_seats { get; set; }
         public float total_price { get; set; }
         public int schedule_id { get; set; }
         public Schedules schedule { get; set; }
