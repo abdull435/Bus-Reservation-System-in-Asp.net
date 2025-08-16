@@ -16,7 +16,7 @@ namespace Practise.Models
         public int schedule_id { get; set; }
         public Schedules schedule { get; set; }
 
-        [JsonIgnore]
+        //[JsonIgnore]
         public List<ReservationsDetail> reservationsDetail { get; set; }
 
     }

@@ -19,7 +19,7 @@ const CustomerHistory = () => {
     const decoded = jwtDecode(userInfo);
     setDecode(decoded);
     setShowLoading(true);
-    axios.get(`https://bus-reservation-system-in-aspnet-production.up.railway.app/Reservation/get-reservations/${decoded.user_id}`, { withCredentials: true })
+    axios.get(`http://localhost:5212/Reservation/get-reservations/${decoded.user_id}`, { withCredentials: true })
       .then(res => {
         setReservations(res.data.reservation)
       })
