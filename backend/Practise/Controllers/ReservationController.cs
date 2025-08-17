@@ -70,20 +70,16 @@ namespace Practise.Controllers
                     reservationsDetail = new List<ReservationsDetail>()
                 };
 
-                _context.reservations.Add(reservation);
-                _context.SaveChanges();
-
                 foreach (var detail in model.reservationDetail)
                 {
-                    var reservationDetail = new ReservationsDetail
+                    reservation.reservationsDetail.Add(new ReservationsDetail
                     {
-                        reservation_id = reservation.reservation_id,
                         seat_number = detail.seat_number,
                         gender = detail.gender
-                    };
-                    _context.reservationsDetail.Add(reservationDetail);
+                    });
                 }
 
+                _context.reservations.Add(reservation);
                 _context.SaveChanges();
 
 
@@ -120,6 +116,33 @@ namespace Practise.Controllers
                     .Include(s => s.schedule).ThenInclude(r => r.routes).ToList();
 
                 return Ok(new { reservation });
+            }
+            catch (DbUpdateException dbEx)
+            {
+                return StatusCode(500, new { success = false, message = "Database error occurred", error = dbEx.InnerException?.Message });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { success = false, message = "An unexpected error occurred", error = ex.Message });
+            }
+        }
+
+        [HttpGet("Get-Ticket/{user_id}")]
+        public IActionResult getTicket(int user_id)
+        {
+            try
+            {
+                DateTime utcTime = DateTime.UtcNow;
+
+                TimeZoneInfo pakistanTimeZone = TimeZoneInfo.FindSystemTimeZoneById("Pakistan Standard Time");
+                DateTime pakistanTime = TimeZoneInfo.ConvertTimeFromUtc(utcTime, pakistanTimeZone);
+                DateTime todayDate = pakistanTime.Date;
+
+                var ticket = _context.reservations.AsNoTracking().Include(r => r.reservationsDetail)
+                    .Include(r => r.schedule).ThenInclude(r => r.routes)
+                    .Where(r => r.user_id == user_id && r.reservation_date >=todayDate).ToList();
+
+                return Ok(new {ticket });
             }
             catch (DbUpdateException dbEx)
             {

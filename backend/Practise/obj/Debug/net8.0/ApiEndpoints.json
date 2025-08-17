@@ -167,6 +167,22 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "Practise.Controllers.ReservationController",
+    "Method": "getTicket",
+    "RelativePath": "Reservation/Get-Ticket/{user_id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "user_id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "Practise.Controllers.RouteController",
     "Method": "addRoute",
     "RelativePath": "Route/add-route",

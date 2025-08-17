@@ -33,7 +33,7 @@ export default function Navbar() {
 
   return (
     <div className="flex justify-end">
-      <nav className="bg-black/80 shadow-md fixed top-0 w-full min-h-[8-vh] md:min-h-[8-vh]">
+      <nav className="bg-black/80 md:bg-black/60 shadow-md fixed top-0 w-full min-h-[8-vh] md:min-h-[8-vh]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16 text-white">
             <img className=" w-15  h-auto" src="./Images/bus-logo.png" />
@@ -71,12 +71,18 @@ export default function Navbar() {
           <Link to="/about" className="hover:text-green-500 transition-all durantion-300 p-1 border-b">About Us</Link>
           {isLoggedin ?
             <div className="flex flex-col">
-              <button onClick={() => handleLogout()}
+              <Link to="/get-tickets" onClick={() => setMobileNav(!mobileNav)}
                 className="hover:text-green-500 transition-all durantion-300 p-1 border-b"
-              >Logout</button>
+              >See Tickets</Link>
               <Link to="/SeeReservations" onClick={() => setMobileNav(!mobileNav)}
                 className="hover:text-green-500 transition-all durantion-300 p-1 border-b"
               >Show History</Link>
+              <Link to="/update-user" onClick={() => setMobileNav(!mobileNav)}
+                className="hover:text-green-500 transition-all durantion-300 p-1 border-b"
+              >Update User</Link>
+              <button onClick={() => handleLogout()}
+                className="hover:text-green-500 transition-all durantion-300 p-1 border-b"
+              >Logout</button>
             </div>
             :
             <Link to="/login"
@@ -87,6 +93,7 @@ export default function Navbar() {
 
       {showSetting &&
         <div className="hidden md:flex fixed  flex-col text-center w-[15%] h-[30vh] rounded bg-black/60 text-white mt-[10vh] mr-[10vh] ">
+          <Link onClick={() => setShowSetting(false)} to="/get-tickets" className="border-b p-2 hover:bg-lime-700 transition duration-300">See Tickets</Link>
           <Link to="/seeReservations" onClick={() => setShowSetting(false)} className="border-b p-2 hover:bg-lime-700 transition duration-300">Booking History</Link>
           <Link onClick={() => setShowSetting(false)} to="/update-user" className="border-b p-2 hover:bg-lime-700 transition duration-300">Account Setting</Link>
           <button onClick={()=>handleLogout()} className="border-b p-2 hover:bg-lime-700 transition duration-300 cursor-pointer">Logout</button>

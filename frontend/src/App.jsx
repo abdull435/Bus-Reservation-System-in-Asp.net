@@ -11,6 +11,7 @@ import Signup from './components/Signup';
 import CustomerHistory from './components/CustomerHistory';
 import UpdateUser from './components/UpdateUser';
 import VerifyUser from './components/VerifyUser';
+import Ticket from './components/Ticket';
 
 function App() {   
   return (
@@ -23,8 +24,9 @@ function App() {
       <Route path="/signup" element={<Signup />} />
       <Route path="/admin" element={<AdminPanel />} />
       <Route path='/SeeReservations' element={<><Navbar/><CustomerHistory/></>}/>
-      <Route path='/update-user' element={<><UpdateUser/></>}/>
+      <Route path='/update-user' element={<><Navbar/><UpdateUser/></>}/>
       <Route path='/verify-user' element={<><VerifyUser/></>}/>
+      <Route path='/get-tickets' element={<><Navbar/><Ticket/></>}/>
       </Routes>
     </Router>
     </ScheduleProvider>
