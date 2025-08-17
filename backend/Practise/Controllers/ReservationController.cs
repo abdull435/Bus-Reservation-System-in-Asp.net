@@ -31,7 +31,7 @@ namespace Practise.Controllers
                 var checkReservation = _context.reservations.Count(r => r.email == model.email
                 && r.reservation_date.Date == todayDate);
 
-                if (checkReservation > 4)
+                if (checkReservation >= 4)
                 {
                     return BadRequest(new { success = false, message = "Maximum 4 reservations allowed in a day." });
                 }
@@ -39,6 +39,21 @@ namespace Practise.Controllers
                 if(model.total_seats > 4)
                 {
                     return BadRequest(new { success = false, message = "Maximum 4 seats allowed to reserve." });
+                }
+
+                var requestedSeats = model.reservationDetail.Select(d => d.seat_number).ToList();
+
+                var alreadyReservedSeats = _context.reservations
+                    .Include(r => r.reservationsDetail)
+                    .Where(r => r.schedule_id == model.schedule_id)
+                    .SelectMany(r => r.reservationsDetail)
+                    .Where(d => requestedSeats.Contains(d.seat_number))
+                    .Select(d => d.seat_number)
+                    .ToList();
+
+                if (alreadyReservedSeats.Any())
+                {
+                    return BadRequest(new { success = false, message = $"Seats already reserved: {string.Join(", ", alreadyReservedSeats)}" });
                 }
 
                 var reservation = new Reservations
