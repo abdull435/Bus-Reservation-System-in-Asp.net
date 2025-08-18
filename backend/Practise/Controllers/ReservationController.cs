@@ -139,8 +139,8 @@ namespace Practise.Controllers
                 DateTime todayDate = pakistanTime.Date;
 
                 var ticket = _context.reservations.AsNoTracking().Include(r => r.reservationsDetail)
-                    .Include(r => r.schedule).ThenInclude(r => r.routes)
-                    .Where(r => r.user_id == user_id && r.reservation_date >=todayDate).ToList();
+                    .Include(s => s.schedule).ThenInclude(r => r.routes)
+                    .Where(u => u.user_id == user_id && u.schedule.departure_time >=todayDate).ToList();
 
                 return Ok(new {ticket });
             }

@@ -20,7 +20,7 @@ const Ticket = () => {
         const decoded = jwtDecode(userInfo);
         setShowLoading(true);
 
-        axios.get(`https://bus-reservation-system-in-aspnet-production.up.railway.app/Get-Ticket/${decoded.user_id}`)
+        axios.get(`https://bus-reservation-system-in-aspnet-production.up.railway.app/Reservation/Get-Ticket/${decoded.user_id}`)
             .then(res => {
                 setTicket(res.data.ticket)
                 setShowLoading(false);
