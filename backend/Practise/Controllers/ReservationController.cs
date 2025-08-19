@@ -91,6 +91,8 @@ namespace Practise.Controllers
                     _context.SaveChanges();
                 }
 
+                Verification.SendTicket(reservation.email, reservation);
+
                 return Ok(new
                 {
                     message = "Reservation and seat details saved successfully",
