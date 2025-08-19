@@ -13,8 +13,8 @@ namespace Practise.Controllers
     {
         public readonly AppDbContext _context;
 
-        public ReservationController(AppDbContext context) { 
-            _context = context; 
+        public ReservationController(AppDbContext context) {
+            _context = context;
         }
 
         [HttpPost]
@@ -36,7 +36,7 @@ namespace Practise.Controllers
                     return BadRequest(new { success = false, message = "Maximum 4 reservations allowed in a day." });
                 }
 
-                if(model.total_seats > 4)
+                if (model.total_seats > 4)
                 {
                     return BadRequest(new { success = false, message = "Maximum 4 seats allowed to reserve." });
                 }
@@ -127,8 +127,8 @@ namespace Practise.Controllers
             }
         }
 
-        [HttpGet("Get-Ticket/{user_id}")]
-        public IActionResult getTicket(int user_id)
+        [HttpGet("Get-Ticket/{user_id}/{time}")]
+        public IActionResult getTicket(int user_id, string time)
         {
             try
             {
@@ -138,12 +138,27 @@ namespace Practise.Controllers
                 DateTime pakistanTime = TimeZoneInfo.ConvertTimeFromUtc(utcTime, pakistanTimeZone);
                 DateTime todayDate = pakistanTime.Date;
 
-                var ticket = _context.reservations.AsNoTracking().Include(r => r.reservationsDetail)
-                    .Include(s => s.schedule).ThenInclude(r => r.routes)
-                    .Where(u => u.user_id == user_id && u.schedule.departure_time >=todayDate).ToList();
+                List<Reservations> ticket;
 
-                return Ok(new {ticket });
+                if (time == "upcoming")
+                {
+                    ticket = _context.reservations.AsNoTracking().Include(r => r.reservationsDetail)
+                    .Include(s => s.schedule).ThenInclude(r => r.routes)
+                    .Where(u => u.user_id == user_id && u.schedule.departure_time >= todayDate).OrderByDescending(r =>r.schedule.departure_time)
+                    .ToList();
+                }
+                else
+                {
+                    ticket = _context.reservations.AsNoTracking().Include(r => r.reservationsDetail)
+                    .Include(s => s.schedule).ThenInclude(r => r.routes)
+                    .Where(u => u.user_id == user_id && u.schedule.departure_time <= todayDate).OrderByDescending(r => r.schedule.departure_time)
+                    .ToList();
+                }
+
+
+                return Ok(new { ticket });
             }
+            
             catch (DbUpdateException dbEx)
             {
                 return StatusCode(500, new { success = false, message = "Database error occurred", error = dbEx.InnerException?.Message });

@@ -10,6 +10,7 @@ const Ticket = () => {
     const [showLoading, setShowLoading] = useState(true);
     const [ticket, setTicket] = useState([]);
     const userInfo = localStorage.getItem("token");
+    const [activeTab, setActiveTab] = useState("upcoming");
 
     useEffect(() => {
 
@@ -20,7 +21,7 @@ const Ticket = () => {
         const decoded = jwtDecode(userInfo);
         setShowLoading(true);
 
-        axios.get(`https://bus-reservation-system-in-aspnet-production.up.railway.app/Reservation/Get-Ticket/${decoded.user_id}`)
+        axios.get(`https://bus-reservation-system-in-aspnet-production.up.railway.app/Reservation/Get-Ticket/${decoded.user_id}/${activeTab}`)
             .then(res => {
                 setTicket(res.data.ticket)
                 setShowLoading(false);
@@ -31,24 +32,30 @@ const Ticket = () => {
             });
 
 
-    },[]);
+    }, [activeTab]);
 
-    if(showLoading){
-        return <Loading/>;
+    if (showLoading) {
+        return <Loading />;
     }
 
     return (
-    <div className="w-full h-[90vh] flex justify-center mt-[8vh] ">
-        <div className="w-11/12 md:w-2/3 lg:w-1/2 p-6 rounded-2xl">
-            {ticket.length === 0 ? (
-                <p className="text-center text-gray-600">No Ticket found.</p>
-            ) : (
-                <>
-                <h4 className="font-light text-2xl border-b pb-3 mb-6 text-center text-gray-800">
+        <div className="w-full h-[80vh] flex justify-center mt-[8vh] ">
+            <div className="w-11/12 md:w-2/3 lg:w-1/2 p-6 rounded-2xl">
+                <label className="block font-light text-2xl border-b pb-3 mb-2 text-center text-gray-800">
                     Ticket Info
-                </h4>
-
-                    <div className="text-center space-y-10 max-h-[75vh] overflow-y-auto pr-2">
+                </label>
+                <div className="flex justify-around md:justify-center md:space-x-2 item-center">
+                    <button onClick={() => setActiveTab('upcoming')}
+                        className={`${activeTab === "upcoming" ? 'bg-lime-700 ' : 'bg-lime-600'} hover:bg-lime-700 text-white p-2 rounded-md cursor-pointer`}>Upcoming</button>
+                    <button onClick={() => setActiveTab('past')}
+                        className={`${activeTab === "past" ? 'bg-lime-700' : 'bg-lime-600'} hover:bg-lime-700 text-white p-2 rounded-md cursor-pointer`}>Past Tickets</button>
+                    <button onClick={() => setActiveTab('cancel')}
+                        className={`${activeTab === "cancel" ? 'bg-lime-700' : ' bg-lime-600'} hover:bg-lime-700 text-white p-2 rounded-md cursor-pointer`}>Cancel Tickets</button>
+                </div>
+                {ticket.length === 0 ? (
+                    <p className="text-center text-gray-600">No Ticket found.</p>
+                ) : (
+                    <div className="text-center space-y-10 max-h-[75vh] overflow-y-auto pt-2 pr-2">
                         {ticket.map((t) => (
                             <div
                                 key={t.reservation_id}
@@ -100,11 +107,9 @@ const Ticket = () => {
                                 </button>
                             </div>
                         ))}
-                    </div>
-                </>
-            )}
+                    </div>)}
+            </div>
         </div>
-    </div>
     );
 
 }

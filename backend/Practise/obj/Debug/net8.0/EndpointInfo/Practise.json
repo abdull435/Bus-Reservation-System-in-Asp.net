@@ -276,7 +276,7 @@
         }
       }
     },
-    "/Reservation/Get-Ticket/{user_id}": {
+    "/Reservation/Get-Ticket/{user_id}/{time}": {
       "get": {
         "tags": [
           "Reservation"
@@ -289,6 +289,14 @@
             "schema": {
               "type": "integer",
               "format": "int32"
+            }
+          },
+          {
+            "name": "time",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
             }
           }
         ],
