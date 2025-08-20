@@ -1,7 +1,7 @@
-import React, { useState, useEffect, useLayoutEffect } from 'react';
+import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { jwtDecode } from 'jwt-decode';
-import { useNavigate, data } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useSchedule } from './ScheduleContext';
 import GenderDialog from './GenderDialog';
 import Booking from './Booking';
@@ -35,7 +35,7 @@ const SeatSelection = () => {
   const [showBooking, setShowBooking] = useState(false);
   const [showLoading, setShowLoading] = useState(true);
 
-  
+
 
 
   useEffect(() => {
@@ -92,27 +92,42 @@ const SeatSelection = () => {
   }, [showDialog, showBooking]);
 
   const handleGender = (gender) => {
+
+    let buddyIndex = selectedSeatIndex % 2 === 0
+      ? selectedSeatIndex + 1
+      : selectedSeatIndex - 1;
+
+      if (buddyIndex < 0 || buddyIndex >= seatColors.length) {
+        buddyIndex = null;
+      }
+      
+    if (reservedIndexes.includes(buddyIndex)) {
+      
+
+      const buddyColor = buddyIndex !== null ? seatColors[buddyIndex] : null;
+
+      const buddyGender = buddyColor === 'bg-blue-500' ? 'male' : buddyColor === 'bg-pink-500' ? 'female' : null;
+
+      if (buddyGender && buddyGender !== gender && gender !== 'cancel') {
+        alert(`${gender === 'male' ? 'Male' : 'Female'} cannot sit with ${buddyGender}.`);
+        return;
+      }
+    }
+
     setSeatColors((prev) => {
       const updated = [...prev];
-      if (gender === 'male') {
-        updated[selectedSeatIndex] = 'bg-blue-500'
-      }
-      else if (gender === 'female') {
-        updated[selectedSeatIndex] = 'bg-pink-500'
-      }
-      else if (gender === 'cancel') {
-        updated[selectedSeatIndex] = 'bg-white'
-      }
+      const genders = { male: 'bg-blue-500', female: 'bg-pink-500', cancel: 'bg-white' };
+      updated[selectedSeatIndex] = genders[gender]
       return updated;
     });
 
-    if(gender === 'cancel'){
+    if (gender === 'cancel') {
       setTempReserv(prev => prev.filter(num => num !== selectedSeatIndex));
     }
 
     else if (!tempReserv.includes(selectedSeatIndex)) {
       setTempReserv((prev) => [...prev, selectedSeatIndex]);
-      
+
     }
     setSelectedSeatIndex(null);
     setShowDialog(false);
@@ -123,7 +138,7 @@ const SeatSelection = () => {
   }, [tempReserv, price]);
 
   const makeReservation = () => {
-    if(tempReserv.length==0){
+    if (tempReserv.length == 0) {
       alert("First select a seat for booking");
       return;
     }
@@ -134,23 +149,24 @@ const SeatSelection = () => {
     setReservBtn(true);
     const reservation = {
       schedule_id: selectedSchedule.schedule_id,
-      user_id: userId, name, cinic, email, mobile, reservation_date: new Date(),price,
-      total_seats:tempReserv.length, total_price: totalPrice,
+      user_id: userId, name, cinic, email, mobile, reservation_date: new Date(), price,
+      total_seats: tempReserv.length, total_price: totalPrice,
       reservationDetail: tempReserv.map(index => ({
         seat_number: index + 1,
         gender: seatColors[index] === 'bg-blue-500' ? 'male' : 'female'
       }))
     }
-    
+
     axios.post(`https://bus-reservation-system-in-aspnet-production.up.railway.app/Reservation`, reservation, { withCredentials: true })
       .then(res => {
         const ticket = {
           ticketId: res.data.reservation_id,
-          departure, arrival, name,  seats: tempReserv.map(index => ({
-          seat_number: index + 1})), totalPrice,
+          departure, arrival, name, seats: tempReserv.map(index => ({
+            seat_number: index + 1
+          })), totalPrice,
           date: selectedSchedule.date,
-          departure_time: selectedSchedule.arrival_time,
-          arrival_time: selectedSchedule.departure_time
+          departure_time: selectedSchedule.departure_time,
+          arrival_time: selectedSchedule.arrival_time
         }
         setBookingDetail(ticket);
         setShowLoading(false);
@@ -288,7 +304,7 @@ const SeatSelection = () => {
       )}
 
       {showLoading && (
-        <Loading/>
+        <Loading />
       )
 
       }
