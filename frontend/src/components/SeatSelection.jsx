@@ -97,12 +97,12 @@ const SeatSelection = () => {
       ? selectedSeatIndex + 1
       : selectedSeatIndex - 1;
 
-      if (buddyIndex < 0 || buddyIndex >= seatColors.length) {
-        buddyIndex = null;
-      }
-      
+    if (buddyIndex < 0 || buddyIndex >= seatColors.length) {
+      buddyIndex = null;
+    }
+
     if (reservedIndexes.includes(buddyIndex)) {
-      
+
 
       const buddyColor = buddyIndex !== null ? seatColors[buddyIndex] : null;
 
@@ -138,6 +138,7 @@ const SeatSelection = () => {
   }, [tempReserv, price]);
 
   const makeReservation = () => {
+
     if (tempReserv.length == 0) {
       alert("First select a seat for booking");
       return;
@@ -184,6 +185,27 @@ const SeatSelection = () => {
     return;
   }
 
+  const isValid = () => {
+    if (!name.trim()) {
+      alert("Full name is required");
+      return false;
+    }
+    if (!/^[0-9]{5}-[0-9]{7}-[0-9]$/.test(cinic)) {
+      alert("CNIC must be in format 12345-1234567-1");
+      return false;
+    }
+    if (!email.includes("@")) {
+      alert("Enter a valid email");
+      return false;
+    }
+    if (!/^[0-9]{11}$/.test(mobile)) {
+      alert("Mobile must be in 11 digit");
+      return false;
+    }
+
+
+    return true;
+  }
 
   return (
     <div className="flex flex-col w-full  overflow-hidden">
@@ -194,10 +216,21 @@ const SeatSelection = () => {
               <h4 className='font-inherit font-light text-xl border-b-1 p-2'>Passenger Info</h4>
             </div>
             <div className='flex flex-col h-[50%] justify-between mt-10 '>
-              <input className='bg-white h-10 p-2' onChange={(e) => setName(e.target.value)} type="text" value={name} placeholder='Name' />
-              <input className='bg-white h-10 p-2' onChange={(e) => setCinic(e.target.value)} type="text" value={cinic} placeholder='Cinic' />
-              <input className='bg-white h-10 p-2' onChange={(e) => setEmail(e.target.value)} type="text" value={email} placeholder='Email' />
-              <input className='bg-white h-10 p-2' onChange={(e) => setMobile(e.target.value)} type="text" value={mobile} placeholder='Mobile No' />
+              <input className='w-full p-2 border border-black/10 rounded-md focus:outline-none focus:ring-2 focus:ring-black/10 bg-white'
+                onChange={(e) => setName(e.target.value)} type="text" value={name} placeholder='Name' />
+              <input className='w-full p-2 border border-black/10 rounded-md focus:outline-none focus:ring-2 focus:ring-black/10 bg-white'
+                onChange={(e) => setCinic(e.target.value)} type="text" value={cinic}
+                pattern="[0-9]{5}-[0-9]{7}-[0-9]{1}"
+                maxLength={15}
+                title="Enter CNIC in format 12345-1234567-1"
+                placeholder='Cinic' />
+              <input className='w-full p-2 border border-black/10 rounded-md focus:outline-none focus:ring-2 focus:ring-black/10 bg-white'
+                onChange={(e) => setEmail(e.target.value)} type="email" value={email} placeholder='Email' />
+              <input className='w-full p-2 border border-black/10 rounded-md focus:outline-none focus:ring-2 focus:ring-black/10 bg-white'
+                onChange={(e) => setMobile(e.target.value)} type="tel" maxLength={11}
+                pattern="[0-9]{11}"
+                title="Enter a valid mobile number with 11 digits"
+                value={mobile} placeholder='Mobile No' />
             </div>
           </div>
           <div className='flex flex-col w-90 h-screen md:h-[110vh] items-center p-10 bg-gray-200 rounded-md'>
@@ -281,7 +314,12 @@ const SeatSelection = () => {
               </div>
 
               <div>
-                <button onClick={() => makeReservation()} className="bg-lime-600 hover:bg-lime-700 transition duration-300 rounded p-1  text-white cursor-pointer text-lg font-normal color-white w-[100%] mt-10">Confirm</button>
+                <button onClick={() => {
+                  if (isValid()) {
+                    makeReservation();
+                  }
+                }}
+                  className="bg-lime-600 hover:bg-lime-700 transition duration-300 rounded p-1  text-white cursor-pointer text-lg font-normal color-white w-[100%] mt-10">Confirm</button>
               </div>
             </div>
 

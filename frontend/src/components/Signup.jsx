@@ -61,8 +61,11 @@ const Signup = () => {
           />
           <input
             type="text"
-            placeholder="Cnic"
+            placeholder="CNIC (e.g. 12345-1234567-1)"
+            maxLength={15}
             required
+            pattern="[0-9]{5}-[0-9]{7}-[0-9]{1}"
+            title="Enter CNIC in format 12345-1234567-1"
             onChange={(e) => setCinic(e.target.value)}
             className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-white bg-white/10"
           />
@@ -80,6 +83,8 @@ const Signup = () => {
             type="password"
             placeholder="Password"
             required
+            minLength={6}
+            title="Password must be at least 6 characters"
             onChange={(e) => setPassword(e.target.value)}
             className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-white bg-white/10"
           />

@@ -55,7 +55,7 @@ const Ticket = () => {
                 {ticket.length === 0 ? (
                     <p className="text-center text-gray-600">No Ticket found.</p>
                 ) : (
-                    <div className="text-center space-y-10 max-h-[75vh] overflow-y-auto pt-2 pr-2">
+                    <div className="text-center space-y-10 max-h-[70vh] overflow-y-auto pt-2 pr-2">
                         {ticket.map((t) => (
                             <div
                                 key={t.reservation_id}
