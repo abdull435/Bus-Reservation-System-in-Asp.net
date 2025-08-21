@@ -120,13 +120,23 @@ namespace Practise.Controllers
                 TimeZoneInfo pakistanTimeZone = TimeZoneInfo.FindSystemTimeZoneById("Pakistan Standard Time");
                 DateTime pakistanTime = TimeZoneInfo.ConvertTimeFromUtc(utcTime, pakistanTimeZone);
 
+                var todayDate = pakistanTime.Date;
+                var currentTime = pakistanTime.TimeOfDay;
                 if (time == "upcoming")
                 {
                     var ticket = _context.reservations.AsNoTracking()
                         .Include(r => r.reservationsDetail)
                         .Include(s => s.schedule).ThenInclude(r => r.routes)
-                        .Where(u => u.user_id == user_id && u.schedule.departure_time > pakistanTime)
-                        .OrderByDescending(r => r.schedule.departure_time)
+                        .Where(u => u.user_id == user_id && (
+                        // Future date
+                        u.schedule.departure_time.Date > todayDate ||
+
+                        // Same date but later time
+                        (u.schedule.departure_time.Date == todayDate &&
+                         u.schedule.departure_time.TimeOfDay > currentTime)
+                    )
+                    )
+                        .OrderBy(r => r.schedule.departure_time)
                         .ToList();
 
                     return Ok(new { ticket });
@@ -136,7 +146,15 @@ namespace Practise.Controllers
                     var ticket = _context.reservations.AsNoTracking()
                         .Include(r => r.reservationsDetail)
                         .Include(s => s.schedule).ThenInclude(r => r.routes)
-                        .Where(u => u.user_id == user_id && u.schedule.departure_time <= pakistanTime)
+                        .Where(u => u.user_id == user_id && (
+                        // Past date
+                        u.schedule.departure_time.Date < todayDate ||
+
+                        // Same date but already left
+                        (u.schedule.departure_time.Date == todayDate &&
+                         u.schedule.departure_time.TimeOfDay <= currentTime)
+                    )
+                )
                         .OrderByDescending(r => r.schedule.departure_time)
                         .ToList();
 
@@ -188,7 +206,7 @@ namespace Practise.Controllers
                 var seatNumbers = string.Join(",", reservation.reservationsDetail.Select(d => d.seat_number));
 
                 var cancel_date = TimeZoneInfo.ConvertTimeFromUtc(DateTime.UtcNow,
-     TimeZoneInfo.FindSystemTimeZoneById("Pakistan Standard Time"));
+                    TimeZoneInfo.FindSystemTimeZoneById("Pakistan Standard Time"));
 
                 var cancel = new CancelReservations
                 {
