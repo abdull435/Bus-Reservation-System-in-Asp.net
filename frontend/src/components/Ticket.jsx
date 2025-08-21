@@ -97,8 +97,12 @@ const Ticket = () => {
                                         : ""}
                                 </p>
                                 <p className="text-gray-700">
-                                    <span className="font-semibold">Booking Time:</span>{" "}
-                                     {new Date(t.schedule.date).toLocaleDateString()}
+                                    <span className="font-semibold">Departure Date:</span>{" "}
+                                    {new Date(t.schedule.date).toLocaleDateString()}
+                                </p>
+                                <p className="text-gray-700">
+                                    <span className="font-semibold">Booking Date:</span>{" "}
+                                     {new Date(t.reservation_date).toLocaleDateString()}
                                 </p>
                                 <p className="text-gray-700">
                                     <span className="font-semibold">Seat No:</span>{" "}
@@ -107,7 +111,7 @@ const Ticket = () => {
                                         : t.reservationsDetail?.map((s) => s.seat_number).join(", ")}
                                 </p>
                                 <p className="text-gray-700">
-                                    <span className="font-semibold">Total Price:</span> {t.price}
+                                    <span className="font-semibold">Total Price:</span> {t.total_Price}
                                 </p>
                                 {activeTab === "upcoming" &&
                                     <button

@@ -25,7 +25,7 @@ const Booking = ({ bookingDetail }) => {
                         ? new Date(`1970-01-01T${bookingDetail.departure_time}`).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: true })
                         : ""}</p>
                     <p>Arrival Time: {bookingDetail.departure_time
-                        ? new Date(`1970-01-01T${bookingDetail.departure_time}`).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: true })
+                        ? new Date(`1970-01-01T${bookingDetail.arrival_time}`).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: true })
                         : ""}</p>
                     <p>Price: {bookingDetail.totalPrice}</p>
                     <button className="bg-lime-600 w-[100%] mt-5 p-3 rounded text-white cursor-pointer hover:bg-lime-700 transition duration-300"
