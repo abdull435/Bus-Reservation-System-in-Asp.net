@@ -78,8 +78,7 @@
               "RelativeToolTip": "Models\\Bus.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAGAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-21T09:15:34.778Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-21T09:15:34.778Z"
             },
             {
               "$type": "Document",
@@ -91,8 +90,7 @@
               "RelativeToolTip": "Models\\CancelReservations.cs",
               "ViewState": "AgIAAA4AAAAAAAAAAAA9wBQAAAAxAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-21T09:15:04.423Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-21T09:15:04.423Z"
             },
             {
               "$type": "Document",
@@ -104,8 +102,7 @@
               "RelativeToolTip": "Controllers\\GetSchedulesController.cs",
               "ViewState": "AgIAABUAAAAAAAAAAAA+wCAAAAA4AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-19T16:08:19.71Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-19T16:08:19.71Z"
             },
             {
               "$type": "Document",
@@ -117,8 +114,7 @@
               "RelativeToolTip": "Controllers\\GetDetailsController.cs",
               "ViewState": "AgIAAA4AAAAAAAAAAAAAwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-19T16:08:13.273Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-19T16:08:13.273Z"
             },
             {
               "$type": "Document",
@@ -130,8 +126,7 @@
               "RelativeToolTip": "Controllers\\GetAllSchedulesController.cs",
               "ViewState": "AgIAAAsAAAAAAAAAAAAAwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-19T16:08:05.181Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-19T16:08:05.181Z"
             },
             {
               "$type": "Document",
@@ -155,8 +150,7 @@
               "RelativeToolTip": "Controllers\\signupController.cs",
               "ViewState": "AgIAACYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-18T11:49:13.558Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-18T11:49:13.558Z"
             },
             {
               "$type": "Document",
@@ -168,8 +162,7 @@
               "RelativeToolTip": "Data\\AppDbContext.cs",
               "ViewState": "AgIAACYAAAAAAAAAAADwvywAAAA+AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-17T04:52:11.145Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-17T04:52:11.145Z"
             },
             {
               "$type": "Document",
@@ -206,8 +199,7 @@
               "RelativeToolTip": "Models\\Reservations.cs",
               "ViewState": "AgIAAA8AAAAAAAAAAADwvxMAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-16T16:18:07.089Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-16T16:18:07.089Z"
             },
             {
               "$type": "Document",
@@ -231,8 +223,7 @@
               "RelativeToolTip": "Controllers\\ReservationController.cs",
               "ViewState": "AgIAAIwAAAAAAAAAAAAiwJEAAAArAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-16T08:53:50.032Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-16T08:53:50.032Z"
             }
           ]
         }
