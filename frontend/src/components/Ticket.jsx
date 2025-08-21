@@ -35,7 +35,7 @@ const Ticket = () => {
     }, [activeTab]);
 
     const handleCancel = async (reservationId) => {
-        if (!window.confirm("Are you sure you want to cancel this ticket?")) return;
+        if (!window.confirm("Are you sure you want to cancel this ticket? \n30% cancellation fee applies.")) return;
         setShowLoading(true);
         try {
             await axios.delete(

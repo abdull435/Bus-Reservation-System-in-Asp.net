@@ -119,14 +119,13 @@ namespace Practise.Controllers
 
                 TimeZoneInfo pakistanTimeZone = TimeZoneInfo.FindSystemTimeZoneById("Pakistan Standard Time");
                 DateTime pakistanTime = TimeZoneInfo.ConvertTimeFromUtc(utcTime, pakistanTimeZone);
-                DateTime todayDate = pakistanTime.Date;
 
                 if (time == "upcoming")
                 {
                     var ticket = _context.reservations.AsNoTracking()
                         .Include(r => r.reservationsDetail)
                         .Include(s => s.schedule).ThenInclude(r => r.routes)
-                        .Where(u => u.user_id == user_id && u.schedule.departure_time >= todayDate)
+                        .Where(u => u.user_id == user_id && u.schedule.departure_time > pakistanTime)
                         .OrderByDescending(r => r.schedule.departure_time)
                         .ToList();
 
@@ -137,7 +136,7 @@ namespace Practise.Controllers
                     var ticket = _context.reservations.AsNoTracking()
                         .Include(r => r.reservationsDetail)
                         .Include(s => s.schedule).ThenInclude(r => r.routes)
-                        .Where(u => u.user_id == user_id && u.schedule.departure_time <= todayDate)
+                        .Where(u => u.user_id == user_id && u.schedule.departure_time <= pakistanTime)
                         .OrderByDescending(r => r.schedule.departure_time)
                         .ToList();
 
@@ -188,7 +187,9 @@ namespace Practise.Controllers
                 // Build seat numbers only
                 var seatNumbers = string.Join(",", reservation.reservationsDetail.Select(d => d.seat_number));
 
-                // Move to cancel_reservations
+                var cancel_date = TimeZoneInfo.ConvertTimeFromUtc(DateTime.UtcNow,
+     TimeZoneInfo.FindSystemTimeZoneById("Pakistan Standard Time"));
+
                 var cancel = new CancelReservations
                 {
                     reservation_id = reservation.reservation_id,
@@ -202,7 +203,7 @@ namespace Practise.Controllers
                     total_price = reservation.total_price,
                     reservation_date = reservation.reservation_date,
                     seat_numbers = seatNumbers,
-                    cancel_date = DateTime.Now
+                    cancel_date = cancel_date
                 };
 
                 _context.cancel_reservations.Add(cancel);
