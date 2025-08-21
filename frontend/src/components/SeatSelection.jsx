@@ -74,16 +74,16 @@ const SeatSelection = () => {
   }, [selectedSchedule]);
 
   const handleSeatClick = (index) => {
-    if (reservedIndexes.includes(index)) return; // Block reserved seats
+    if (reservedIndexes.includes(index)) return;
     setSelectedSeatIndex(index);
     setShowDialog(true);
   };
 
   useEffect(() => {
     if (showDialog || showBooking) {
-      document.body.style.overflow = 'hidden'; // disable scroll
+      document.body.style.overflow = 'hidden';
     } else {
-      document.body.style.overflow = 'auto'; // re-enable scroll
+      document.body.style.overflow = 'auto';
     }
 
     return () => {
@@ -102,8 +102,6 @@ const SeatSelection = () => {
     }
 
     if (reservedIndexes.includes(buddyIndex)) {
-
-
       const buddyColor = buddyIndex !== null ? seatColors[buddyIndex] : null;
 
       const buddyGender = buddyColor === 'bg-blue-500' ? 'male' : buddyColor === 'bg-pink-500' ? 'female' : null;
@@ -202,8 +200,6 @@ const SeatSelection = () => {
       alert("Mobile must be in 11 digit");
       return false;
     }
-
-
     return true;
   }
 
@@ -337,7 +333,6 @@ const SeatSelection = () => {
       {showBooking && (
         <Booking
           bookingDetail={bookingDetail}
-          close={() => setShowBooking(false)}
         />
       )}
 

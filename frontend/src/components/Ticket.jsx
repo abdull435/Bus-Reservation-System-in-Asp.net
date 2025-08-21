@@ -53,9 +53,9 @@ const Ticket = () => {
                         className={`${activeTab === "cancel" ? 'bg-lime-700' : ' bg-lime-600'} hover:bg-lime-700 text-white p-2 rounded-md cursor-pointer`}>Cancel Tickets</button>
                 </div>
                 {ticket.length === 0 ? (
-                    <p className="text-center text-gray-600">No Ticket found.</p>
+                    <p className="text-center mt-5 text-gray-600">No Ticket found.</p>
                 ) : (
-                    <div className="text-center space-y-10 max-h-[70vh] overflow-y-auto pt-2 pr-2">
+                    <div className="text-center space-y-10 max-h-[60vh] md:max-h-[70vh] overflow-y-auto pt-2 pr-2">
                         {ticket.map((t) => (
                             <div
                                 key={t.reservation_id}
