@@ -25,13 +25,17 @@ namespace Practise.Controllers
 
             TimeZoneInfo pakistanTimeZone = TimeZoneInfo.FindSystemTimeZoneById("Pakistan Standard Time");
             DateTime pakistanTime = TimeZoneInfo.ConvertTimeFromUtc(utcTime, pakistanTimeZone);
+
             DateTime todayDate = pakistanTime.Date;
+            var currentTime = pakistanTime.TimeOfDay;
+
             var schedules = _context.schedules
-        .Include(s => s.routes).Include(s => s.bus)
-        .Where(s => s.date.Date == request.date &&
-                    s.routes.from_city == request.from_city &&
-                    s.routes.to_city == request.to_city && s.date >=todayDate)
-        .ToList();
+            .Include(s => s.routes).Include(s => s.bus)
+            .Where(s => s.date.Date == request.date &&
+                        s.routes.from_city == request.from_city &&
+                        s.routes.to_city == request.to_city &&  (
+                        s.date > todayDate || (s.date == todayDate &&
+                        s.departure_time > currentTime))).ToList();
 
             return Ok(new { success = true, schedules });
 
