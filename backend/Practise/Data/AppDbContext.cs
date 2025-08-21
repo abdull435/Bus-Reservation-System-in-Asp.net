@@ -13,8 +13,9 @@ namespace Practise.Data
         public DbSet<Reservations> reservations { get; set; }
         public DbSet<ReservationsDetail> reservationsDetail { get; set; }
         public DbSet<Bus> bus { get; set; }
-
         public DbSet<pending_users> pending_users { get; set; }
+        public DbSet<CancelReservations> cancel_reservations { get; set; }
+
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

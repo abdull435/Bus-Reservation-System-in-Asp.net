@@ -166,21 +166,41 @@ namespace Practise.Controllers
                     return NotFound(new { success = false, message = "Reservation not found." });
                 }
 
+                // Build seat numbers only
+                var seatNumbers = string.Join(",", reservation.reservationsDetail.Select(d => d.seat_number));
+
+                // Move to cancel_reservations
+                var cancel = new CancelReservations
+                {
+                    reservation_id = reservation.reservation_id,
+                    user_id = reservation.user_id,
+                    name = reservation.name,
+                    email = reservation.email,
+                    cinic = reservation.cinic,
+                    schedule_id = reservation.schedule_id,
+                    price = reservation.price,
+                    total_seats = reservation.total_seats,
+                    total_price = reservation.total_price,
+                    reservation_date = reservation.reservation_date,
+                    seat_numbers = seatNumbers,
+                    cancel_date = DateTime.Now
+                };
+
+                _context.cancel_reservations.Add(cancel);
+
                 // Add back the seats to schedule
                 if (reservation.schedule != null)
                 {
                     reservation.schedule.available_seats += reservation.reservationsDetail.Count;
                 }
 
-                // Remove reservation details first
+                // Remove reservation details + reservation
                 _context.reservationsDetail.RemoveRange(reservation.reservationsDetail);
-
-                // Then remove reservation
                 _context.reservations.Remove(reservation);
 
                 _context.SaveChanges();
 
-                return Ok(new { success = true, message = "Reservation cancelled successfully." });
+                return Ok(new { success = true, message = "Reservation cancelled and moved to cancel_reservations." });
             }
             catch (DbUpdateException dbEx)
             {
