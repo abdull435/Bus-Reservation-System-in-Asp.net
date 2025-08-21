@@ -115,7 +115,7 @@ const UpdateSchedule = ({ selectedSchedule }) => {
                   : ""}
               </td>
               <td className="px-4 py-2">
-                {selectedSchedule.departure_time
+                {selectedSchedule.arrivalTime
                   ? new Date(`1970-01-01T${selectedSchedule.arrival_time}`).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: true })
                   : ""}
               </td>

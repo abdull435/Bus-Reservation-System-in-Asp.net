@@ -45,7 +45,7 @@ const ViewSchedules = () => {
                     ? new Date(`1970-01-01T${s.departure_time}`).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: true })
                     : ""}</td>
                   <td className="px-4 py-2 border ">{s.departure_time
-                    ? new Date(`1970-01-01T${s.departure_time}`).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: true })
+                    ? new Date(`1970-01-01T${s.arrival_time}`).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: true })
                     : ""}</td>
                   <td className="px-4 py-2 border ">{new Date(s.date).toLocaleDateString()}</td>
                   <td className="px-4 py-2 border ">{s.price}</td>
