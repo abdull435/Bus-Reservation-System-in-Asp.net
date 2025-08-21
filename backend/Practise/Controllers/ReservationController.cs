@@ -109,26 +109,6 @@ namespace Practise.Controllers
             }
         }
 
-        [HttpGet("get-reservations/{user_id}")]
-        public IActionResult getReservations(int user_id)
-        {
-            try
-            {
-                var reservation = _context.reservations.Where(u => u.user_id == user_id)
-                    .Include(s => s.schedule).ThenInclude(r => r.routes).ToList();
-
-                return Ok(new { reservation });
-            }
-            catch (DbUpdateException dbEx)
-            {
-                return StatusCode(500, new { success = false, message = "Database error occurred", error = dbEx.InnerException?.Message });
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(500, new { success = false, message = "An unexpected error occurred", error = ex.Message });
-            }
-        }
-
         [HttpGet("Get-Ticket/{user_id}/{time}")]
         public IActionResult getTicket(int user_id, string time)
         {

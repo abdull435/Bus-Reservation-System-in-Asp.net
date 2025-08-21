@@ -1,8 +1,5 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
-import { jwtDecode } from "jwt-decode";
+import { useState, useEffect } from "react"
 import { Link, useNavigate } from "react-router-dom";
-import CustomerHistory from "./CustomerHistory";
 
 export default function Navbar() {
   const [isLoggedin, setIsLoggedin] = useState(false);
@@ -74,9 +71,6 @@ export default function Navbar() {
               <Link to="/get-tickets" onClick={() => setMobileNav(!mobileNav)}
                 className="hover:text-green-500 transition-all durantion-300 p-1 border-b"
               >See Tickets</Link>
-              <Link to="/SeeReservations" onClick={() => setMobileNav(!mobileNav)}
-                className="hover:text-green-500 transition-all durantion-300 p-1 border-b"
-              >Show History</Link>
               <Link to="/update-user" onClick={() => setMobileNav(!mobileNav)}
                 className="hover:text-green-500 transition-all durantion-300 p-1 border-b"
               >Update User</Link>
@@ -94,7 +88,6 @@ export default function Navbar() {
       {showSetting &&
         <div className="hidden md:flex fixed  flex-col text-center w-[15%] h-[30vh] rounded bg-black/60 text-white mt-[10vh] mr-[10vh] ">
           <Link onClick={() => setShowSetting(false)} to="/get-tickets" className="border-b p-2 hover:bg-lime-700 transition duration-300">See Tickets</Link>
-          <Link to="/seeReservations" onClick={() => setShowSetting(false)} className="border-b p-2 hover:bg-lime-700 transition duration-300">Booking History</Link>
           <Link onClick={() => setShowSetting(false)} to="/update-user" className="border-b p-2 hover:bg-lime-700 transition duration-300">Account Setting</Link>
           <button onClick={()=>handleLogout()} className="border-b p-2 hover:bg-lime-700 transition duration-300 cursor-pointer">Logout</button>
         </div>

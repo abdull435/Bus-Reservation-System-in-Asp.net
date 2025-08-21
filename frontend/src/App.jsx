@@ -8,7 +8,6 @@ import Footer from './components/Footer';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { ScheduleProvider } from './components/ScheduleContext';
 import Signup from './components/Signup';
-import CustomerHistory from './components/CustomerHistory';
 import UpdateUser from './components/UpdateUser';
 import VerifyUser from './components/VerifyUser';
 import Ticket from './components/Ticket';
@@ -23,7 +22,6 @@ function App() {
       <Route path="/schedule" element={<><Navbar/><SeatSelection /><Footer/></>} />
       <Route path="/signup" element={<Signup />} />
       <Route path="/admin" element={<AdminPanel />} />
-      <Route path='/SeeReservations' element={<><Navbar/><CustomerHistory/></>}/>
       <Route path='/update-user' element={<><Navbar/><UpdateUser/></>}/>
       <Route path='/verify-user' element={<><VerifyUser/></>}/>
       <Route path='/get-tickets' element={<><Navbar/><Ticket/></>}/>
