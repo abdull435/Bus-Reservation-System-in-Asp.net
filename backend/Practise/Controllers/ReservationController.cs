@@ -170,5 +170,47 @@ namespace Practise.Controllers
                 return StatusCode(500, new { success = false, message = "An unexpected error occurred", error = ex.Message });
             }
         }
+
+        [HttpDelete("Cancel/{reservation_id}")]
+        public IActionResult CancelReservation(int reservation_id)
+        {
+            try
+            {
+                var reservation = _context.reservations
+                    .Include(r => r.reservationsDetail)
+                    .Include(r => r.schedule)
+                    .FirstOrDefault(r => r.reservation_id == reservation_id);
+
+                if (reservation == null)
+                {
+                    return NotFound(new { success = false, message = "Reservation not found." });
+                }
+
+                // Add back the seats to schedule
+                if (reservation.schedule != null)
+                {
+                    reservation.schedule.available_seats += reservation.reservationsDetail.Count;
+                }
+
+                // Remove reservation details first
+                _context.reservationsDetail.RemoveRange(reservation.reservationsDetail);
+
+                // Then remove reservation
+                _context.reservations.Remove(reservation);
+
+                _context.SaveChanges();
+
+                return Ok(new { success = true, message = "Reservation cancelled successfully." });
+            }
+            catch (DbUpdateException dbEx)
+            {
+                return StatusCode(500, new { success = false, message = "Database error occurred", error = dbEx.InnerException?.Message });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { success = false, message = "An unexpected error occurred", error = ex.Message });
+            }
+        }
+
     }
 }

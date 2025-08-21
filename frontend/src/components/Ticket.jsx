@@ -34,6 +34,27 @@ const Ticket = () => {
 
     }, [activeTab]);
 
+    const handleCancel = async (reservationId) => {
+        if (!window.confirm("Are you sure you want to cancel this ticket?")) return;
+        alert(reservationId);
+        setShowLoading(true);
+        try {
+            await axios.delete(
+                `https://bus-reservation-system-in-aspnet-production.up.railway.app/Reservation/Cancel/${reservationId}`,
+                { withCredentials: true }
+            );
+
+            setTicket((prev) => prev.filter((t) => t.reservation_id !== reservationId));
+
+            alert("Your cancellation request was processed successfully.");
+        } catch (err) {
+            alert(err.response?.data?.message || "Cancellation failed. Please try again.");
+        } finally {
+            setShowLoading(false);
+        }
+    };
+
+
     if (showLoading) {
         return <Loading />;
     }
@@ -49,8 +70,6 @@ const Ticket = () => {
                         className={`${activeTab === "upcoming" ? 'bg-lime-700 ' : 'bg-lime-600'} hover:bg-lime-700 text-white p-2 rounded-md cursor-pointer`}>Upcoming</button>
                     <button onClick={() => setActiveTab('past')}
                         className={`${activeTab === "past" ? 'bg-lime-700' : 'bg-lime-600'} hover:bg-lime-700 text-white p-2 rounded-md cursor-pointer`}>Past Tickets</button>
-                    <button onClick={() => setActiveTab('cancel')}
-                        className={`${activeTab === "cancel" ? 'bg-lime-700' : ' bg-lime-600'} hover:bg-lime-700 text-white p-2 rounded-md cursor-pointer`}>Cancel Tickets</button>
                 </div>
                 {ticket.length === 0 ? (
                     <p className="text-center mt-5 text-gray-600">No Ticket found.</p>
@@ -99,12 +118,14 @@ const Ticket = () => {
                                 <p className="text-gray-700">
                                     <span className="font-semibold">Total Price:</span> {t.price}
                                 </p>
-
-                                <button
-                                    className="bg-lime-600 w-full mt-5 py-2.5 rounded-lg text-white cursor-pointer hover:bg-lime-700 transition"
-                                >
-                                    Cancel
-                                </button>
+                                {activeTab === "upcoming" &&
+                                    <button
+                                        className="bg-lime-600 w-full mt-5 py-2.5 rounded-lg text-white cursor-pointer hover:bg-lime-700 transition"
+                                        onClick={() => handleCancel(t.reservation_id)}
+                                    >
+                                        Cancel
+                                    </button>
+                                }
                             </div>
                         ))}
                     </div>)}

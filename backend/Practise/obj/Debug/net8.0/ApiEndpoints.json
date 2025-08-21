@@ -152,6 +152,22 @@
   },
   {
     "ContainingType": "Practise.Controllers.ReservationController",
+    "Method": "CancelReservation",
+    "RelativePath": "Reservation/Cancel/{reservation_id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "reservation_id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Practise.Controllers.ReservationController",
     "Method": "getReservations",
     "RelativePath": "Reservation/get-reservations/{user_id}",
     "HttpMethod": "GET",
