@@ -92,27 +92,13 @@ const Ticket = () => {
                                 </p>
                                 <p className="text-gray-700">
                                     <span className="font-semibold">Departure Time:</span>{" "}
-                                    {t.schedule
-                                        ? new Date(t.schedule.departure_time).toLocaleString('en-US', {
-                                            day: '2-digit',
-                                            month: 'short',
-                                            year: 'numeric',
-                                            hour: '2-digit',
-                                            minute: '2-digit',
-                                            hour12: true
-                                        })
-                                        : "N/A"}
+                                    {t.schedule.departure_time
+                                        ? new Date(`1970-01-01T${t.schedule.departure_time}`).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: true })
+                                        : ""}
                                 </p>
                                 <p className="text-gray-700">
                                     <span className="font-semibold">Booking Time:</span>{" "}
-                                    {new Date(t.reservation_date).toLocaleString('en-US', {
-                                        day: '2-digit',
-                                        month: 'short',  // "Jan", "Feb"... use "long" for full month name
-                                        year: 'numeric',
-                                        hour: '2-digit',
-                                        minute: '2-digit',
-                                        hour12: true     // 12-hour format with AM/PM
-                                    })}
+                                     {new Date(t.schedule.date).toLocaleDateString()}
                                 </p>
                                 <p className="text-gray-700">
                                     <span className="font-semibold">Seat No:</span>{" "}
