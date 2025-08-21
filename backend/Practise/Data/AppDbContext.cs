@@ -40,6 +40,11 @@ namespace Practise.Data
 
             modelBuilder.Entity<Reservations>().HasMany(r => r.reservationsDetail)
                 .WithOne(r => r.reservations).HasForeignKey(f => f.reservation_id);
+
+            modelBuilder.Entity<CancelReservations>().HasOne(c => c.schedule)
+                .WithMany().HasForeignKey(c => c.schedule_id) 
+                         .HasPrincipalKey(s => s.schedule_id);
+
         }
     }
 }

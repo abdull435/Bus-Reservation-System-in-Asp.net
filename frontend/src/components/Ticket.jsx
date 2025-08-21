@@ -21,7 +21,7 @@ const Ticket = () => {
         const decoded = jwtDecode(userInfo);
         setShowLoading(true);
 
-        axios.get(`https://bus-reservation-system-in-aspnet-production.up.railway.app/Reservation/Get-Ticket/${decoded.user_id}/${activeTab}`)
+        axios.get(`http://localhost:5212/Reservation/Get-Ticket/${decoded.user_id}/${activeTab}`)
             .then(res => {
                 setTicket(res.data.ticket)
                 setShowLoading(false);
@@ -36,7 +36,6 @@ const Ticket = () => {
 
     const handleCancel = async (reservationId) => {
         if (!window.confirm("Are you sure you want to cancel this ticket?")) return;
-        alert(reservationId);
         setShowLoading(true);
         try {
             await axios.delete(
@@ -70,6 +69,8 @@ const Ticket = () => {
                         className={`${activeTab === "upcoming" ? 'bg-lime-700 ' : 'bg-lime-600'} hover:bg-lime-700 text-white p-2 rounded-md cursor-pointer`}>Upcoming</button>
                     <button onClick={() => setActiveTab('past')}
                         className={`${activeTab === "past" ? 'bg-lime-700' : 'bg-lime-600'} hover:bg-lime-700 text-white p-2 rounded-md cursor-pointer`}>Past Tickets</button>
+                    <button onClick={() => setActiveTab('cancelled')}
+                        className={`${activeTab === "cancelled" ? 'bg-lime-700' : 'bg-lime-600'} hover:bg-lime-700 text-white p-2 rounded-md cursor-pointer`}>Cancelled</button>
                 </div>
                 {ticket.length === 0 ? (
                     <p className="text-center mt-5 text-gray-600">No Ticket found.</p>
@@ -87,18 +88,20 @@ const Ticket = () => {
                                     <span className="font-semibold">Name:</span> {t.name}
                                 </p>
                                 <p className="text-gray-700">
-                                    <span className="font-semibold">Route:</span> {t.schedule.routes.from_city} - {t.schedule.routes.to_city}
+                                    <span className="font-semibold">Route:</span> {t.schedule ? `${t.schedule.routes.from_city} - ${t.schedule.routes.to_city}` : "N/A"}
                                 </p>
                                 <p className="text-gray-700">
                                     <span className="font-semibold">Departure Time:</span>{" "}
-                                    {new Date(t.schedule.departure_time).toLocaleString('en-US', {
-                                        day: '2-digit',
-                                        month: 'short',  // "Jan", "Feb"... use "long" for full month name
-                                        year: 'numeric',
-                                        hour: '2-digit',
-                                        minute: '2-digit',
-                                        hour12: true     // 12-hour format with AM/PM
-                                    })}
+                                    {t.schedule
+                                        ? new Date(t.schedule.departure_time).toLocaleString('en-US', {
+                                            day: '2-digit',
+                                            month: 'short',
+                                            year: 'numeric',
+                                            hour: '2-digit',
+                                            minute: '2-digit',
+                                            hour12: true
+                                        })
+                                        : "N/A"}
                                 </p>
                                 <p className="text-gray-700">
                                     <span className="font-semibold">Booking Time:</span>{" "}
@@ -113,7 +116,9 @@ const Ticket = () => {
                                 </p>
                                 <p className="text-gray-700">
                                     <span className="font-semibold">Seat No:</span>{" "}
-                                    {t.reservationsDetail.map((s) => s.seat_number).join(", ")}
+                                    {activeTab === "cancelled"
+                                        ? t.seat_numbers?.split(",").join(", ")
+                                        : t.reservationsDetail?.map((s) => s.seat_number).join(", ")}
                                 </p>
                                 <p className="text-gray-700">
                                     <span className="font-semibold">Total Price:</span> {t.price}

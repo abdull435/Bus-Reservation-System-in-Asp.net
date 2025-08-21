@@ -19,5 +19,6 @@ namespace Practise.Models
         public DateTime reservation_date { get; set; }
         public string seat_numbers { get; set; }   // comma-separated
         public DateTime cancel_date { get; set; }
+        public Schedules schedule { get; set; }
     }
 }

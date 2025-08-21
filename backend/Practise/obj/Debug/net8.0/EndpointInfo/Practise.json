@@ -253,29 +253,6 @@
         }
       }
     },
-    "/Reservation/get-reservations/{user_id}": {
-      "get": {
-        "tags": [
-          "Reservation"
-        ],
-        "parameters": [
-          {
-            "name": "user_id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
     "/Reservation/Get-Ticket/{user_id}/{time}": {
       "get": {
         "tags": [
@@ -634,7 +611,7 @@
           },
           "price": {
             "type": "number",
-            "format": "float"
+            "format": "double"
           },
           "total_seats": {
             "type": "integer",

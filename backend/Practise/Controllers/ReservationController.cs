@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using Practise.Data;
 using Practise.DTO;
 using Practise.Models;
+using System.Diagnostics.Eventing.Reader;
 
 namespace Practise.Controllers
 {
@@ -120,25 +121,43 @@ namespace Practise.Controllers
                 DateTime pakistanTime = TimeZoneInfo.ConvertTimeFromUtc(utcTime, pakistanTimeZone);
                 DateTime todayDate = pakistanTime.Date;
 
-                List<Reservations> ticket;
-
                 if (time == "upcoming")
                 {
-                    ticket = _context.reservations.AsNoTracking().Include(r => r.reservationsDetail)
-                    .Include(s => s.schedule).ThenInclude(r => r.routes)
-                    .Where(u => u.user_id == user_id && u.schedule.departure_time >= todayDate).OrderByDescending(r =>r.schedule.departure_time)
-                    .ToList();
+                    var ticket = _context.reservations.AsNoTracking()
+                        .Include(r => r.reservationsDetail)
+                        .Include(s => s.schedule).ThenInclude(r => r.routes)
+                        .Where(u => u.user_id == user_id && u.schedule.departure_time >= todayDate)
+                        .OrderByDescending(r => r.schedule.departure_time)
+                        .ToList();
+
+                    return Ok(new { ticket });
+                }
+                else if (time == "past")
+                {
+                    var ticket = _context.reservations.AsNoTracking()
+                        .Include(r => r.reservationsDetail)
+                        .Include(s => s.schedule).ThenInclude(r => r.routes)
+                        .Where(u => u.user_id == user_id && u.schedule.departure_time <= todayDate)
+                        .OrderByDescending(r => r.schedule.departure_time)
+                        .ToList();
+
+                    return Ok(new { ticket });
+                }
+                else if (time == "cancelled")
+                {
+                    var ticket = _context.cancel_reservations
+                        .Include(c => c.schedule)
+                        .ThenInclude(s => s.routes)
+                        .Where(c => c.user_id == user_id)
+                        .OrderByDescending(c => c.cancel_date)
+                        .ToList();
+
+                    return Ok(new { ticket });
                 }
                 else
                 {
-                    ticket = _context.reservations.AsNoTracking().Include(r => r.reservationsDetail)
-                    .Include(s => s.schedule).ThenInclude(r => r.routes)
-                    .Where(u => u.user_id == user_id && u.schedule.departure_time <= todayDate).OrderByDescending(r => r.schedule.departure_time)
-                    .ToList();
+                    return BadRequest(new { success = false, message = "Invalid time filter. Use 'upcoming', 'past', or 'cancelled'." });
                 }
-
-
-                return Ok(new { ticket });
             }
             
             catch (DbUpdateException dbEx)
