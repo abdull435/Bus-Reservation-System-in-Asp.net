@@ -92,7 +92,7 @@ const AddSchedule = () => {
               value={busId}
               onChange={(e) => setBusId(e.target.value)}
               required
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-white bg-white/10"
+              className="appearance-none w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-white bg-white/10"
             >
               <option className='bg-black' value="">Select Bus</option>
               {buses.map((bus) => (
@@ -109,7 +109,7 @@ const AddSchedule = () => {
               value={routeId}
               onChange={(e) => setRouteId(e.target.value)}
               required
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-white bg-white/10"
+              className="appearance-none w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-white bg-white/10"
             >
               <option className='bg-black' value="">Select Route</option>
               {routes.map((route) => (
@@ -128,7 +128,7 @@ const AddSchedule = () => {
               min={today}
               onChange={(e) => setDate(e.target.value)}
               required
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-white bg-white/10"
+              className="appearance-none w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-white bg-white/10"
             />
           </div>
 
@@ -139,18 +139,18 @@ const AddSchedule = () => {
               value={departureTime}
               onChange={(e) => setDepartureTime(e.target.value)}
               required
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-white bg-white/10"
+              className="appearance-none w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-white bg-white/10"
             />
           </div>
 
           <div>
-            <label className="block  text-sm font-bold mb-2">Arrival Time</label>
+            <label className="block text-sm font-bold mb-2">Arrival Time</label>
             <input
               type="time"
               value={arrivalTime}
               onChange={(e) => setArrivalTime(e.target.value)}
               required
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-white bg-white/10"
+              className="appearance-none w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-white bg-white/10"
             />
           </div>
 
@@ -162,7 +162,7 @@ const AddSchedule = () => {
               min={0}
               onChange={(e) => setPrice(e.target.value)}
               required
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-white bg-white/10"
+              className="appearance-none w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-white bg-white/10"
             />
           </div>
 
