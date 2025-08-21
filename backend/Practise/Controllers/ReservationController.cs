@@ -129,11 +129,11 @@ namespace Practise.Controllers
                         .Include(s => s.schedule).ThenInclude(r => r.routes)
                         .Where(u => u.user_id == user_id && (
                         // Future date
-                        u.schedule.departure_time.Date > todayDate ||
+                        u.schedule.date > todayDate ||
 
                         // Same date but later time
-                        (u.schedule.departure_time.Date == todayDate &&
-                         u.schedule.departure_time.TimeOfDay > currentTime)
+                        (u.schedule.date == todayDate &&
+                         u.schedule.departure_time > currentTime)
                     )
                     )
                         .OrderBy(r => r.schedule.departure_time)
@@ -148,11 +148,11 @@ namespace Practise.Controllers
                         .Include(s => s.schedule).ThenInclude(r => r.routes)
                         .Where(u => u.user_id == user_id && (
                         // Past date
-                        u.schedule.departure_time.Date < todayDate ||
+                        u.schedule.date < todayDate ||
 
                         // Same date but already left
-                        (u.schedule.departure_time.Date == todayDate &&
-                         u.schedule.departure_time.TimeOfDay <= currentTime)
+                        (u.schedule.date == todayDate &&
+                         u.schedule.departure_time <= currentTime)
                     )
                 )
                         .OrderByDescending(r => r.schedule.departure_time)
