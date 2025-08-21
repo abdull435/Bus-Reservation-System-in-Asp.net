@@ -35,9 +35,6 @@ const SeatSelection = () => {
   const [showBooking, setShowBooking] = useState(false);
   const [showLoading, setShowLoading] = useState(true);
 
-
-
-
   useEffect(() => {
     if (selectedSchedule) {
       axios.post(`https://bus-reservation-system-in-aspnet-production.up.railway.app/GetSeats?schedule_id=${selectedSchedule.schedule_id}`, null, { withCredentials: true })
@@ -284,7 +281,9 @@ const SeatSelection = () => {
               <div className="flex">
                 <label className="font-normal text-lg w-[50%] p-2">Departure Time:</label>
                 <label className="text-lg font-normal w-[50%] p-2">
-                  {new Date(selectedSchedule.departure_time).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: true })}
+                  {selectedSchedule.departure_time
+                    ? new Date(`1970-01-01T${selectedSchedule.departure_time}`).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: true })
+                    : ""}
                 </label>
               </div>
 

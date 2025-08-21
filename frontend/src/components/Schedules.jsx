@@ -57,13 +57,13 @@ const Schedule = ({ from, to, date }) => {
   return (
 
     <div className="mt-10 mb-6">
-        <div>
-          <p className="text-2xl  text-black border-b pb-4 mb-4"><span className='text-orange-400'>Selected Date:</span> {date}</p>
-          <div className="hidden md:block p-4 bg-gray-200 md:overflow-hidden overflow-x-scroll">
-            {schedules.length==0 ?(
-              <p className="text-center text-gray-600">No schedules found for the selected route and date.</p>
-            ):(
-              <table className=" min-w-full rounded border-separate border-spacing-y-2 ">
+      <div>
+        <p className="text-2xl  text-black border-b pb-4 mb-4"><span className='text-orange-400'>Selected Date:</span> {date}</p>
+        <div className="hidden md:block p-4 bg-gray-200 md:overflow-hidden overflow-x-scroll">
+          {schedules.length == 0 ? (
+            <p className="text-center text-gray-600">No schedules found for the selected route and date.</p>
+          ) : (
+            <table className=" min-w-full rounded border-separate border-spacing-y-2 ">
               <thead className="bg-white text-left">
                 <tr className='shadow' >
                   <th className="px-4 py-3">Route</th>
@@ -77,10 +77,12 @@ const Schedule = ({ from, to, date }) => {
               <tbody >
                 {
                   schedules.map(schedule => (<tr key={schedule.schedule_id} className="border border-black text-left bg-white shadow">
-                   {/* { alert(JSON.stringify(schedule))} */}
+                    {/* { alert(JSON.stringify(schedule))} */}
                     <td className="px-4 py-2 border-r border-gray-400"><strong>{from}</strong> to <strong>{to}</strong></td>
                     <td className="px-4 py-2 border-r border-gray-400">
-                      {new Date(schedule.departure_time).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: true })}
+                      {schedule.departure_time
+                        ? new Date(`1970-01-01T${schedule.departure_time}`).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: true })
+                        : ""}
                     </td>
                     <td className="px-4 py-2 border-r border-gray-400">{schedule.bus.bus_type}</td>
                     <td className="px-4 py-2 border-r border-gray-400">{schedule.available_seats}</td>
@@ -96,27 +98,29 @@ const Schedule = ({ from, to, date }) => {
                 }
               </tbody>
             </table>
-            )}
-            
-          </div>
-          <div className="block p-2 md:hidden space-y-4">
-            {schedules.length==0 ? (<p className="p-4 text-center bg-gray-200 text-gray-600">No schedules found for the selected route and date.</p>):(
-              schedules.map(schedule => (
+          )}
+
+        </div>
+        <div className="block p-2 md:hidden space-y-4">
+          {schedules.length == 0 ? (<p className="p-4 text-center bg-gray-200 text-gray-600">No schedules found for the selected route and date.</p>) : (
+            schedules.map(schedule => (
               <div key={schedule.schedule_id} className="bg-white p-4 rounded shadow border">
                 <p><strong>Route:</strong> {from} to {to}</p>
-                <p><strong>Departure:</strong> {new Date(schedule.departure_time).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: true })}</p>
+                <p><strong>Departure:</strong> {schedule.departure_time
+                  ? new Date(`1970-01-01T${schedule.departure_time}`).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: true })
+                  : ""}</p>
                 <p><strong>Bus Type:</strong>{schedule.bus.bus_type}</p>
                 <p><strong>Available Seats:</strong>{schedule.available_seats}</p>
                 <p><strong>Price:</strong> {schedule.price}</p>
-                  <button className="bg-lime-600 hover:bg-lime-700 text-white px-3 py-1 mt-2 rounded cursor-pointer" onClick={() => handleViewSeats(schedule)}>
-                        Book Seat
-                      </button>
+                <button className="bg-lime-600 hover:bg-lime-700 text-white px-3 py-1 mt-2 rounded cursor-pointer" onClick={() => handleViewSeats(schedule)}>
+                  Book Seat
+                </button>
               </div>
             ))
-            )}
-            
-          </div>
+          )}
+
         </div>
+      </div>
 
     </div>
   );
