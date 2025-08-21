@@ -768,11 +768,11 @@
           },
           "departure_time": {
             "type": "string",
-            "format": "date-time"
+            "format": "date-span"
           },
           "arrival_time": {
             "type": "string",
-            "format": "date-time"
+            "format": "date-span"
           },
           "date": {
             "type": "string",

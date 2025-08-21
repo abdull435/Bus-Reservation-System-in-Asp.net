@@ -30,7 +30,7 @@ namespace Practise.Controllers
         .Include(s => s.routes).Include(s => s.bus)
         .Where(s => s.date.Date == request.date &&
                     s.routes.from_city == request.from_city &&
-                    s.routes.to_city == request.to_city && s.departure_time >=todayDate)
+                    s.routes.to_city == request.to_city && s.date >=todayDate)
         .ToList();
 
             return Ok(new { success = true, schedules });
