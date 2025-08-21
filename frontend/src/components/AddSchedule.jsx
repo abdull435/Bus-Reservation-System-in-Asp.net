@@ -45,23 +45,23 @@ const AddSchedule = () => {
       return;
     }
 
-
-
-    const d_time = new Date(`${date}T${departureTime}`).toISOString();
-    const a_time = new Date(`${date}T${arrivalTime}`).toISOString();
+     if (!busId || !routeId || !departureTime || !arrivalTime || !date || !price) {
+    alert('Please fill out all fields');
+    return;
+  }
 
     const scheduleData = {
       bus_id: busId,
       route_id: routeId,
-      departure_time: d_time,
-      arrival_time: a_time,
+      departure_time: departureTime,
+      arrival_time: arrivalTime,
       date: date,
       price: price,
     };
     
     axios.post(`https://bus-reservation-system-in-aspnet-production.up.railway.app/Schedule/add-schedule`, scheduleData ,{headers: {
     Authorization: `Bearer ${localStorage.getItem("token")}`
-  }}, { withCredentials: true })
+  }})
       .then((response) => {
         if (response.data.success) {
           alert('Schedule added successfully');
@@ -157,8 +157,9 @@ const AddSchedule = () => {
           <div>
             <label className="block  text-sm font-bold mb-2">Ticket Price</label>
             <input
-              type="price"
+              type="number"
               value={price}
+              min={0}
               onChange={(e) => setPrice(e.target.value)}
               required
               className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-white bg-white/10"

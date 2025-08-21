@@ -56,14 +56,16 @@ const UpdateSchedule = ({ selectedSchedule }) => {
       return;
     }
 
-    const d_time = new Date(`${date}T${departureTime}`).toISOString();
-    const a_time = new Date(`${date}T${arrivalTime}`).toISOString();
+     if (!busId || !routeId || !departureTime || !arrivalTime || !date || !price) {
+    alert('Please fill out all fields');
+    return;
+  }
 
     const scheduleData = {
       bus_id: busId,
       route_id: routeId,
-      departure_time: d_time,
-      arrival_time: a_time,
+      departure_time: departureTime,
+      arrival_time: arrivalTime,
       date: date,
       price: price,
     };
@@ -134,7 +136,7 @@ const UpdateSchedule = ({ selectedSchedule }) => {
               value={busId}
               onChange={(e) => setBusId(e.target.value)}
               required
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-white bg-white/10"
+              className="appearance-none w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-white bg-white/10"
             >
               <option className='bg-black' value="">Select Bus</option>
               {buses.map((buse) => (
@@ -151,7 +153,7 @@ const UpdateSchedule = ({ selectedSchedule }) => {
               value={routeId}
               onChange={(e) => setRouteId(e.target.value)}
               required
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-white bg-white/10"
+              className="appearance-none w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-white bg-white/10"
             >
               <option className='bg-black' value="">Select Route</option>
               {routes.map((route) => (
@@ -170,7 +172,7 @@ const UpdateSchedule = ({ selectedSchedule }) => {
               min={today}
               onChange={(e) => setDate(e.target.value)}
               required
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-white bg-white/10"
+              className="appearance-none w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-white bg-white/10"
             />
           </div>
 
@@ -181,7 +183,7 @@ const UpdateSchedule = ({ selectedSchedule }) => {
               value={departureTime}
               onChange={(e) => setDepartureTime(e.target.value)}
               required
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-white bg-white/10"
+              className="appearance-none w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-white bg-white/10"
             />
           </div>
 
@@ -192,18 +194,19 @@ const UpdateSchedule = ({ selectedSchedule }) => {
               value={arrivalTime}
               onChange={(e) => setArrivalTime(e.target.value)}
               required
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-white bg-white/10"
+              className="appearance-none w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-white bg-white/10"
             />
           </div>
 
           <div>
             <label className="block text-sm font-bold mb-2">Ticket Price</label>
             <input
-              type="price"
+              type="number"
               value={price}
+              min={0}
               onChange={(e) => setPrice(e.target.value)}
               required
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-white bg-white/10"
+              className="appearance-none w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-white bg-white/10"
             />
           </div>
 
@@ -212,7 +215,7 @@ const UpdateSchedule = ({ selectedSchedule }) => {
             onClick={handleSubmit}
             className="w-full bg-lime-600 hover:bg-lime-700 text-white font-bold py-3 px-4 rounded-md transition duration-300"
           >
-            Add Schedule
+            Update Schedule
           </button>
         </form>
       </div>

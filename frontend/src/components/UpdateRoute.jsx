@@ -73,7 +73,7 @@ const UpdateRoute = () => {
         <form className="space-y-4">
           <div>
             <label className="block  text-sm font-bold mb-2">Select Route</label>
-            <select className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-white bg-white/10" value={routeId} onChange={(e) => setRouteId(e.target.value)}>
+            <select className="appearance-none w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-white bg-white/10" value={routeId} onChange={(e) => setRouteId(e.target.value)}>
               <option disabled className="bg-black">Select Route</option>
               {
                 routes.map((r) =>

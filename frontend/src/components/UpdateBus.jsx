@@ -65,7 +65,7 @@ const UpdateBus = () => {
         <form className="space-y-4">
         <div>
             <label className="block  text-sm font-bold mb-2">Select Bus</label>
-            <select className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-white bg-white/10"  value={busId} onChange={(e)=>setBusId(e.target.value)}>
+            <select className="appearance-none w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-white bg-white/10"  value={busId} onChange={(e)=>setBusId(e.target.value)}>
             <option disabled value="" className="bg-black">Select Bus</option>
             {
                 buses.map((b)=>
