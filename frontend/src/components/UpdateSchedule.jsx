@@ -87,9 +87,10 @@ const UpdateSchedule = ({ selectedSchedule }) => {
 
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center">
+    <div className="min-h-screen flex flex-col items-center justify-center ">
       <h1 className="text-2xl font-bold text-center text-white mb-6">Selected Schedule</h1>
-      <table className="min-w-full  border border-gray-300 rounded shadow">
+      <div className='w-full overflow-x-auto'>
+      <table className="min-w-full  border border-gray-300 rounded shadow ">
         <thead className="bg-lime-600 text-white text-center">
           <tr className="">
             <th className='px-4 py-2'>Schedule Id</th>
@@ -119,6 +120,7 @@ const UpdateSchedule = ({ selectedSchedule }) => {
           </tr>
         </tbody>
       </table>
+      </div>
       <div className="max-w-md w-full rounded-xl shadow-md p-6 mt-[5vh]">
         <h1 className="text-2xl font-bold text-center text-white mb-6">Update Schedule</h1>
         <form className="space-y-4">

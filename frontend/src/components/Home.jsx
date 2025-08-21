@@ -10,6 +10,7 @@ const Home = () => {
   const [date, setDate] = useState('');
   const [showSchedules, setShowSchedules] = useState(false);
   
+  const today = new Date().toISOString().split("T")[0];
 
   useEffect(() => {
     
@@ -43,7 +44,6 @@ const Home = () => {
         <form className="space-y-4 text-white" onSubmit={handleSubmit}>
           <div> 
             <label className="block text-white text-sm font-bold mb-2">Travel From</label>
-            {/* <FaMapMarkerAlt /> */}
             <input
               list="fromOptions"
               name="from" required
@@ -79,7 +79,7 @@ const Home = () => {
             </label>
             <input type="date" id="date" name="date" required
             onChange={(e) => setDate(e.target.value)}
-            // min={today}
+            min={today}
               className="appearance-none w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-white bg-white/10"
             />
           </div>
