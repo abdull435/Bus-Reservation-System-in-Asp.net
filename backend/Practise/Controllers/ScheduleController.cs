@@ -31,6 +31,7 @@ namespace Practise.Controllers
                 arrival_time = model.arrival_time,
                 date = model.date,
                 price = model.price,
+                available_seats =40
             };
 
             _context.schedules.Add(schedule);
