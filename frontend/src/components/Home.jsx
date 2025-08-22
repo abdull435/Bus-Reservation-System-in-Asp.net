@@ -18,7 +18,7 @@ const Home = () => {
   const maxDate = maxDateObj.toISOString().split("T")[0];
 
   useEffect(() => {
-
+                
     axios.get('https://bus-reservation-system-in-aspnet-production.up.railway.app/get-cities')
       .then(res => {
         if (res.data.success) {

@@ -84,6 +84,8 @@ const UpdateUser = () => {
             type="password"
             placeholder="Password"
             required
+            minLength={6}
+            title="Password must be at least 6 characters"
             onChange={(e) => setPassword(e.target.value)}
             className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-white bg-white/10"
           />

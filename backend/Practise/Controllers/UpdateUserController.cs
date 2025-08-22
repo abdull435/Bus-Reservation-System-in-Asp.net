@@ -32,7 +32,9 @@ namespace Practise.Controllers
                 user.email = model.email;
                 user.cinic = model.cinic;
                 user.mobile = model.mobile;
-                user.password = model.password;
+
+                var hashedPassword = BCrypt.Net.BCrypt.HashPassword(model.password);
+                user.password = hashedPassword;
 
                 await _context.SaveChangesAsync();
 
