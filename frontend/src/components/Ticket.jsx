@@ -111,7 +111,7 @@ const Ticket = () => {
                                         : t.reservationsDetail?.map((s) => s.seat_number).join(", ")}
                                 </p>
                                 <p className="text-gray-700">
-                                    <span className="font-semibold">Total Price:</span> {t.total_Price}
+                                    <span className="font-semibold">Total Price:</span> {t.total_price}
                                 </p>
                                 {activeTab === "upcoming" &&
                                     <button
